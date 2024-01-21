@@ -3,13 +3,14 @@ import React from "react";
 import Image from "next/image";
 import { NAV_LINKS } from "@/constants";
 import Button from "./Button";
+import logos from "../../public/logos.png";
 
 const Navbar = () => {
   return (
     <nav className=" flex items-center justify-between mx-auto max-w-[1280px] px-6 lg:px-0 relative z-30 py-5">
       
       <Link href={"/"}>
-        <Image src={"/enter scam sensei logo"} alt="logo" width={74} height={29} />
+        <Image src={logos} alt="logo" width={70} height={70} />
       </Link>
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link) => (
