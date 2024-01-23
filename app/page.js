@@ -1,10 +1,12 @@
 import Image from "next/image";
 import {bgBlue} from "next/dist/lib/picocolors";
+import Navbar from "@/app/components/Navbar";
 
 export default function Home() {
   return (
-    
-       <div className={'flex flex-col '}>
+    <>
+        <Navbar/>
+       <div className={'flex flex-col mt-[-6%] min-h-screen'}>
 
            <div className={'flex flex-row  my-auto justify-center gap-20 '}>
                <div className={'my-auto'}>
@@ -29,6 +31,6 @@ export default function Home() {
                </div>
            </div>
        </div>
-
+    </>
   );
 }

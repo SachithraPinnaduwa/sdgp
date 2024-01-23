@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from "@/app/components/Navbar";
 
 function Submit() {
   return (
-    <div>Signin</div>
+    <>
+      <Navbar/>
+      Signin
+    </>
   )
 }
 

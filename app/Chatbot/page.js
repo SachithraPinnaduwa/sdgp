@@ -1,10 +1,13 @@
 import React from 'react'
 import Image from "next/image";
+import Navbar from "@/app/components/Navbar";
 
 function chatbot() {
     return (
-        <div className={'flex flex-col items-center min-h-screen'}>
-            <div className={"mt-[15%]"}>
+        <>
+            <Navbar/>
+        <div className={'flex flex-col items-center mt-[-8%] min-h-screen'}>
+            <div className={"mt-[20%]"}>
                 <h1 className={'mx-auto text-amber-50 text-6xl'}>Ask ScamSensei Anything</h1>
             </div>
 
@@ -15,6 +18,7 @@ function chatbot() {
                 <div className={'pr-[3%]'}> <Image src={'/chatbot/search.png'} alt={"search"} width={20} height={20} /></div>
             </div>
         </div>
+        </>
     )
 }
 

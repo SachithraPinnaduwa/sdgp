@@ -16,9 +16,9 @@ export default function RootLayout({ children }) {
 
     <body className={"bg-blue-900 min-h-screen "}>
 
-      <Navbar/>
+
       {children}
-      <Footer/>
+
 
     </body>
     </html>
