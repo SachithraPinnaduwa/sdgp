@@ -14,11 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
 
-      <body >
-        <Navbar />
-        {children}
-        <Footer/>
-        </body>
+    <body className={"bg-blue-900 min-h-screen "}>
+
+      <Navbar/>
+      {children}
+      <Footer/>
+
+    </body>
     </html>
-  );
+);
 }

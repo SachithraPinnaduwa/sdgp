@@ -9,18 +9,21 @@ const Navbar = () => {
   return (
     <nav className=" flex items-center justify-between mx-auto max-w-[1280px] px-6 lg:px-0 relative z-30 py-5">
       
-      <Link href={"/"}>
-        <Image src={logos} alt="logo" width={70} height={70} />
+      <Link href={"/"} className={'flex flex-row'}>
+        <Image src={logos} alt="logo" width={70} height={70} /> <p className={'merinda-font text-4xl flex items-center ml-4'}>ScamSensei</p>
       </Link>
-      <ul className="hidden h-full gap-12 lg:flex">
+      <ul className="hidden h-full gap-12 lg:flex ">
         {NAV_LINKS.map((link) => (
-          <Link
-            href={link.href}
-            key={link.key}
-            className="regular-16 text-grey-50 flex items-center justify-center cursor-pointer pb-1.5 transition-all hover:font-bold"
-          >
-            {link.label}
-          </Link>
+         <li key={link.key}>
+             <Link
+                 href={link.href}
+
+                 className="regular-16 text-grey-50 flex items-center justify-center cursor-pointer underline underline-offset-4
+             pb-1.5 transition-all hover:font-bold "
+             >
+                 {link.label}
+             </Link>
+         </li>
         ))}
       </ul>
       <div className="lg:flex lg:items-center lg:justify-center hidden">
