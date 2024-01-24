@@ -11,7 +11,7 @@ export default function Home() {
            <div className={'flex flex-row  my-auto justify-center gap-20 '}>
                <div className={'my-auto'}>
                    <h1 className={'text-6xl text-amber-50'}>Don&apos;t Get Your Vacation Ruined
-                       <br/>With Scams.<br/> We&apos;re Here to Help,<br/> hello </h1>
+                       <br/>With Scams.<br/> We&apos;re Here to Help,</h1>
                </div>
                <div className={'grid grid-cols-2 grid-rows-2 gap-4 my-auto'}>
                    <div className={'item flex justify-center items-center'}>
