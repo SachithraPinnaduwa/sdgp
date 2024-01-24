@@ -27,7 +27,7 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="lg:flex lg:items-center lg:justify-center hidden">
-          <Link href={'/signup'}>
+          <Link href={'/Signin'}>
                 <Button label="Log in" type="button" icon="/user.svg" variant=" px-8 py-4 text-white bg-black"/>
           </Link>
       </div>

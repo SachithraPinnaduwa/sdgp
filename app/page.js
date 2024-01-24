@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
         <Navbar/>
-       <div className={'flex flex-col mt-[-6%] min-h-screen'}>
+       <div className={'flex flex-col mt-[-8%] min-h-screen'}>
 
            <div className={'flex flex-row  my-auto justify-center gap-20 '}>
                <div className={'my-auto'}>

@@ -7,7 +7,7 @@ function FindScams() {
     return (
         <>
             <Navbar/>
-        <div className={'flex flex-col justify-center items-center mt-[-6%] min-h-screen'}>
+        <div className={'flex flex-col justify-center items-center mt-[-8%] min-h-screen'}>
             <div className={'mt-[0%] text-center text-amber-50'}>
                 <h1 className={'text-6xl mb-10'}>Community Stories</h1>
                 <p className={'text-3xl'}>Scams That the Community Faced</p>
