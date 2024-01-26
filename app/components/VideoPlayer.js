@@ -16,14 +16,8 @@ const VideoPlayer = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="flex flex-wrap m-20">
-      <div className='grid grid-cols-1 lg:grid-cols-12 my-auto gap-5 justify-center '>
-        <div className='col-span-5 text-center'> 
-=======
     <div className="flex flex-wrap lg:flex-nowrap p-10">
         <div className='w-full lg:w-1/2 text-center'> 
->>>>>>> oshani
           <p className="text-2xl mb-8 text-white ">Discover more about us through our introduction videos! <br/>Click play and get to know us better! </p><hr/>
           <ul className="list-none p-0 text-white">
             <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 pl-3  text-left">
@@ -52,23 +46,6 @@ const VideoPlayer = () => {
             </li>
           </ul>
         </div>
-<<<<<<< HEAD
-        <div className='col-span-7'>
-          {isVideoSelected ? (
-            <div className="w-full mt-4 relative">
-              <button onClick={handleCancel} className="absolute right-1 top-1 text-white"><MdOutlineCancel size={30} /></button>
-              <video 
-                src={`/main/${selectedVideo}.mp4`}
-                controls
-                className="w-full absolute top-8"
-              />
-            </div>
-          ) : (
-            <img src="/placeholder-image.jpg" alt="Placeholder" className="w-full" />
-          )}
-        </div>
-      </div>
-=======
         <div className='w-full lg:w-1/2 mb-20 '>
           {isVideoSelected ? (
             <div className="w-full mt-4 relative">
@@ -83,7 +60,6 @@ const VideoPlayer = () => {
             <img src="/main/introduction.jpg" alt="Placeholder" className="w-full" />
           )}
         </div>
->>>>>>> oshani
     </div>
   );
 };
