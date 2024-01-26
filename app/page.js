@@ -4,6 +4,7 @@ import {bgBlue} from "next/dist/lib/picocolors";
 import Navbar from "@/app/components/Navbar";
 import { TypeAnimation } from 'react-type-animation';
 import Services from "./components/Services";
+import VideoPlayer from "./components/VideoPlayer";
 
 
 
@@ -42,21 +43,23 @@ export default function Home() {
                <div className={'col-span-5 grid grid-cols-2 grid-rows-2  my-auto w-fit sm:w-full'}>
                    <div className={'item flex justify-center items-center'}>
 
-                       <Image src={'/main/stock1.png'} alt={'stock1'} width={150} height={150} className={'rounded-[50%] object-right border-5 border-pink'}/>
+                       <Image src={'/main/stock1.jpg'} alt={'stock1'} width={150} height={150} className={'rounded-[50%] object-right border-5 border-pink'}/>
                    </div>
                    <div className={'item flex justify-center items-center'}>
-                   <Image src={'/main/stock2.png'} alt={'stock2'} width={250} height={250} className={'rounded-[50%]'}/>
+                   <Image src={'/main/stock2.jpg'} alt={'stock2'} width={250} height={250} className={'rounded-[50%]'}/>
                    </div>
                        <div className={'item flex justify-center items-center'}>
-                   <Image src={'/main/stock3.png'} alt={'stock3'} width={250} height={250} className={'rounded-[50%]'}/>
+                   <Image src={'/main/stock3.jpg'} alt={'stock3'} width={250} height={250} className={'rounded-[50%]'}/>
                        </div>
                            <div className={'item flex justify-center items-center'}>
-                   <Image src={'/main/stock4.png'} alt={'stock4'} width={150} height={150} className={'rounded-[50%] object-center'}/>
+                   <Image src={'/main/stock4.jpg'} alt={'stock4'} width={150} height={150} className={'rounded-[50%] object-center'}/>
                            </div>
 
                </div>
            </div><br/><hr/>
           <Services/>
+          <VideoPlayer/>
+          <hr/>
        </div>
        
     </>
