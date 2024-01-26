@@ -4,7 +4,7 @@ import { BsRobot } from 'react-icons/bs';
 import { ImLocation } from "react-icons/im";
 import { FaFaceLaughWink } from "react-icons/fa6";
 
-export default function Home() {
+export default function Services() {
   return (
     <div className="p-8">
       <h1 className="text-3xl mb-8 text-white">What can you do with us </h1>

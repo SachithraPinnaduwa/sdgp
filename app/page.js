@@ -5,7 +5,8 @@ import Navbar from "@/app/components/Navbar";
 import { TypeAnimation } from 'react-type-animation';
 import Services from "./components/Services";
 import VideoPlayer from "./components/VideoPlayer";
-
+import Quotes from "./components/Quotes";
+import Articles from "./components/Articles";
 
 
    
@@ -14,14 +15,14 @@ export default function Home() {
   return (
     <>
         <Navbar/>
-       <div className={'flex flex-col p-20  mt-[-5%] min-h-screen container  mx-auto'}>
+       <div className={'flex flex-col sm:p-20 p-5  mt-[-5%] min-h-screen container  mx-auto'}>
 
            <div className={'grid grid-cols-1 lg:grid-cols-12 my-auto justify-center gap-10  pb-10'}>
-               <div className={' col-span-7 place-self-center'}>
-                   <h1 className={'text-6xl text-center sm:text-left text-amber-50 pl-5'}>Don&apos;t Get Your <br/>Vacation Ruined
+               <div className={' col-span-7 place-self-center  text-center sm:text-left'}>
+                   <h1 className={'text-6xl text-amber-50 pl-5'}>Don&apos;t Get Your <br/>Vacation Ruined
                        With <br/>Scams.<br/>
                     </h1><b>
-                    <TypeAnimation
+                    <TypeAnimation 
                         sequence={[
                             // Same substring at the start will only be typed out once, initially
                              ' Scamsensei is here to support you.',
@@ -58,8 +59,11 @@ export default function Home() {
                </div>
            </div><br/><hr/>
           <Services/>
-          <VideoPlayer/>
+          <VideoPlayer/> <br/><br/><br/><br/><br/>
           <hr/>
+          <Quotes/><br/>
+          <h1 className="text-2xl sm:text-4xl text-white">Articles that you wants to read before come to Sri lanka</h1>
+          <Articles/>
        </div>
        
     </>
