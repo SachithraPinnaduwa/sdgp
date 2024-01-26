@@ -62,7 +62,7 @@ export default function Home() {
           <VideoPlayer/> <br/><br/><br/><br/><br/>
           <hr/>
           <Quotes/><br/>
-          <h1 className="text-2xl sm:text-4xl text-white">Articles that you wants to read before come to Sri lanka</h1>
+          <h1 className="text-2xl sm:text-4xl text-white">Articles that you wants to read before comes to Sri lanka</h1>
           <Articles/>
        </div>
        
