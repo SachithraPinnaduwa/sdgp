@@ -18,18 +18,26 @@ export default function Home() {
            <div className={'grid grid-cols-1 lg:grid-cols-12 my-auto justify-center gap-10  pb-10'}>
                <div className={' col-span-7 place-self-center'}>
                    <h1 className={'text-6xl text-center sm:text-left text-amber-50 pl-5'}>Don&apos;t Get Your <br/>Vacation Ruined
-                       With <br/>Scams.<br/><b>
+                       With <br/>Scams.<br/>
+                    </h1><b>
                     <TypeAnimation
                         sequence={[
                             // Same substring at the start will only be typed out once, initially
+                             ' Scamsensei is here to support you.',
+                            3000,
                             ' We are Here to Help.',
-                            10, // wait 1s before replacing "Mice" with "Hamsters"
+                            3000,
+                            // wait 1s before replacing "Mice" with "Hamsters"
                            
                         ]}
                         wrapper="span"
-                        speed={50}
+                        speed={5}
                         repeat={Infinity}
-                        /></b></h1>
+                        style={{ fontSize: '3em',  color: 'white' }}
+                        
+                        />
+                        
+                        </b>
                </div>
                <div className={'col-span-5 grid grid-cols-2 grid-rows-2  my-auto w-fit sm:w-full'}>
                    <div className={'item flex justify-center items-center'}>
