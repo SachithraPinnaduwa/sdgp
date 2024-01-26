@@ -21,8 +21,11 @@ export default function Home() {
               <BsRobot />
             </div>
           </div>
-          <p className="mb-4 text-white p-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <p className="mb-4 text-white p-3 text-sm text-justify ">
+          Have a question about scams? Our chatbot is here to help! Whether you're curious about recent scams in your 
+          area or want to know the most reported scam topic in Sri Lanka, simply ask away. Our chatbot is 
+          designed to provide answers to your inquiries. From location-based scams to general scam trends, our chatbot is 
+          your go-to resource for information. Start a conversation today and empower yourself against scams!
           </p>
         </motion.div>
         <motion.div
@@ -37,8 +40,11 @@ export default function Home() {
               <ImLocation />
             </div>
           </div>
-          <p className="mb-4 text-white p-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <p className="mb-4 text-white p-3 text-sm">
+          Discover a wealth of user-contributed experiences from across Sri Lanka. Tailor your search by selecting specific
+           location or explore all posts for a comprehensive overview. Each post offers valuable insights into reported scams, 
+           allowing users to contribute and engage with the community. Your participation through voting helps prioritize posts,
+            ensuring the most relevant information receives attention. Join us in building a knowledgeable and vigilant community against scams!
           </p>
         </motion.div>
         <motion.div
@@ -53,8 +59,11 @@ export default function Home() {
               <FaFaceLaughWink />
             </div>
           </div>
-          <p className="mb-4 text-white p-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <p className="mb-4 text-white p-3 text-sm">
+          Discover a wealth of user-contributed experiences from across Sri Lanka. Tailor your search by selecting specific regions or 
+          explore all posts for a comprehensive overview. Each post offers valuable insights into reported scams, allowing users to contribute
+           and engage with the community. Your participation through voting helps prioritize posts, ensuring the most relevant information 
+           receives attention. Join with us in building a knowledgeable and vigilant community against scams!
           </p>
         </motion.div>
       </div>
