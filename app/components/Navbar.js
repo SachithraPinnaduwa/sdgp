@@ -12,14 +12,13 @@ const Navbar = () => {
       <Link href={"/"} className={'flex flex-row'}>
         <Image src={logos} alt="logo" width={70} height={70} /> <p className={'merinda-font text-4xl flex items-center ml-4'}>ScamSensei</p>
       </Link>
-      <ul className="hidden h-full gap-12 lg:flex ">
+      <ul className="hidden h-full gap-12 lg:flex text-white ">
         {NAV_LINKS.map((link) => (
          <li key={link.key}>
              <Link
                  href={link.href}
 
-                 className="regular-16 text-grey-50 flex items-center justify-center cursor-pointer underline underline-offset-4
-             pb-1.5 transition-all hover:font-bold "
+                 className="regular-16 text-grey-50 flex items-center justify-center cursor-pointer pb-1.5 transition-all hover:font-bold hover:text-blue-100"
              >
                  {link.label}
              </Link>
