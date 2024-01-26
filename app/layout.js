@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
 
-    <body className={"bg-blue-900 min-h-screen "}>
+    <body className={"bg-gradient-radial min-h-screen "}>
 
 
       {children}
