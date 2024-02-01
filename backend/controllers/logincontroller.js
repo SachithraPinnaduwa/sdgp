@@ -10,5 +10,8 @@ async function GetCart(req, res) {
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
-
-module.exports = { GetCart };
+function postUserData(req,res) {
+  res.status(200).send({ id: req.body.id, name: req.body.name, email: req.body.email,scam: req.body.scam});
+  
+}
+module.exports = { GetCart, postUserData };
