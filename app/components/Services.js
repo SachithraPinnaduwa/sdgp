@@ -7,10 +7,10 @@ import { FaFaceLaughWink } from "react-icons/fa6";
 export default function Services() {
   return (
     <div className="p-8">
-      <h1 className="text-3xl mb-8 text-white">What can you do with us </h1>
+      <h1 className="text-3xl mb-8 text-white text-center">What can you do with us </h1>
       <div className="flex flex-wrap justify-center gap-4">
         <motion.div
-          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative"
+          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative hover:bg-gray-900"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -29,7 +29,7 @@ export default function Services() {
           </p>
         </motion.div>
         <motion.div
-          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative"
+          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative hover:bg-gray-900"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -48,7 +48,7 @@ export default function Services() {
           </p>
         </motion.div>
         <motion.div
-          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative"
+          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative hover:bg-gray-900"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
