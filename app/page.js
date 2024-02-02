@@ -66,6 +66,7 @@ export default function Home() {
           <Quotes/><br/>
           <h1 className="text-2xl sm:text-4xl text-white text-center">Articles that you wants to read before come to Sri lanka</h1>
           <Articles/>
+          <h1 className="text-2xl sm:text-4xl text-white text-center">About Us</h1>
           <AboutUs/>
        </div>
        
