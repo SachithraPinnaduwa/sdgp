@@ -7,17 +7,26 @@ import { FaFaceLaughWink } from "react-icons/fa6";
 export default function Services() {
   return (
     <div className="p-8">
-      <h1 className="text-3xl mb-8 text-white text-center">What can you do with us </h1>
       <div className="flex flex-wrap justify-center gap-4">
         <motion.div
-          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative hover:bg-gray-900"
+          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4  rounded-lg relative"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
+          <h1 className="text-3xl mb-8 text-white text-center">What can you do with us </h1>
+        </motion.div>
+      </div>
+      <div className="flex flex-wrap justify-center gap-4">
+        <motion.div
+          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-500 rounded-lg relative hover:bg-gray-900"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           <div className="p-6 flex justify-between items-center text-white">
             <h2 className="text-2xl">Ask your Questions</h2>
-            <div className="text-white text-4xl">
+            <div className="text-white text-4xl bg-pink-500 p-2 rounded-full ">
               <BsRobot />
             </div>
           </div>
@@ -32,11 +41,11 @@ export default function Services() {
           className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative hover:bg-gray-900"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="p-6 flex justify-between items-center text-white">
             <h2 className="text-2xl">Finding Scams</h2>
-            <div className="text-white text-4xl">
+            <div className="text-white text-4xl  bg-pink-500 p-2 rounded-full">
               <ImLocation />
             </div>
           </div>
@@ -51,11 +60,11 @@ export default function Services() {
           className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-gray-300 rounded-lg relative hover:bg-gray-900"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="p-6 flex justify-between items-center text-white">
             <h2 className="text-2xl">Share your Experiences.</h2>
-            <div className="text-white text-4xl">
+            <div className="text-white text-4xl  bg-pink-500 p-2 rounded-full">
               <FaFaceLaughWink />
             </div>
           </div>

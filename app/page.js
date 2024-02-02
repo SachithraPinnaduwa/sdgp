@@ -7,6 +7,7 @@ import Services from "./components/Services";
 import VideoPlayer from "./components/VideoPlayer";
 import Quotes from "./components/Quotes";
 import Articles from "./components/Articles";
+import AboutUs from "./components/AboutUs";
 
 
    
@@ -15,13 +16,14 @@ export default function Home() {
   return (
     <>
         <Navbar/>
-       <div className={'flex flex-col sm:p-20 p-5  mt-[-5%] min-h-screen container  mx-auto'}>
+       <div className={'flex flex-col sm:pt-20  mt-[-5%] min-h-screen container p-5 mx-auto'}>
 
-           <div className={'grid grid-cols-1 lg:grid-cols-12 my-auto justify-center gap-10  pb-10'}>
-               <div className={' col-span-7 place-self-center  text-center sm:text-left'}>
-                   <h1 className={'text-6xl text-amber-50 pl-5'}>Don&apos;t Get Your <br/>Vacation Ruined
+           <div className={'grid grid-cols-1 lg:grid-cols-12 my-auto justify-center gap-5  pb-5'}>
+           <div className={' col-span-7 place-self-center  text-center sm:text-left'}>
+                   <h1 className={'text-6xl text-white pl-5'}>Don&apos;t Get Your <br/>Vacation Ruined
                        With <br/>Scams.<br/>
-                    </h1><b>
+                    </h1><br/><b>
+                        
                     <TypeAnimation 
                         sequence={[
                             // Same substring at the start will only be typed out once, initially
@@ -37,7 +39,7 @@ export default function Home() {
                         repeat={Infinity}
                         style={{ fontSize: '3em',  color: 'white' }}
                         
-                        />
+                    />
                         
                         </b>
                </div>
@@ -59,11 +61,12 @@ export default function Home() {
                </div>
            </div><br/><hr/>
           <Services/>
-          <VideoPlayer/> <br/><br/><br/><br/><br/>
+          <VideoPlayer/> 
           <hr/>
           <Quotes/><br/>
           <h1 className="text-2xl sm:text-4xl text-white text-center">Articles that you wants to read before come to Sri lanka</h1>
           <Articles/>
+          <AboutUs/>
        </div>
        
     </>

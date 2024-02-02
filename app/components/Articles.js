@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Section = () => {
   const images = [ 
@@ -11,9 +12,10 @@ const Section = () => {
   ];
 
   return (
-    <section className="flex flex-col lg:flex-row items-center py-16">
-        
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 ">
+  
+    <section className="flex flex-col lg:flex-row items-center py-16 p-5 bg-white bg-opacity-10  ">
+      
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
         {images.map((image, index) => (
           <a key={index} href={image.href}>
           <div className="relative">
@@ -25,7 +27,7 @@ const Section = () => {
               width={400}
               height={250}
             />
-            <div className="absolute bottom-0 left-0 right-0 p-2 bg-white text-center">
+            <div className="absolute bottom-0 left-0 right-0 p-2 lg:text-sm bg-white text-center">
               {image.heading}
             </div>
           </div>
