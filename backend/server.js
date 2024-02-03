@@ -1,9 +1,15 @@
 
 const express = require('express')
 const app = express();
-const login = require("./routes/login");
 require("dotenv").config();
 app.use(express.json());
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URI)
+.then(()=>console.log("connected to database"))
+.catch((err)=>console.log(err))
+const login = require("./routes/login");
+
 app.use('/login',login);
 
 
