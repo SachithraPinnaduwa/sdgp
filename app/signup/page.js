@@ -7,15 +7,16 @@ import {FaFacebookSquare} from "react-icons/fa";
 
 function Page() {
     return (
-        <div className="flex flex-row max-h-screen min-h-screen">
-            <div className="flex-1 bg-gradient-to-r from-purple-700 to-blue-500 ">
-                <h1 className=" text-3xl font-bold mb-4 flex justify-center text-blue-500 ">Why Choose Us?</h1>
-                <Image src={login} alt="login" className="mx-auto mb-4"/>
+        <div className="flex items-center justify-center h-screen">
+            <div className="flex-1 bg-slate-800 border-slate-400 rounded-md p-4 md:p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative flex flex-col items-center min-h-[60vh]">
+                <h1 className=" text-3xl text-white font-bold text-center mb-2 ">Why Choose Us?</h1>
+                <Image src={login} alt="login" className="mx-auto mb-2 md:w-24 md:h-24"/>
                 <h2 className="text-white text-2xl font-bold mb-2 justify-center flex">Secure Your Life</h2>
-                <h3 className="text-white mb-4 justify-center flex">With an advanced AI and a dedicated community that constantly provides updates on the latest scams,
+                <h3 className="text-white mb-4 text-center">With an advanced AI and a dedicated community that constantly provides updates on the latest scams,
                     we commit ourselves to protect you from scams, ensuring a safe experience.</h3>
                 <p className="text-white mb-8 justify-center flex">Become part of an active community that prevents scams together.</p>
             </div>
+
             <div className="flex-1 p-[5%] text-blue-950 bg-white justify-center flex flex-col">
                 <h1 className="text-4xl font-bold mb-8 ">Get Started Now!</h1>
                 <form className="flex flex-col">
