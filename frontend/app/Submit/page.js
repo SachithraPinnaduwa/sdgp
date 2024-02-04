@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Navbar from "@/app/components/Navbar";
+
 
 function Submit() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ function Submit() {
 
   return (
     <>
-      <Navbar />
+      
       <div className="container mx-auto mt-4">
         <form
           onSubmit={handleSubmit}
