@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
 
     <body className={"bg-gradient-radial min-h-screen "}>
 
-
+   
       {children}
 
 
