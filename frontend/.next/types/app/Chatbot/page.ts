@@ -1,4 +1,4 @@
-// File: C:\Users\Oshi\OneDrive\Desktop\SDGP-PROJECT\frontend\app\Chatbot\page.js
+// File: C:\Users\Oshi\OneDrive\Desktop\SDGP\frontend\app\Chatbot\page.js
 import * as entry from '../../../../app/Chatbot/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

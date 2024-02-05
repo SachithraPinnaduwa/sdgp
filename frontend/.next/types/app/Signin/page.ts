@@ -1,4 +1,4 @@
-// File: C:\Users\Oshi\OneDrive\Desktop\SDGP-PROJECT\frontend\app\Signin\page.js
+// File: C:\Users\Oshi\OneDrive\Desktop\SDGP\frontend\app\Signin\page.js
 import * as entry from '../../../../app/Signin/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
