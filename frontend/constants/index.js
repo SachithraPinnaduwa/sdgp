@@ -6,3 +6,5 @@ export const NAV_LINKS = [
     { href: '/UserDetailPage', key: 'about', label: 'User Details' },
   
   ];
+
+  
