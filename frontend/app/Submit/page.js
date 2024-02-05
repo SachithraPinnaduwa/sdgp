@@ -4,12 +4,43 @@ import React, { useState } from "react";
 
 function Submit() {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [scamDescription, setScamDescription] = useState("");
+  const [name, setUsername] = useState("");
+  const [scam, setScamDescription] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { email, username, scamDescription });
+    console.log("Form submitted:", { 
+      name, 
+      email,
+      scam, 
+     });
+     const formData = {
+      name, // This corresponds to the 'username' you're capturing, assuming you've adjusted the state variable's name for clarity
+      email,
+      scam, // This corresponds to the 'scamDescription' field in your form
+    };
+    try {
+      // Perform the POST request to your backend endpoint
+      const response = await fetch('http://localhost:3100/login', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Handle success
+        const result = await response.json();
+        console.log("Form submitted successfully:", result);
+        // Optionally reset form fields here
+      } else {
+        // Handle server errors or invalid responses
+        throw new Error('Server responded with an error.');
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
@@ -55,7 +86,7 @@ function Submit() {
               type="text"
               id="username"
               name="username"
-              value={username}
+              value={name}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full p-3 border rounded-md"
               required
@@ -73,7 +104,7 @@ function Submit() {
             <textarea
               id="scamDescription"
               name="scamDescription"
-              value={scamDescription}
+              value={scam}
               onChange={(e) => setScamDescription(e.target.value)}
               className="w-full p-3 border rounded-md"
               rows="10"

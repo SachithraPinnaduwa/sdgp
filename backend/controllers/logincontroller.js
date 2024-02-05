@@ -20,6 +20,10 @@ async function postUserData(req,res) {
 
   const { body } = req;
   const newUser = new User(body)
+  if (req.body.name === undefined) {
+    return res.status(400).send({ error: "Name is required" });
+    
+  }
   try {
     const savedUser = await newUser.save()
 return res.status(200).send(savedUser);
@@ -32,6 +36,7 @@ return res.status(200).send(savedUser);
   // users.push(newUser)
  
   // return res.status(200).send(users);
+  
 }
 async function searchuser(req, res) {
   const { name } = req.query;

@@ -12,7 +12,8 @@ router.route("/").get(login.GetCart).post(
        
         next()
     }else{
-        console.log(result.array())
+      
+        res.status(400).send(result.array())
     }
     
   
