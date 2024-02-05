@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className=" flex items-center justify-between mx-auto max-w-[1280px] px-6 lg:px-0 relative z-30 py-5">
       
       <Link href={"/"} className={'flex flex-row'}>
-        <Image src={logos} alt="logo" width={70} height={70} /> <p className={'merinda-font text-4xl flex items-center ml-4'}>ScamSensei</p>
+        <Image src={logos} alt="logo" width={70} height={70} /> <p className={'merinda-font text-4xl text-white flex items-center ml-4'}>ScamSensei</p>
       </Link>
       <ul className="hidden h-full gap-12 lg:flex text-white ">
         {NAV_LINKS.map((link) => (
@@ -27,7 +27,7 @@ const Navbar = () => {
       </ul>
       <div className="lg:flex lg:items-center lg:justify-center hidden">
           <Link href={'/Signin'}>
-                <Button label="Log in" type="button" icon="/user.svg" variant=" px-8 py-4 text-white bg-black"/>
+                <Button label="Log in" type="button" icon="/user.svg" variant=" transition ease-in-out delay-150 bg-violet-300 hover:-translate-y-1 hover:scale-110 hover:bg-violet-200 duration-300 px-6 py-2 "/>
           </Link>
       </div>
       <Image
