@@ -2,9 +2,9 @@ import React from 'react';
 
 const Quotes = () => {
   return (
-    <div className="flex flex-wrap lg:flex-nowrap p-10">
+    <div className="flex flex-wrap lg:flex-nowrap p-10  text-justify">
       <div className="w-full lg:w-1/2">
-        <img src="/main/image6.jpg" alt="Left Side Image" className="w-auto h-auto" />
+        <img src="/main/image6.jpg" alt="Left Side Image"  width={400} height={400} className="w-full lg:w-auto h-auto rounded-lg" />
       </div>
       <div className="w-full lg:w-1/2 text-white p-4">
         <div className="p-4">
