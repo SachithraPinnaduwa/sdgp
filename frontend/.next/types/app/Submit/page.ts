@@ -1,4 +1,4 @@
-// File: C:\Users\Oshi\OneDrive\Desktop\SDGP-PROJECT\frontend\app\Submit\page.js
+// File: C:\Users\Oshi\OneDrive\Desktop\SDGP\frontend\app\Submit\page.js
 import * as entry from '../../../../app/Submit/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
