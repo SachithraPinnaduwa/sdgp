@@ -69,9 +69,9 @@ export default function Home() {
           <Articles/>
           <h1 className="text-2xl sm:text-4xl text-white text-center">About Us</h1>
           <AboutUs/>
-          <Footer/>
+          
        </div>
-       
+       <Footer/>
     </>
   );
 }
