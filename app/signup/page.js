@@ -6,6 +6,8 @@ import { FcGoogle } from "react-icons/fc";
 
 
 function Page() {
+
+
   return (
     <>
       <div className=" -mt-8 flex items-center justify-center h-screen">
@@ -19,7 +21,7 @@ function Page() {
           <Image
             src={login}
             alt="login"
-            className="mx-auto mb-8 md:w-15 lg:h-15 md:h-15 lg:w-15"
+            className="mx-auto mb-8 md:w-24 md:h-24 "
           />
           <h2 className="text-white text-2xl font-bold mb-4 text-center">
             Secure Your Life
@@ -134,3 +136,5 @@ function Page() {
     </>
   );
 }
+
+export default Page;
