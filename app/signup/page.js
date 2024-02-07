@@ -4,6 +4,7 @@ import login from "../../public/login/img1.png";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 
+
 function Page() {
   return (
     <>
@@ -113,7 +114,8 @@ function Page() {
               <p className="text-lg absolute text-white/80 ">or</p>
             </div>
 
-            <button className="bg-white  text-[18px] text-black-800 p-1 rounded-full border-2 mt-8 w-full flex mx-auto justify-center hover:bg-emerald-600 hover:text-white">
+            <button className="bg-white  text-[18px] text-black-800 p-1 rounded-full border-2 mt-8 w-full flex mx-auto justify-center hover:bg-emerald-600 hover:text-white"
+            >
               <FcGoogle className="text-3xl" />
               &nbsp;&nbsp;&nbsp;&nbsp;Login with Google
             </button>
@@ -132,5 +134,3 @@ function Page() {
     </>
   );
 }
-
-export default Page;
