@@ -1,4 +1,4 @@
-// File: C:\Users\Oshi\OneDrive\Desktop\SDGP\frontend\app\Findscams\page.js
+// File: C:\Users\Isuru Eranga\Desktop\SDGP_github_repo\sdgp\frontend\app\Findscams\page.js
 import * as entry from '../../../../app/Findscams/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
