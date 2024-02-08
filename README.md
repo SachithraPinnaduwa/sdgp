@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project aims to develop a comprehensive web platform designed to help users, particularly travellers, detect and prevent scams in various contexts, including transportation, accommodation, and tourism-related activities. The platform targets both residents and foreigners, providing them with a centralised platform to share experiences, seek advice, and stay informed about potential scams.
 
-## Getting Started
+✒️Key Features
 
-First, run the development server:
+🔴Scam Reporting: Users can report their experiences with scams encountered during their travels, including details such as location, type of scam, and description of the incident.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔴User-Generated Content: Users can upload posts about their experiences and encounters with scams, while registered users can vote for them.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔴Chatbot for Queries: Users can ask questions related to scam prevention using a chatbot feature, which provides instant responses and assistance.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+🔴Location-Based Post Viewing: Users can view posts based on location or without location, allowing them to access relevant information based on their travel destinations.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+✒️Technologies Used:
 
-To learn more about Next.js, take a look at the following resources:
+🔴Frontend: React.js, Tailwind CSS , Next.js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔴Backend: Node.js, Express.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+🔴Database: MongoDB
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+🔴Version Control: Git, GitHub
