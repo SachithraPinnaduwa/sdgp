@@ -17,7 +17,8 @@ export default function Home() {
   return (
     <>
         <Navbar/>
-       <div className={'flex flex-col sm:p-20 p-5  mt-[-5%] min-h-screen container  mx-auto'}>
+        <br/><br/><br/><br/><br/>
+       <div className={'flex flex-col sm:p-20 p-5 pt-10 mt-[-5%] min-h-screen container  mx-auto'}>
 
            <div className={'grid grid-cols-1 lg:grid-cols-12 my-auto justify-center gap-10  pb-10'}>
                <div className={' col-span-7 place-self-center  text-center sm:text-left'}>

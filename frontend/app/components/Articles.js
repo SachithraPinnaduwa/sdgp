@@ -23,7 +23,7 @@ const Section = () => {
               src={image.src}
               alt=""
               className="object-cover w-full h-full rounded"
-              objectPosition="responsive"
+              layout="responsive"
               width={400}
               height={250}
             />
