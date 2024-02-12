@@ -18,7 +18,7 @@ const VideoPlayer = () => {
   return (
     <div className="flex flex-wrap lg:flex-nowrap  xl:p-10 ">
         <div className='w-full lg:w-1/2 xl:p-10' > 
-          <p className="text-2xl mb-8 text-white text-center ">Discover more about us through our introduction videos! <br/>Click play and get to <br/>know us better! </p><hr/>
+          <p className="text-2xl mb-8 text-white text-center ">Discover more about us through our introduction videos! <br/>Click play and get to know us better! </p><hr/>
           <ul className="list-none pl-10 text-white text-center ">
             <li className="w-full md:w-1/2 lg:w-1/3 xl:w-1/3  text-left">
               <div
