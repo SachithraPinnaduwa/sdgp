@@ -1,37 +1,41 @@
-const express = require("express");
-const {User} = require("../mongoose/schemas/user.js");
-const router = express.Router();
-const login = require("../controllers/logincontroller.js");
-const {query,body, validationResult} = require('express-validator')
-router.route("/").post(
-    body("name").isString().notEmpty().withMessage("username cannot be empty"),(req,res,next)=>{
-    // this is middleware used for validation
-    const result = validationResult(req)
-    console.log(result)
-    if (result.isEmpty()) {
-       
-        next()
-    }else{
-      
-        res.status(400).send(result.array())
-    }
-    
-  
-},
-login.postUserData);
+// Import statements for ES Modules
+import express from 'express';
+import { User } from '../mongoose/schemas/user.js'; // Adjust the path as necessary
+import { body, query, validationResult } from 'express-validator';
+import { postUserData, searchUser } from '../controllers/logincontroller.js'; 
 
-router.post("/search",
-query("name").isString().notEmpty().withMessage("username cannot be empty"),
-(req,res,next)=>{
-    const result = validationResult(req)
-    if (result.isEmpty()) {
-        next()
-    }else{
-        console.log(result.array())
-    }
-},
-login.searchuser
-  
+// Creating a router instance using express
+const router = express.Router();
+
+// Route for posting user data with validation
+router.route("/").post(
+    body("name").isString().notEmpty().withMessage("username cannot be empty"),
+    (req, res, next) => {
+        const result = validationResult(req);
+        console.log(result);
+        if (result.isEmpty()) {
+            next();
+        } else {
+            res.status(400).send(result.array());
+        }
+    },
+    postUserData
 );
 
-module.exports = router;
+// Route for searching a user with validation
+router.post("/search",
+    query("name").isString().notEmpty().withMessage("username cannot be empty"),
+    (req, res, next) => {
+        const result = validationResult(req);
+        if (result.isEmpty()) {
+            next();
+        } else {
+            console.log(result.array());
+            res.status(400).send(result.array());
+        }
+    },
+    searchUser
+);
+
+// Exporting the router for use in other parts of the application
+export default router;

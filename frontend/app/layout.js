@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" class="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
 
     <body className={"bg-gradient-radial min-h-screen "}>
 
