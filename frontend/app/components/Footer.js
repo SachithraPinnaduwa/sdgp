@@ -23,27 +23,27 @@ function Footer() {
 
           <div className="px-4 my-4 w-full sm:w-auto">
             <div>
-              <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-violet-300 ">Company</h2>
+              <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-rose-500 ">Company</h2>
             </div>
             <ul className="leading-8">
-              <li><a href="/AboutUs" className="hover:text-violet-300">About Us</a></li>
-              <li><a href="/Chatbot" className="hover:text-violet-300">ChatBot</a></li>
-              <li><a href= '/Findscams' className="hover:text-violet-300">Find a Scam</a></li>
-              <li><a href="#" className="hover:text-violet-300">Terms &amp; Conditions</a></li>
+              <li><a href="/AboutUs" className="hover:text-rose-500">About Us</a></li>
+              <li><a href="/Chatbot" className="hover:text-rose-500">ChatBot</a></li>
+              <li><a href= '/Findscams' className="hover:text-rose-500">Find a Scam</a></li>
+              <li><a href="#" className="hover:text-rose-500">Terms &amp; Conditions</a></li>
             </ul>
           </div>
           
           <div className="px-4 my-4 w-full sm:w-auto xl:w-1/5">
             <div>
-              <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-violet-300 ">Connect With Us</h2>
+              <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-rose-500">Connect With Us</h2>
             </div>
-            <a href="#" className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-5 hover:text-violet-300 hover:border-violet-300">
+            <a href="#" className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-5 hover:text-zinc-600  hover:border-rose-500">
             <CiFacebook />
             </a>
-            <a href="#" className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-5 hover:text-violet-300 hover:border-violet-300">
+            <a href="#" className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-5 hover:text-zinc-600 hover:border-rose-500">
             <BsInstagram />
             </a>
-            <a href="#" className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-5 hover:text-violet-300 hover:border-violet-300">
+            <a href="#" className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-5 hover:text-zinc-600 hover:border-rose-500">
             <AiOutlineYoutube />
             </a>
           </div>

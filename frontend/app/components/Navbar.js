@@ -69,16 +69,16 @@ const Navbar = () => {
         >
           <ul className="flex py-2" aria-labelledby="user-menu-button">
             <li>
-              <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+              <a href="/" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent md:p-0 dark:text-white hover:text-rose-500  md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
             </li>
             <li>
-              <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Chatbot</a>
+              <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent  md:p-0 dark:text-white hover:text-rose-500  md:dark:hover:bg-transparent dark:border-gray-700">Chatbot</a>
             </li>
             <li>
-              <a href="/Findscams" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FindScams</a>
+              <a href="/Findscams" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent md:p-0 dark:text-white hover:text-rose-500  md:dark:hover:bg-transparent dark:border-gray-700">FindScams</a>
             </li>
             <li>
-              <a href="/Submit" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Submit Scam</a>
+              <a href="/Submit" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent  md:p-0 dark:text-white hover:text-rose-500   md:dark:hover:bg-transparent dark:border-gray-700">Submit Scam</a>
             </li>
           </ul>
         </div>
@@ -86,17 +86,17 @@ const Navbar = () => {
 
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+          <li>
+              <a href="/" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent md:p-0 dark:text-white hover:text-rose-500  md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
             </li>
             <li>
-              <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Chatbot</a>
+              <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent  md:p-0 dark:text-white hover:text-rose-500  md:dark:hover:bg-transparent dark:border-gray-700">Chatbot</a>
             </li>
             <li>
-              <a href="/Findscams" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FindScams</a>
+              <a href="/Findscams" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent md:p-0 dark:text-white hover:text-rose-500  md:dark:hover:bg-transparent dark:border-gray-700">FindScams</a>
             </li>
             <li>
-              <a href="/Submit" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Submit Scam</a>
+              <a href="/Submit" className="block py-2 px-3 text-gray-900 rounded  md:hover:bg-transparent  md:p-0 dark:text-white hover:text-rose-500   md:dark:hover:bg-transparent dark:border-gray-700">Submit Scam</a>
             </li>
             <li>
               <UserIcon className=" block" />
