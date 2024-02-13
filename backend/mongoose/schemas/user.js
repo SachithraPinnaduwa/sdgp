@@ -1,16 +1,25 @@
-const mongoose = require('mongoose');
+// Importing Mongoose with ES Module syntax
+import mongoose from 'mongoose';
+
+// Defining the user schema
 const userSchema = new mongoose.Schema({
     name: {
-        type: mongoose.Schema.Types.String,
+        type: String, // Direct use of String, as mongoose.Schema.Types.String is unnecessary
         required: true,
-        unique: true},
+        unique: true
+    },
     email: {
-        type: mongoose.Schema.Types.String,
-        required: true},
+        type: String,
+        required: true
+    },
     scam: {
-        type: mongoose.Schema.Types.String,
-        required: true}
-})
+        type: String,
+        required: true
+    }
+});
 
- const User = mongoose.model('User', userSchema);
-module.exports = {User}
+// Creating the User model
+const User = mongoose.model('User', userSchema);
+
+// Exporting the User model
+export { User };
