@@ -21,6 +21,14 @@ function chatbot() {
                 </button>
                 
             </div>
+
+            <div className='h-[5%] w-[50%] bg-white flex flex-row rounded-2xl justify-end mt-auto py-3'>
+                    <label htmlFor="textarea" className="pb-1 text-xs uppercase tracking-wider"></label>
+                    <textarea id="textarea" name="textarea" cols="1" rows="1" placeholder="Ask your problem" className="mb-2 w-full rounded-md  py-2 pl-2   sm:mb-0 pr-[40%]"></textarea>
+                    <button className={'pr-[3%]'}>
+                        <IoMdSend />
+                    </button>
+            </div>
         </div>
         </>
     )
