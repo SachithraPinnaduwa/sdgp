@@ -43,9 +43,7 @@ const MyDropdown = () => {
                 ))}
             </select>
 
-            <button className="bg-blue-500 text-white py-1 px-10 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300">
-                Current Location
-            </button>
+
         </div>
     );
 };
