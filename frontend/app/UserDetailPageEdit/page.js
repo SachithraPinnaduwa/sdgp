@@ -75,14 +75,14 @@ function UserDetail() {
                 placeholder="Email"
               />
             </div>
+            
+            </div>
             <div  className="block">
                 <p className="w-full">&nbsp;	</p>
               <button className={"bg-blue-500 text-black p-2 rounded-md"}>
                 Submit
               </button>
             </div>
-            </div>
-
             
           </div>
         </div>
