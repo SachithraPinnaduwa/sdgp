@@ -1,48 +1,33 @@
 "use client";
 import React, { useState } from "react";
-
-
+import { toast } from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
 function Submit() {
-  const [email, setEmail] = useState("");
-  const [name, setUsername] = useState("");
-  const [scam, setScamDescription] = useState("");
-
+ 
+  
+const auth = useAuth();
   const handleSubmit =async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { 
-      name, 
-      email,
-      scam, 
-     });
-     const formData = {
-      name, // This corresponds to the 'username' you're capturing, assuming you've adjusted the state variable's name for clarity
-      email,
-      scam, // This corresponds to the 'scamDescription' field in your form
-    };
+    
+     const formData = new FormData(e.currentTarget);
+      const email = formData.get('email');
+      const name = formData.get('name');
+      const province = formData.get('province');
+      const scam = formData.get('scam');
+      console.log(email,name,province,scam);
     try {
-      // Perform the POST request to your backend endpoint
-      const response = await fetch('http://localhost:3100/login', { 
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        // Handle success
-        const result = await response.json();
-        console.log("Form submitted successfully:", result);
-        // Optionally reset form fields here
-      } else {
-        // Handle server errors or invalid responses
-        throw new Error('Server responded with an error.');
-      }
+      
+    await auth.scamPost(name,email,province,scam);
+     
+        console.log("Form submitted successfully:");
+        toast.success("Form submitted successfully.");
+      
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("Error submitting form. Please try again later.");
     }
   };
-
+  
   return (
     <>
       
@@ -67,8 +52,8 @@ function Submit() {
               type="email"
               id="email"
               name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              
+              
               className="w-full p-3 border rounded-md"
               required
             />
@@ -85,13 +70,40 @@ function Submit() {
             <input
               type="text"
               id="username"
-              name="username"
-              value={name}
-              onChange={(e) => setUsername(e.target.value)}
+              name="name"
+              
               className="w-full p-3 border rounded-md"
               required
             />
           </div>
+
+          {/* Province */}
+          <div className="mb-6 flex gap-10">
+  <label
+    htmlFor="province"
+    className="block text-xl font-medium text-gray-600 mb-2 w-1/4"
+  >
+    Province
+  </label>
+  <select
+    id="province"
+    name="province"
+    className=" p-3 border rounded-md"
+    required
+  >
+    <option value="">Select a province</option>
+    <option value="Central">Central</option>
+    <option value="Eastern">Eastern</option>
+    <option value="North Central">North Central</option>
+    <option value="Northern">Northern</option>
+    <option value="North Western">North Western</option>
+    <option value="Sabaragamuwa">Sabaragamuwa</option>
+    <option value="Southern">Southern</option>
+    <option value="Uva">Uva</option>
+    <option value="Western">Western</option>
+  </select>
+</div>
+
 
           {/* Scam Description Input */}
           <div className="mb-8 flex gap-10">
@@ -103,9 +115,9 @@ function Submit() {
             </label>
             <textarea
               id="scamDescription"
-              name="scamDescription"
-              value={scam}
-              onChange={(e) => setScamDescription(e.target.value)}
+              name="scam"
+              
+              
               className="w-full p-3 border rounded-md"
               rows="10"
               required
@@ -117,6 +129,7 @@ function Submit() {
             <button
               type="submit"
               className="w-1/4 bg-blue-500 text-white p-3 rounded-md"
+              
             >
               Submit
             </button>

@@ -8,7 +8,7 @@ async function connectToDatabase() {
     try {
         await connect(process.env.MONGODB_URL);
     } catch (error) {
-        throw new Error('First error', error);
+        throw new Error('Cannot connect to DB', error);
     }
 }
 
