@@ -1,26 +1,50 @@
  
 "use client";
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Image from 'next/image';
 import login from '../../public/login/img1.png';
 import Link from 'next/link';
 import { FcGoogle } from "react-icons/fc";
+import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 
 function Page() {
+ 
+  const router = useRouter();
+const auth = useAuth();
+
+useEffect(() => {
+
+  const timeoutId = setTimeout(() => {
+      console.log(auth); // Log the auth state after the timeout
   
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+      if (auth?.user) {
+        router.push('/');
+      } else {
+      }
+    }, 1); 
+  
+    return () => clearTimeout(timeoutId);
+    }, [auth]);
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+const formData = new FormData(e.currentTarget);
+const email = formData.get('email');
+const password = formData.get('password');
 
-  const handleSubmit = (e) => {e.preventDefault();
 
-  //  try {
- //   }catch (error) {
-      setError("Invalid email or password");
- //   }
-  };
+try {
+  toast.loading('Logging in...',{id:'login'});
+  await auth?.login(email, password);
+  toast.success('Logged in successfully',{id:'login'});
+  router.push('/');
+} catch (error) {
+  toast.error(`Failed to login ${error}`,{id:'login'});
+}
+};
 
   return (
     <>
@@ -36,16 +60,16 @@ function Page() {
            
           <div className="relative my-6">
               <input
-                onChange={(e) => setEmail(e.target.value)}
+               name='email'
                 type="text"
-                className="block w-full py-2.3 px-0 text-sm text-white-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
+                className="block w-full py-2.3 px-0 text-sm text-white-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 text-white focus:border-blue-600 peer"
                 placeholder="Email"
               />
             </div>
 
             <div className="relative my-6">
               <input
-                onChange={(e) => setPassword(e.target.value)}
+               name='password'
                 type="password"
                 className="block w-full py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                 placeholder="Password"
@@ -71,11 +95,7 @@ function Page() {
               Login
             </button>
 
-            {error && (
-              <div className='bg-red-500 text-white p-2 rounded w-fit text-sm'>
-                {error}
-                </div>
-            )}
+           
 
             <div className="w-full flex item-center justify-center relative py-2">
               <div className="w-full h-[1px] bg-white"></div>
@@ -91,7 +111,7 @@ function Page() {
             <div className="mb-4">
               <span className="text-white">
                 Create New Account&nbsp;
-                <Link href={'/signup'} className="text-blue-500">
+                <Link href={'/Signup'} className="text-blue-500">
                   Signup
                 </Link>
               </span>
@@ -113,50 +133,7 @@ function Page() {
     </div>
     </>
   );
-=======
-import React from 'react';
-import Image from 'next/image';
-import login from '../../public/login/img1.png';
-import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebookSquare } from "react-icons/fa";
 
-
-function Page() {
-    return (
-        <div className="flex flex-row min-h-screen max-h-screen">
-            <div className="flex-1 bg-gradient-to-r from-purple-700 to-blue-500 p-8">
-                <h1 className=" text-3xl font-bold mb-4 flex justify-center text-blue-500 ">Why Choose Us?</h1>
-                <Image src={login} alt="login" className="mx-auto mb-4"/>
-                <h2 className="text-white text-2xl font-bold mb-2 justify-center flex">Secure Your Life</h2>
-                <h3 className="text-white mb-4 justify-center flex">With an advanced AI and a dedicated community that constantly provides updates on the latest scams,
-                    we commit ourselves to protect you from scams, ensuring a safe experience.</h3>
-                <p className="text-white mb-8 justify-center flex">Become part of an active community that prevents scams together.</p>
-            </div>
-            <div className="flex-1 px-[5%] text-blue-950 bg-white justify-center flex flex-col">
-                <h1 className="text-4xl font-bold mb-8 ">Welcome Back!</h1>
-                <form className="flex flex-col">
-
-
-                    <input type="email" id="email" name="email" className="border rounded-md p-2 mb-8"
-                           placeholder={'Email'}/>
-
-
-                    <input type="password" id="password" name="password" className="border rounded-md p-2 mb-8"
-                           placeholder={'Password'}/>
-
-                    <button type="submit" className="bg-blue-500 text-white p-3 rounded-md w-3/4 flex mx-auto justify-center">Submit</button>
-                    <button  className="bg-white text-black p-3 rounded-md border-2 mt-4 w-3/4 flex mx-auto justify-center"><FcGoogle className="text-3xl"/>&nbsp;&nbsp;&nbsp;&nbsp;Login with Google</button>
-                    <button  className="bg-white text-black p-3 rounded-md border-2 mt-4 w-3/4 flex mx-auto justify-center"><FaFacebookSquare className="text-blue-600 text-3xl"/>&nbsp;&nbsp;&nbsp;&nbsp;Login with Facebook</button>
-                </form>
-                <p className="flex justify-center py-16">Don&apos;t have an account?
-                    <Link
-                    href={'/signup'}>
-                    <span className="text-blue-600"> &nbsp;	Signup</span>
-                    </Link></p>
-            </div>
-        </div>
-    );
 }
 
 export default Page;
