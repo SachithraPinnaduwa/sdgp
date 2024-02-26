@@ -53,7 +53,7 @@ function Footer() {
     <div className="bg-black py-4 text-gray-100">
       <div className="container mx-auto px-4">
         <div className="-mx-4 flex flex-wrap justify-between">
-          <div className="px-4 w-full text-center sm:w-auto sm:text-left">
+          <div className="px-4 w-full  sm:w-auto sm:text-left">
             Copyright ©  2024 ScamSensei.com. All rights reserved.
           </div>
         </div>
