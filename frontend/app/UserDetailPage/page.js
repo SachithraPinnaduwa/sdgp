@@ -1,10 +1,12 @@
 import React from "react";
-import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
+import Link from 'next/link';
+import Button from "../components/Button";
 
 function UserDetail() {
   return (
     <>
+      
       <div
         className={"flex flex-col justify-center  mt-[-8%] mb-20 min-h-screen"}
       >
@@ -25,61 +27,49 @@ function UserDetail() {
             <div className={"flex mt-10 text-2xl"}>
               <div className={"mr-[10%]"}>
                 <p >User name: </p>
-                <input
-                  type="text"
-                  className={"border p-1 text-black "}
-                  placeholder="User name"
-                />
+                <p
+                  className={"p-1 text-white "}> User name*****</p>
               </div>
               <div className={"mr-[10%]"}>
-                <p>Password: </p>
-                <input
-                  type="password"
-                  className={"border p-1 text-black"}
-                  placeholder="password"
-                />
+                <p> </p>
+                
               </div>
             </div>
             <div className={"flex mt-10 text-2xl"}>
               <div className={"mr-[10%]"}>
                 <p>First Name: </p>
-                <input
-                  type="text"
-                  className={"border p-1 text-black"}
-                  placeholder="Enter first name"
-                />
+                <p
+                  className={"p-1 text-white"}
+  
+                >First Name *****</p>
               </div>
-              <div className={"mr-[10%]"}>
-                <p>Confirm Password: </p>
-                <input
-                  type="password"
-                  className={"border p-1 text-black"}
-                  placeholder="password"
-                />
-              </div>
+              <div className={"mr-[-10%]"}>
+                <p>Last Name: </p>
+                <p
+                    className={"p-1 text-white"}
+    
+                  >Last Name *****</p>
+            </div>
+              
             </div>
             <div className={"flex mt-10 text-2xl"}>
-            <div className={"mr-[10%]"}>
-              <p>Last Name: </p>
-              <input
-                type="text"
-                className={"border p-1 text-black "}
-                placeholder="Enter last name"
-              />
-            </div>
+            
             <div className={"mr-[10%]"}>
               <p >Email : </p>
-              <input
-                type="email"
-                className={"border p-1 text-black"}
-                placeholder="Email"
-              />
+              <p
+                
+                className={"p-1 text-white"}
+                
+              >******@***.***</p>
             </div>
+            
             <div  className="block">
-                <p className="w-full">&nbsp;	</p>
-              <button className={"bg-blue-500 text-black p-2 rounded-md"}>
-                Submit
-              </button>
+              <p className="w-full">&nbsp;	</p>
+                          
+              <Link href={'../UserDetailPageEdit'}>
+                <Button label="Edit" type="button" icon="" variant=" px-8 py-4 text-white bg-black">Edit</Button>
+              </Link>
+              
             </div>
             </div>
 
