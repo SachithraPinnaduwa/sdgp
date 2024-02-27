@@ -18,15 +18,15 @@ function FindScams() {
           <p className={"text-3xl"}>Scams That the Community Faced</p>
         </div>
 
-        <div className={"mt-[10%] pb-[20%]"}>
-          <MyDropdown />
-        </div>
+        <div className="flex flex-wrap justify-center gap-4">
+          <div className={"sm:mt-[10%] sm:pb-[20%] sm:w-auto button-container"}>
+            <MyDropdown />
+          </div>
 
-        <div className={"mt-[10%] pb-[20%]"}>
+          <div className={"sm:mt-[10%] sm:pb-[20%] sm:w-auto button-container"}>
             <MapButton />
+          </div>
         </div>
-
-
 
         <div>
           <p>
