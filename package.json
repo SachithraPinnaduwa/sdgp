@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@react-google-maps/api": "^2.19.3",
     "auth": "^1.0.2",
     "next": "^14.1.0"
   }
