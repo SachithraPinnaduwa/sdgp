@@ -12,9 +12,8 @@ const Section = () => {
   ];
 
   return (
-  <div className=''>
-    <h1 className="custom-h1 ">Articles that you wants to read<br/> before come to Sri lanka</h1>
-    <section className="flex flex-col lg:flex-row items-center py-16 p-5 pt-10  ">
+  
+    <section className="flex flex-col lg:flex-row items-center py-16 p-5 bg-white bg-opacity-10  ">
       
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 ">
         {images.map((image, index) => (
@@ -36,7 +35,7 @@ const Section = () => {
         ))}
       </div>
      
-    </section></div>
+    </section>
   );
 };
 

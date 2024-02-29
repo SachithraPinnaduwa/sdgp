@@ -1,26 +1,50 @@
  
 "use client";
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Image from 'next/image';
 import login from '../../public/login/img1.png';
 import Link from 'next/link';
 import { FcGoogle } from "react-icons/fc";
+import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 
 function Page() {
+ 
+  const router = useRouter();
+const auth = useAuth();
+
+useEffect(() => {
+
+  const timeoutId = setTimeout(() => {
+      console.log(auth); // Log the auth state after the timeout
   
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+      if (auth?.user) {
+        router.push('/');
+      } else {
+      }
+    }, 1); 
+  
+    return () => clearTimeout(timeoutId);
+    }, [auth]);
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+const formData = new FormData(e.currentTarget);
+const email = formData.get('email');
+const password = formData.get('password');
 
-  const handleSubmit = (e) => {e.preventDefault();
 
-  //  try {
- //   }catch (error) {
-      setError("Invalid email or password");
- //   }
-  };
+try {
+  toast.loading('Logging in...',{id:'login'});
+  await auth?.login(email, password);
+  toast.success('Logged in successfully',{id:'login'});
+  router.push('/');
+} catch (error) {
+  toast.error(`Failed to login ${error}`,{id:'login'});
+}
+};
 
   return (
     <>
@@ -36,16 +60,16 @@ function Page() {
            
           <div className="relative my-6">
               <input
-                onChange={(e) => setEmail(e.target.value)}
+               name='email'
                 type="text"
-                className="block w-full py-2.3 px-0 text-sm text-white-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
+                className="block w-full py-2.3 px-0 text-sm text-white-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 text-white focus:border-blue-600 peer"
                 placeholder="Email"
               />
             </div>
 
             <div className="relative my-6">
               <input
-                onChange={(e) => setPassword(e.target.value)}
+               name='password'
                 type="password"
                 className="block w-full py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                 placeholder="Password"
@@ -71,11 +95,7 @@ function Page() {
               Login
             </button>
 
-            {error && (
-              <div className='bg-red-500 text-white p-2 rounded w-fit text-sm'>
-                {error}
-                </div>
-            )}
+           
 
             <div className="w-full flex item-center justify-center relative py-2">
               <div className="w-full h-[1px] bg-white"></div>
@@ -91,7 +111,7 @@ function Page() {
             <div className="mb-4">
               <span className="text-white">
                 Create New Account&nbsp;
-                <Link href={'/signup'} className="text-blue-500">
+                <Link href={'/Signup'} className="text-blue-500">
                   Signup
                 </Link>
               </span>

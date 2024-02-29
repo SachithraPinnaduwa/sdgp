@@ -1,26 +1,54 @@
 
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Image from "next/image";
 import login from "../../public/login/img1.png";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
-
-
+import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 function Page() {
-
+const auth = useAuth();
+const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  useEffect(() => {
 
-  const handleSubmit = (e) => {e.preventDefault();
-
+    const timeoutId = setTimeout(() => {
+        console.log(auth); // Log the auth state after the timeout
+    
+        if (auth?.user) {
+          router.push('/');
+        } else {
+        }
+      }, 1); 
+    
+      return () => clearTimeout(timeoutId);
+      }, [auth]);
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const password = formData.get('password');
     if (!name || !email || !password){
       setError("Please fill in all fields");
       return; 
+    }
+    
+    setError(null);
+    try {
+      toast.loading('Signining Up',{id:'signin'});
+      await auth?.signup(name, email, password);
+      toast.success('Signed up successfully',{id:'signin'});
+      router.push('/');
+    } catch (error) {
+      toast.error(`Failed to signin ${error}`,{id:'signin'});
     }
     
     
@@ -61,7 +89,7 @@ function Page() {
 
             <div className="relative my-6">
             <input
-                  onChange={(e) => setName(e.target.value)}
+            name="name"
                   type="text"
                   className="block w-full py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                   placeholder="Full Name"
@@ -71,7 +99,7 @@ function Page() {
 
             <div className="relative my-6">
               <input
-                onChange={(e) => setEmail(e.target.value)}
+               name="email"
                 type="text"
                 className="block w-full py-2.3 px-0 text-sm text-white-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                 placeholder="Email"
@@ -80,7 +108,7 @@ function Page() {
 
             <div className="relative my-6">
               <input
-                onChange={(e) => setPassword(e.target.value)}
+               name="password"
                 type="password"
                 className="block w-full py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                 placeholder="Password"
@@ -89,6 +117,7 @@ function Page() {
 
             <div className="relative my-6">
               <input
+                name="password2"
                 type="password"
                 className="block w-full py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-600 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                 placeholder="Confirm Password"

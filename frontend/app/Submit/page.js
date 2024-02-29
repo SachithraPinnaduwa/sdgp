@@ -1,48 +1,39 @@
 "use client";
 import React, { useState } from "react";
-
-
+import { toast } from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
 function Submit() {
-  const [email, setEmail] = useState("");
-  const [name, setUsername] = useState("");
-  const [scam, setScamDescription] = useState("");
-
+ 
+  const districts = [
+    'Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
+    'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara',
+    'Kandy', 'Kegalle', 'Kilinochchi', 'Kurunegala', 'Mannar',
+    'Matale', 'Matara', 'Monaragala', 'Mullaitivu', 'Nuwara Eliya',
+    'Polonnaruwa', 'Puttalam', 'Ratnapura', 'Trincomalee', 'Vavuniya',
+  ];
+const auth = useAuth();
   const handleSubmit =async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { 
-      name, 
-      email,
-      scam, 
-     });
-     const formData = {
-      name, // This corresponds to the 'username' you're capturing, assuming you've adjusted the state variable's name for clarity
-      email,
-      scam, // This corresponds to the 'scamDescription' field in your form
-    };
+   
+     const formData = new FormData(e.currentTarget);
+     const title = formData.get('title');
+      const name = formData.get('name');
+      const district = formData.get('district');
+      const scam = formData.get('scam');
+      console.log(name,district,scam,title);
     try {
-      // Perform the POST request to your backend endpoint
-      const response = await fetch('http://localhost:3100/login', { 
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        // Handle success
-        const result = await response.json();
-        console.log("Form submitted successfully:", result);
-        // Optionally reset form fields here
-      } else {
-        // Handle server errors or invalid responses
-        throw new Error('Server responded with an error.');
-      }
+      
+    await auth.scamPost(name,district,scam,title);
+     
+        console.log("Form submitted successfully:");
+        toast.success("Form submitted successfully.");
+      
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("Error submitting form. Please try again later.");
     }
   };
-
+  
   return (
     <>
       
@@ -55,24 +46,7 @@ function Submit() {
             Submit Scam Report
           </h2>
 
-          {/* Email Input */}
-          <div className="mb-6 flex gap-10">
-            <label
-              htmlFor="email"
-              className="block text-xl font-medium text-gray-600 mb-2 w-1/4"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 border rounded-md"
-              required
-            />
-          </div>
+         
 
           {/* Username Input */}
           <div className="mb-6 flex gap-10 ">
@@ -85,13 +59,53 @@ function Submit() {
             <input
               type="text"
               id="username"
-              name="username"
-              value={name}
-              onChange={(e) => setUsername(e.target.value)}
+              name="name"
+              
               className="w-full p-3 border rounded-md"
               required
             />
           </div>
+
+          {/* title Input */}
+          <div className="mb-6 flex gap-10 ">
+            <label
+              htmlFor="title"
+              className="block text-xl font-medium text-gray-600 mb-2 w-1/4"
+            >
+              Title
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              
+              className="w-full p-3 border rounded-md"
+              required
+            />
+          </div>
+
+          {/* District */}
+          <div className="mb-6 flex gap-10">
+  <label
+    htmlFor="district"
+    className="block text-xl font-medium text-gray-600 mb-2 w-1/4"
+  >
+    District
+  </label>
+  <select
+    id="district"
+    name="district"
+    className=" p-3 border rounded-md"
+    required
+  >
+    {districts.map((district) => (
+            <option key={district} value={district}>
+              {district}
+            </option>
+          ))}
+  </select>
+</div>
+
 
           {/* Scam Description Input */}
           <div className="mb-8 flex gap-10">
@@ -103,9 +117,9 @@ function Submit() {
             </label>
             <textarea
               id="scamDescription"
-              name="scamDescription"
-              value={scam}
-              onChange={(e) => setScamDescription(e.target.value)}
+              name="scam"
+              
+              
               className="w-full p-3 border rounded-md"
               rows="10"
               required
@@ -117,6 +131,7 @@ function Submit() {
             <button
               type="submit"
               className="w-1/4 bg-blue-500 text-white p-3 rounded-md"
+              
             >
               Submit
             </button>
