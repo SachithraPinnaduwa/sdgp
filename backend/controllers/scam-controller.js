@@ -3,8 +3,10 @@ import axios from 'axios';
 import { LoginUser } from '../models/Scam-user.js';
 // Function to post user data
 async function postUserData(req, res) {
-  const { name,email,province,scam } = req.body;
-  const newUser = new LoginUser({name,email,province,scam});
+
+  const { name,title,district,scam } = req.body;
+  const newUser = new LoginUser({name,title,district,scam});
+
   if (req.body.name === undefined) {
     return res.status(400).send({ error: "Name is required" });
   }
@@ -31,6 +33,54 @@ async function searchUser(req, res) {
     res.status(500).send({ error: 'Internal Server Error' });
   }
 }
-
 // Exporting the functions using ES Module syntax
 export { postUserData, searchUser };
+
+
+async function getAllPosts(req, res) {
+  
+  try {
+    const user = await LoginUser.find({  });
+    if (user) {
+      res.status(200).send(user);
+    } else {
+      res.status(404).send({ error: 'User not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+}
+
+async function updateUpvotes(req, res) {
+  const { id } = req.body; // Assuming the user's ID is passed as a URL parameter
+  try {
+    const user = await LoginUser.findById(id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    user.upvotes += 1; // Increment upvotes by 1
+    const updatedUser = await user.save();
+    return res.status(200).send(updatedUser);
+  } catch (error) {
+    return res.status(500).send({ error: "Internal Server Error" });
+  }
+}
+
+async function updateDownvotes(req, res) {
+  const { id } = req.body; // Assuming the user's ID is passed as a URL parameter
+  try {
+    const user = await LoginUser.findById(id);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    user.downvotes += 1; // Increment downvotes by 1
+    const updatedUser = await user.save();
+    return res.status(200).send(updatedUser);
+  } catch (error) {
+    return res.status(500).send({ error: "Internal Server Error" });
+  }
+}
+
+// Exporting the functions using ES Module syntax
+export { postUserData, searchUser,getAllPosts,updateUpvotes,updateDownvotes };

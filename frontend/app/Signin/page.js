@@ -111,7 +111,7 @@ try {
             <div className="mb-4">
               <span className="text-white">
                 Create New Account&nbsp;
-                <Link href={'/signup'} className="text-blue-500">
+                <Link href={'/Signup'} className="text-blue-500">
                   Signup
                 </Link>
               </span>

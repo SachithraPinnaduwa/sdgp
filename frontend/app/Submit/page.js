@@ -4,20 +4,28 @@ import { toast } from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 function Submit() {
  
-  
+
+  const districts = [
+    'Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
+    'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara',
+    'Kandy', 'Kegalle', 'Kilinochchi', 'Kurunegala', 'Mannar',
+    'Matale', 'Matara', 'Monaragala', 'Mullaitivu', 'Nuwara Eliya',
+    'Polonnaruwa', 'Puttalam', 'Ratnapura', 'Trincomalee', 'Vavuniya',
+  ];
 const auth = useAuth();
   const handleSubmit =async (e) => {
     e.preventDefault();
-    
+   
      const formData = new FormData(e.currentTarget);
-      const email = formData.get('email');
+     const title = formData.get('title');
       const name = formData.get('name');
-      const province = formData.get('province');
+      const district = formData.get('district');
       const scam = formData.get('scam');
-      console.log(email,name,province,scam);
+      console.log(name,district,scam,title);
     try {
       
-    await auth.scamPost(name,email,province,scam);
+    await auth.scamPost(name,district,scam,title);
+
      
         console.log("Form submitted successfully:");
         toast.success("Form submitted successfully.");
@@ -40,24 +48,7 @@ const auth = useAuth();
             Submit Scam Report
           </h2>
 
-          {/* Email Input */}
-          <div className="mb-6 flex gap-10">
-            <label
-              htmlFor="email"
-              className="block text-xl font-medium text-gray-600 mb-2 w-1/4"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              
-              
-              className="w-full p-3 border rounded-md"
-              required
-            />
-          </div>
+         
 
           {/* Username Input */}
           <div className="mb-6 flex gap-10 ">
@@ -68,39 +59,58 @@ const auth = useAuth();
               Username
             </label>
             <input
+
               type="text"
               id="username"
               name="name"
+
               
               className="w-full p-3 border rounded-md"
               required
             />
           </div>
 
-          {/* Province */}
+          {/* title Input */}
+          <div className="mb-6 flex gap-10 ">
+            <label
+              htmlFor="title"
+              className="block text-xl font-medium text-gray-600 mb-2 w-1/4"
+            >
+              Title
+            </label>
+            <input
+              type="text"
+
+              id="title"
+              name="title"
+
+              
+              className="w-full p-3 border rounded-md"
+              required
+            />
+          </div>
+
+
+          {/* District */}
           <div className="mb-6 flex gap-10">
   <label
-    htmlFor="province"
+    htmlFor="district"
     className="block text-xl font-medium text-gray-600 mb-2 w-1/4"
   >
-    Province
+    District
   </label>
   <select
-    id="province"
-    name="province"
+    id="district"
+    name="district"
     className=" p-3 border rounded-md"
     required
   >
-    <option value="">Select a province</option>
-    <option value="Central">Central</option>
-    <option value="Eastern">Eastern</option>
-    <option value="North Central">North Central</option>
-    <option value="Northern">Northern</option>
-    <option value="North Western">North Western</option>
-    <option value="Sabaragamuwa">Sabaragamuwa</option>
-    <option value="Southern">Southern</option>
-    <option value="Uva">Uva</option>
-    <option value="Western">Western</option>
+    {districts.map((district) => (
+            <option key={district} value={district}>
+              {district}
+            </option>
+          ))}
+
   </select>
 </div>
 
