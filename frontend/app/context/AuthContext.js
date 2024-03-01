@@ -1,5 +1,4 @@
 'use client'
-
 import { createContext, use, useState, useEffect,useContext } from "react";
 import { loginUser,checkAuthStatus, logoutUser, signupUser, scamSubmit ,getuserPost, downvotecall,upvotecall} from "../helpers/api-communicator";
 import toast from "react-hot-toast";
@@ -72,3 +71,4 @@ const data = await loginUser(email, password);
 export const useAuth = () => {
    return useContext(AuthContext);
 }
+

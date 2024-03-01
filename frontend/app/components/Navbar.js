@@ -11,10 +11,12 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
  
   const menuRef = useRef(null);
+
   const dropdownRef = useRef(null);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -54,6 +56,8 @@ const Navbar = () => {
     };
   }, []);
 
+ 
+
   return (
     <nav className=" fixed top-0 left-0 w-full border-gray-200  bg-opacity-50 dark:bg-gray-900 z-30">
       {/*"Mobile size menu goes here"*/}
@@ -91,6 +95,7 @@ const Navbar = () => {
               <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page"
               
               >Home</a>
+
             </li>
             {auth.isLoggedIn ? (<li>
               <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page"
@@ -100,10 +105,18 @@ const Navbar = () => {
             <li>
               <a href="/Findscams" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                 FindScams by Location</a>
+
             </li>
+            {auth.isLoggedIn ? (<li>
+              <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page"
+              
+              >Chatbot</a>
+            </li>) : (<></>)}
             <li>
+
               <a href="/PostList" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                 FindScams by Time</a>
+
             </li>
            
             <li>
@@ -122,6 +135,7 @@ const Navbar = () => {
            {auth.isLoggedIn ? ( <li>
               <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Chatbot</a>
             </li>) : (<></>)}
+
            
             <li>
            
@@ -170,6 +184,7 @@ const Navbar = () => {
     </div>
           
         </li>
+
             <li>
               <a href="/Submit" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Submit Scam</a>
             </li>

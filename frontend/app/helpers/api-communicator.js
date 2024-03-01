@@ -81,14 +81,17 @@ export  const logoutUser =  async()=>{
     return data;
 }
 
+
 export  const scamSubmit =  async(name,district,scam,title)=>{
     const response = await axiosInstance.post('/scam',{name,district,scam,title})
+
     if (response.status != 200) {
         throw new Error("Unable to post scam");
         
     }
     const data = await response.data;
     return data;
+
 }
 
 export  const getuserPost =  async()=>{
@@ -119,4 +122,5 @@ export  const downvotecall =  async(id)=>{
     }
     const data = await response.data;
     return data;
+
 }

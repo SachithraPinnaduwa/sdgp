@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 function Submit() {
  
+
   const districts = [
     'Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
     'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara',
@@ -24,6 +25,7 @@ const auth = useAuth();
     try {
       
     await auth.scamPost(name,district,scam,title);
+
      
         console.log("Form submitted successfully:");
         toast.success("Form submitted successfully.");
@@ -57,9 +59,11 @@ const auth = useAuth();
               Username
             </label>
             <input
+
               type="text"
               id="username"
               name="name"
+
               
               className="w-full p-3 border rounded-md"
               required
@@ -76,13 +80,16 @@ const auth = useAuth();
             </label>
             <input
               type="text"
+
               id="title"
               name="title"
+
               
               className="w-full p-3 border rounded-md"
               required
             />
           </div>
+
 
           {/* District */}
           <div className="mb-6 flex gap-10">
@@ -103,6 +110,7 @@ const auth = useAuth();
               {district}
             </option>
           ))}
+
   </select>
 </div>
 
