@@ -15,7 +15,7 @@ const Vote =({upvotes,downvotes,id})=>{
     const handleupvote = async () => {
         const data = await auth.upvote(id);
         if (data) {
-            setUpvotes(upvotes + 1);
+            setUpvotes(prevUpvotes => prevUpvotes + 1);
         }
    
       };
@@ -23,7 +23,7 @@ const Vote =({upvotes,downvotes,id})=>{
       const handledownvote = async () => {
         const data = await auth.downvote(id);
         if (data) {
-            setDownvotes(downvotes + 1);
+            setDownvotes(prevDownvotes => prevDownvotes + 1);
         }
     
       };
