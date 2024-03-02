@@ -7,10 +7,10 @@ import { getuserPost } from "../helpers/api-communicator";
 import { useAuth } from "../context/AuthContext";
 
 const style = {
-    wrapper: `flex min-h-screen flex-col text-white`,
-    main: `mx-auto flex w-full max-w-5xl flex-1 space-x-6 py-5 px-6`,
-    content: `w-full space-y-4 lg:w-2/3`,
-    infoContainer: `hidden w-1/3 lg:block`,
+    
+    main: `mx-auto flex w-full max-w-5xl space-x-6 py-5 px-6`,
+    content: `w-full space-y-4 lg:w-2/3 mx-auto`,
+    
   }
 
 const PostList = () => {
@@ -29,14 +29,13 @@ const auth = useAuth();
         fetchData();
       }, []);
     
-// console.log(myPosts[0]._id,"myPosts");
 
        
   return (
     <div>
         <br/> <br/> <br/> <br/> <br/> <br/> <br/>
-        <div className={style.wrapper}>
-        <h1>Post List</h1>
+       
+        
         <main className={style.main}>
           <div className={style.content}>
             <CreatePost />
@@ -46,7 +45,7 @@ const auth = useAuth();
         </main>
         </div>
      
-    </div>
+  
   );
 };
 

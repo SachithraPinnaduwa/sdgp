@@ -18,8 +18,10 @@ export const generateChatCompletion = async (req, res,next) => {
             role: "system",
             content: "You are ScamSensei, a chatbot that only focuses on educating tourists about scams."
         },
-        ...user.chats
+        ...user.chats.map(({ role, content }) => ({ role, content }))
     ];
+   
+
     chats.push({role:"user",content:message});
     user.chats.push({role:"user",content:message});
     const config = configureOpenAI()
