@@ -9,9 +9,9 @@ import Quotes from "./components/Quotes";
 import Articles from "./components/Articles";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
+import { useAuth } from "./context/AuthContext";
+import { useContext } from "react";
 
-
-   
 
 export default function Home() {
   return (
