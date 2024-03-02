@@ -2,8 +2,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import logos from "../../public/logos.png";
 import Image from "next/image";
+import { useAuth } from "../context/AuthContext";
 
 const UserIcon = () => {
+  const auth = useAuth();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -47,20 +49,28 @@ const UserIcon = () => {
               className={`absolute top-full right-0 z-50 ${isDropdownOpen ? 'block' : 'hidden'} text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
               id="user-dropdown"
             >
-              <div className="px-4 py-3">
-                <span className="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-              </div>
+              {auth.isLoggedIn ? (
+                 <div className="px-4 py-3">
+                 <span className="block text-sm text-gray-900 dark:text-white">{auth.user?.name}</span>
+                 <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{auth.user?.email}</span>
+               </div>
+              ) : (<>
+              
+              </>)
+              
+                    }
+             
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
-                  <a href="/UserDetailPage" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                  <a href="/UserDetailPageEdit" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
                 </li>
+                {auth.isLoggedIn ? (
                 <li>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                </li>
-                <li>
-                  <a href="/Signin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign in</a>
-                </li>
+                <a onClick={auth.logout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Log out</a>
+              </li>
+                ) : (<li>
+                  <a href="Signin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Log in</a>
+                </li>)}
               </ul>
             </div>
           </div>
