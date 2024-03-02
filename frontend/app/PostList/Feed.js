@@ -6,9 +6,16 @@ const style = {
   wrapper:"space-y-2.5"
 }
 const Feed = ({posts}) => {
+  
+  const sortedPosts = posts.sort((a, b) => {
+    const scoreA = (a.upvotes || 0) - (a.downvotes || 0);
+    const scoreB = (b.upvotes || 0) - (b.downvotes || 0);
+    return scoreB - scoreA;
+  });
+  console.log(sortedPosts,"posts");
   return (
     <div className={style.wrapper}>
-    {posts ? posts.map((post,id)=>{ return <Post title={post.title ? post.title: "No title"}
+    {sortedPosts ? sortedPosts.map((post,id)=>{ return <Post title={post.title ? post.title: "No title"}
      id={post._id ? post._id: "No id"}
       author={post.name}
       district={post.district}
