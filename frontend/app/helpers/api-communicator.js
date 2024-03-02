@@ -27,12 +27,16 @@ export const signupUser = async (name,email, password) => {
 }
 
 export const checkAuthStatus = async () => {
+  try {
     const res = await axiosInstance.get('/users/auth-status')
     if (res.status !== 200) {
         throw new Error('Auth status check failed')
     }
     const data = await res.data
     return data;
+  } catch (error) {
+    console.error(error)
+  }
 
 }
 
@@ -81,10 +85,40 @@ export  const logoutUser =  async()=>{
     return data;
 }
 
-export  const scamSubmit =  async(name,email,province,scam)=>{
-    const response = await axiosInstance.post('/scam',{name,email,province,scam})
+export  const scamSubmit =  async(name,district,scam,title)=>{
+    const response = await axiosInstance.post('/scam',{name,district,scam,title})
     if (response.status != 200) {
         throw new Error("Unable to post scam");
+        
+    }
+    const data = await response.data;
+    return data;
+}
+
+export  const getuserPost =  async()=>{
+    const response = await axiosInstance.get('/scam')
+    if (response.status != 200) {
+        throw new Error("Unable to get scam");
+        
+    }
+    const data = await response.data;
+    return data;
+}
+
+export  const upvotecall =  async(id)=>{
+    const response = await axiosInstance.put('/scam/upvote',{id})
+    if (response.status != 200) {
+        throw new Error("Unable to get scam");
+        
+    }
+    const data = await response.data;
+    return data;
+}
+
+export  const downvotecall =  async(id)=>{
+    const response = await axiosInstance.put('/scam/downvote',{id})
+    if (response.status != 200) {
+        throw new Error("Unable to get scam");
         
     }
     const data = await response.data;

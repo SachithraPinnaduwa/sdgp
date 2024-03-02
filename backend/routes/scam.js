@@ -1,7 +1,7 @@
 // Import statements for ES Modules
 import express from 'express';
 import { body, query, validationResult } from 'express-validator';
-import { postUserData, searchUser } from '../controllers/scam-controller.js'; 
+import { postUserData, searchUser ,getAllPosts,updateUpvotes,updateDownvotes} from '../controllers/scam-controller.js'; 
 
 // Creating a router instance using express
 const routerScam = express.Router();
@@ -36,5 +36,17 @@ routerScam.post("/search",
     searchUser
 );
 
+routerScam.get("/",
+    
+    getAllPosts
+);
+routerScam.put("/upvote",
+    
+    updateUpvotes
+);
+routerScam.put("/downvote",
+    
+    updateDownvotes
+);
 // Exporting the router for use in other parts of the application
 export default routerScam;

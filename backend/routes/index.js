@@ -5,7 +5,6 @@ import chatRoutes from './chat-routes.js';
 
 const approuter = Router();
 approuter.use('/scam', routerScam);
-
 approuter.use('/users',userRoutes)
 approuter.use('/chat', chatRoutes);
 export default approuter;
