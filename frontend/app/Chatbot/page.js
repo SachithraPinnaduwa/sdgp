@@ -7,7 +7,6 @@ import { getUserChats, sendChatRequest, deleteUserChats } from "../helpers/api-c
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { IoMdSend } from "react-icons/io";
-import Navbar from "../components/Navbar";
 
 function Chat() {
   const navigate = useRouter();
@@ -82,7 +81,7 @@ const timeoutId = setTimeout(() => {
   <>
    <br/><br/><br/>
 
-    <div className="flex flex-1 w-full h-full mt-12 gap-12">
+    <div className="flex flex-1 w-full h-full mt-12 gap-12 text-sm">
        
       <div className="hidden md:flex flex-col flex-[0.2]">
         <div className="flex flex-col w-full h-[60vh] bg-[rgb(17,29,39)] rounded-lg mx-12">
@@ -103,15 +102,15 @@ const timeoutId = setTimeout(() => {
         </div>
       </div>
 
-      <div className="flex flex-1 md:flex-[0.8] px-12 flex-col">
-        <h2 className="text-center text-4xl text-white mb-8">ScamSensei ChatBot</h2>
-        <div className="w-[150vh] h-[50vh] rounded-md mx-auto flex flex-col overflow-y-auto scroll-smooth overflow-x-hidden">
+      <div className="flex flex-1 md:flex-[0.8] px-12 flex-col  ">
+        <h2 className="text-center text-2xl text-white mb-8">ScamSensei ChatBot</h2>
+        <div className="w-[130vh] h-[50vh] text-sm rounded-md mx-auto flex flex-col overflow-y-auto scroll-smooth overflow-x-hidden">
           {chatMessage.map((chat, index) => (
             <ChatItem content={chat.content} role={chat.role} key={index} />
           ))}
         </div>
 
-        <div className="w-full rounded-lg bg-[rgb(17,27,39)] flex mx-auto mt-4 pr-4">
+        <div className="w-[130vh] rounded-lg border border-gray-500 flex mx-auto mt-4 pr-4">
           <input
            onKeyDown={(e) => {
             if (e.key === 'Enter') {
@@ -120,8 +119,9 @@ const timeoutId = setTimeout(() => {
           }}
             type="text"
             ref={inputRef}
+            placeholder="Message ScamSensei"
             
-            className="w-full bg-transparent p-6 border-none outline-none text-white text-2xl"
+            className="w-full bg-transparent p-3 border-none outline-none text-white text-sm"
           />
           <button onClick={handleSubmit} className="ml-auto text-white">
             <IoMdSend size={30} />

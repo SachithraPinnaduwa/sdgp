@@ -9,7 +9,10 @@ const Navbar = () => {
   const auth = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
- 
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
   const toggleDropdown = () => {
@@ -54,10 +57,27 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, visible]);
+
+
   return (
-    <nav className=" fixed top-0 left-0 w-full border-gray-200  bg-opacity-50 dark:bg-gray-900 z-30">
+     <nav
+      className={`fixed top-0 text-sm left-0 w-full border-gray-200 bg-opacity-50 dark:bg-gray-900 z-30 ${
+        visible ? '' : '-translate-y-full'
+      } transition-transform duration-300`}
+    >
       {/*"Mobile size menu goes here"*/}
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image src={logos} alt="logo" width={60} height={60} className="h-15" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ScamSensei</span>
