@@ -12,6 +12,20 @@ return res.status(500).json({error: "Internal Server Error"});
 };
 
 
+export const getUsers = async(req, res,next) => {
+    try {
+        // const email = "email@email.com";
+        const {email} = req.body;
+        const userData = await ChatUser.findOne({email});
+        console.log(userData);
+        return res.status(200).json({message: "User Data", userData});
+
+    } catch (error) {
+        return res.status(500).json({error: "Internal Server Error"});
+    }
+};
+
+
 export const userSignup = async(req, res,next) => {
     try {
         const {name,email,password} = req.body;
@@ -119,3 +133,33 @@ message:error
 });
     }
 }
+
+export const updateUser = async (req, res, next) => {
+    try {
+        const { name, email, password } = req.body;
+
+        // Find the user by email
+        const user = await ChatUser.findOne({ email });
+
+        // If the user does not exist, return an error
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        // Update user details
+        if (name) user.name = name;
+        if (password) {
+            const hashedPassword = await hash(password, 10);
+            user.password = hashedPassword;
+        }
+        if (email) user.email = email;
+
+        // Save the updated user
+        await user.save(); 
+
+        // Return the updated user details
+        return res.status(200).json({ message: "User updated", name: user.name, email: user.email });
+    } catch (error) {
+        return res.status(500).json({ error: "Internal Server Error - Unable to update user" });
+    }
+};

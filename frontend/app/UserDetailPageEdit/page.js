@@ -1,12 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 
 
 function UserDetail() {
-
-  const [userName, setUsername] = useState("");
+const auth = useAuth();
+  const [name, setname] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -14,6 +16,8 @@ function UserDetail() {
   const [error2, setError2] = useState("");
 
   const handleSubmit = async (e) => {
+
+    
     e.preventDefault();
     if(password){
       if (!confirmPassword) {
@@ -33,7 +37,19 @@ function UserDetail() {
       if (!isValidEmail(email)) {
         setError2('Invalid email format'); 
         return;
+      }else{
+        try {
+
+          auth.updateUserDetails(name,email,password)
+          toast.success('User updated successfully')
+        } catch (error) {
+          toast.error('Unable to update user')
+          console.log(error)
+        }
       }
+    }else{
+      setError2("Enter current email to update details")
+      return;
     }
     setError2("")  
     
@@ -72,8 +88,8 @@ function UserDetail() {
                   <p >User name: </p>
                   <input
                     type="text"
-                    value={userName}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={name}
+                    onChange={(e) => setname(e.target.value)}
                     className={"border p-1 text-black "}
                     placeholder="User name"
                   />
@@ -132,6 +148,7 @@ function UserDetail() {
                   onChange={(e) => setEmail(e.target.value)}
                   className={"border p-1 text-black"}
                   placeholder="Email"
+                  
                 />
                 {error2 && (
                     <div className='bg-red-500 text-white p-2 rounded w-fit text-sm'>

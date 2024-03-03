@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, use, useState, useEffect,useContext } from "react";
-import { loginUser,checkAuthStatus, logoutUser, signupUser, scamSubmit ,getuserPost, downvotecall,upvotecall} from "../helpers/api-communicator";
+import { loginUser,checkAuthStatus, logoutUser, signupUser, scamSubmit ,getuserPost, downvotecall,upvotecall,getUser, updateUser} from "../helpers/api-communicator";
 import toast from "react-hot-toast";
 const AuthContext = createContext(null);
 
@@ -63,7 +63,19 @@ const data = await loginUser(email, password);
     return data;
   };
 
-  const value = { user,isLoggedIn, login, signup, logout,scamPost,getScamPosts,upvote,downvote };
+
+  const getUserDetails = async (email) => {
+    const data = await getUser(email)
+    return data;
+  };
+
+  const updateUserDetails = async (name,email,password) => {
+    const data = await updateUser(name,email,password)
+    return data;
+  };
+  
+
+  const value = { user,isLoggedIn, login, signup, logout,scamPost,getScamPosts,upvote,downvote,getUserDetails,updateUserDetails };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
