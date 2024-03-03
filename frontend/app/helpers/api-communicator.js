@@ -124,3 +124,29 @@ export  const downvotecall =  async(id)=>{
     const data = await response.data;
     return data;
 }
+
+
+//user detail page parts
+export const getUser = async (email) => {
+    
+    const res = await axiosInstance.post('/users/user', {email})
+    if (res.status !== 200) {
+        
+        console.error('Error getting user data')
+    }
+    const data = await res.data
+    
+    return data;
+}
+
+export const updateUser = async (name,email,password) => {
+    
+    const res = await axiosInstance.put('/users/update', {name,email,password})
+    if (res.status !== 200) {
+        
+        console.error('Error getting user data')
+    }
+    const data = await res.data
+    
+    return data;
+}
