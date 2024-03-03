@@ -15,16 +15,7 @@ function UserDetail() {
   const auth  = useAuth();
   try {
     const email = "email@email.com";
-    // getUser(email).then((data) => {
-    //   // const dataEmail = data.userData.email;
-    //   // const name = data.userData.name;
-    //   // console.log(dataEmail);
-    //   // console.log(name);
-    //   // setDataEmail(dataEmail);
-    //   // setFName(name);
-    //   console.log(data);
-
-    // });
+    
   auth.getUserDetails(email).then((data) => {
     console.log(data.userData.name);
     setDataEmail(data.userData.email);
