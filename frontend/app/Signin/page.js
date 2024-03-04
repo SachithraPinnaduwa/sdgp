@@ -109,7 +109,7 @@ function Page() {
 
         <p className="text-center text-gray-400">
           Don't have an account yet?{' '}
-          <Link href="/Signup" className="text-blue-700 ">
+          <Link href="/signup" className="text-blue-700 ">
             Sign Up
           </Link>
         </p>
