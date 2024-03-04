@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, use, useState, useEffect,useContext } from "react";
-import { loginUser,checkAuthStatus, logoutUser, signupUser, scamSubmit } from "../helpers/api-communicator";
+import { loginUser,checkAuthStatus, logoutUser, signupUser, scamSubmit ,getuserPost, downvotecall,upvotecall,getUser, updateUser} from "../helpers/api-communicator";
 import toast from "react-hot-toast";
 const AuthContext = createContext(null);
 
@@ -43,14 +43,43 @@ const data = await loginUser(email, password);
     setUser(null);
     window.location.reload();
   };
-  const scamPost = async (name,email,province,scam) => {
-    await scamSubmit(name,email,province,scam);
+  const scamPost = async (name,district,scam,title) => {
+    await scamSubmit(name,district,scam,title);
     
   };
 
-  const value = { user,isLoggedIn, login, signup, logout,scamPost };
+  const getScamPosts = async () => {
+    const data = await getuserPost()
+    return data;
+  };
+
+  const upvote = async (id) => {
+    const data = await upvotecall(id)
+    return data;
+  };
+
+  const downvote = async (id) => {
+    const data = await downvotecall(id)
+    return data;
+  };
+
+
+  const getUserDetails = async (email) => {
+    const data = await getUser(email)
+    return data;
+  };
+
+  const updateUserDetails = async (name,email,password) => {
+    const data = await updateUser(name,email,password)
+    return data;
+  };
+  
+
+  const value = { user,isLoggedIn, login, signup, logout,scamPost,getScamPosts,upvote,downvote,getUserDetails,updateUserDetails };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
+
+
 
 export const useAuth = () => {
    return useContext(AuthContext);

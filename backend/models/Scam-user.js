@@ -6,18 +6,25 @@ const userSchema = new mongoose.Schema({
         type: String, // Direct use of String, as mongoose.Schema.Types.String is unnecessary
         required: true,
         unique: true
-    },
-    email: {
+    },title: {
         type: String,
         required: true
     },
-    province: {
+    district: {
         type: String,
         required: true
     },
     scam: {
         type: String,
         required: true
+    },
+    upvotes: {
+        type: Number,
+        default: 0
+    },
+    downvotes: {
+        type: Number,
+        default: 0
     }
 });
 

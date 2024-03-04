@@ -1,5 +1,11 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -11,40 +17,16 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/page": [
+    "/Signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/css/app/Signin/page.css",
+      "static/chunks/app/Signin/page.js"
     ],
-    "/UserDetailPageEdit/page": [
+    "/Signin/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/UserDetailPageEdit/page.js"
-    ],
-    "/UserDetailPageEdit/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/UserDetailPageEdit/layout.js"
-    ],
-    "/Findscams/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/Findscams/page.js"
-    ],
-    "/Findscams/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/Findscams/layout.js"
-    ],
-    "/Submit/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/Submit/page.js"
-    ],
-    "/Submit/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/Submit/layout.js"
+      "static/chunks/app/Signin/layout.js"
     ]
   }
 }

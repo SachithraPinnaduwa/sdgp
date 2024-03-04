@@ -1,4 +1,4 @@
-// File: C:\Users\Savindu\OneDrive\Desktop\Scamsensei - Copy\sdgp\frontend\app\Signin\layout.js
+// File: C:\Users\Savindu\OneDrive\Desktop\sdgp\frontend\app\Signin\layout.js
 import * as entry from '../../../../app/Signin/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
