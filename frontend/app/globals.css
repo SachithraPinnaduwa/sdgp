@@ -68,36 +68,4 @@ body {
   
 }
 
-/* navbar-responsive.css */
-
-
-@media (max-width: 768px) {
-  /* Navbar container */
-  .max-w-screen-xl {
-    padding: 0 20px; 
-  }
-
-  /* Logo */
-  .h-15 {
-    width: 40px; 
-  }
-
-  /* Menu button */
-  .md\\:hidden {
-    display: block; 
-  }
-
-  /* Dropdown menu */
-  .absolute.top-full {
-    right: 10px;
-    left: auto; 
-  }
-
-  /* Dropdown menu items */
-  .absolute.top-full li {
-    width: 100%; 
-  }
-
-}
-
 
