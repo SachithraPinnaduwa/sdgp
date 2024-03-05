@@ -54,7 +54,7 @@ function Page() {
 
   return (
     <Layout>
-      <section className="w-full md:w-3/4 mx-auto flex flex-col gap-4">
+      <section className="w-full md:w-3/4 mx-auto flex flex-col gap-3 px-4 py-8 lg:py-16">
 
       <div className={styles.logoContainer}>
           <Link href="/" passHref>
@@ -63,11 +63,11 @@ function Page() {
       </div>
 
         <div className="title">
-          <h1 className="text-gray-800 text-4xl font-bold py-4">Welcome Back!</h1>
-          <p className="w-3/4 mx-auto text-gray-400">Login Here</p>
+          <h1 className="text-gray-800 text-4xl font-bold py-3">Welcome Back!</h1>
+          <p className="text-gray-400">Login Here</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className={styles.inputGroup}>
             <input
               type="email"
@@ -88,7 +88,7 @@ function Page() {
               value={formData.password}
               onChange={handleInputChange}
             />
-            <span className="icon flex items-center px-4" onClick={handleShowPassword}>
+            <span className="icon flex items-center px-4 cursor-pointer" onClick={handleShowPassword}>
               {showPassword ? <BiShow /> : <BiHide />}
             </span>
           </div>
@@ -109,7 +109,7 @@ function Page() {
 
         <p className="text-center text-gray-400">
           Don't have an account yet?{' '}
-          <Link href="/signup" className="text-blue-700 ">
+          <Link href="/Signup" className="text-blue-700 ">
             Sign Up
           </Link>
         </p>

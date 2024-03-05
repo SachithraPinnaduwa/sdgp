@@ -54,26 +54,25 @@
 @keyframes img1 {
     0% { opacity: 0; transform: translateX(100%); } /* Start off-screen to the right */
     5% { opacity: 0; } /* Wait with opacity */
-    10% { opacity: 1; transform: translateX(0%); } /* Slide in */
-    25% { opacity: 1; } /* Pause with opacity */
-    30% { opacity: 0; transform: translateX(-100%); } /* Slide out to the left */
+    15% { opacity: 1; transform: translateX(0%); } /* Slide in */
+    30% { opacity: 1; } /* Pause with opacity */
+    60% { opacity: 1; } /* Continue pause for reading */
+    65% { opacity: 0; transform: translateX(-100%); } /* Slide out to the left */
     100% { opacity: 0; transform: translateX(-100%); } /* Hide off-screen */
 }
 
 @keyframes img2 {
     0% { opacity: 0; transform: translateX(100%); } /* Start off-screen to the right */
-    25% { opacity: 0; } /* Wait with opacity */
-    30% { opacity: 1; transform: translateX(0%); } /* Slide in */
-    50% { opacity: 1; } /* Pause with opacity */
-    55% { opacity: 0; transform: translateX(-100%); } /* Slide out to the left */
-    100% { opacity: 0; transform: translateX(-100%); } /* Hide off-screen */
+    50% { opacity: 0; } /* Wait with opacity */
+    60% { opacity: 1; transform: translateX(0%); } /* Slide in */
+    70% { opacity: 1; } /* Pause with opacity */
+    95% { opacity: 1; } /* Continue pause for reading */
+    100% { opacity: 0; transform: translateX(-100%); } /* Slide out to the left */
 }
 
 @keyframes img3 {
     0% { opacity: 0; transform: translateX(100%); } /* Start off-screen to the right */
-    50% { opacity: 0; } /* Wait with opacity */
-    55% { opacity: 1; transform: translateX(0%); } /* Slide in */
-    75% { opacity: 1; } /* Pause with opacity */
-    80% { opacity: 0; transform: translateX(-100%); } /* Slide out to the left */
-    100% { opacity: 0; transform: translateX(-100%); } /* Hide off-screen */
+    70% { opacity: 0; } /* Wait with opacity */
+    80% { opacity: 1; transform: translateX(0%); } /* Slide in */
+    100% { opacity: 1; } /* Pause with opacity */
 }
