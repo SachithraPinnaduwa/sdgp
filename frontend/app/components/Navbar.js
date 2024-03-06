@@ -1,198 +1,207 @@
 'use client'
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import logos from "../../public/logos.png";
-import UserIcon from "./UserIcon";
 import { useAuth } from "../context/AuthContext";
-import "../globals.css";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon, UserIcon, CogIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
   const auth = useAuth();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [dropdownStyle, setDropdownStyle] = useState({});
-  const [navbarHeight, setNavbarHeight] = useState("h-22"); 
-  
-  const menuRef = useRef(null);
+  const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const toggleMenu = () => {
-  setIsMenuOpen(!isMenuOpen);
-  setIsDropdownOpen(false);
-};
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target)
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-
-  }, []);
+  const navigation = [
+    { name: "Home", href: "/", current: false },
+    { name: "Chatbot", href: "/Chatbot", current: false, authRequired: true },
+    {
+      name: "FindScams",
+      submenu: [
+        { name: "by Location", href: "/Findscams", current: false },
+        { name: "by Upvotes", href: "/PostList", current: false },
+      ],
+    },
+    { name: "Submit Scam", href: "/PostList/new", current: false },
+  ];
 
   useEffect(() => {
-    const updateDropdownStyle = () => {
-      const viewportWidth = window.innerWidth;
-      const dropdownWidth = viewportWidth < 768 ? viewportWidth * 0.8 : null; 
-      setDropdownStyle({ width: dropdownWidth });
-      setNavbarHeight(viewportWidth < 768 ? "h-20" : "h-16"); 
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
     };
-
-    updateDropdownStyle();
-
-    window.addEventListener("resize", updateDropdownStyle);
-
-    return () => {
-      window.removeEventListener("resize", updateDropdownStyle);
-    };
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full border-gray-200 bg-opacity-50 dark:bg-gray-900 z-30 ${navbarHeight}`}>
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-1.5">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Image src={logos} alt="logo" width={60} height={60} className="h-14" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white  ">ScamSensei</span>
-        </a>
-
-        <div className="items-center md:order-1 mt-10  space-x-3 md:space-x-0 rtl:space-x-reverse relative">
-          <div className="flex items-center"> 
-            <button
-              onClick={toggleMenu}
-              type="button"
-              className="inline-flex items-center p-2 ms-3 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 "
-              aria-controls="user-dropdown"
-              aria-expanded={isMenuOpen ? 'true' : 'false'}
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
-              </svg>
-            </button>
-            <div className="md:hidden">
-              <UserIcon />
-            </div>
-          </div>
-          <div
-            ref={menuRef}
-            style={dropdownStyle}
-            className={`absolute top-full right-0 z-50 ${isMenuOpen ? 'block' : 'hidden'} text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
-            id="user-dropdown"
-          >
-            <ul className="flex flex-col py-2 ">
-              <li>
-                <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
-              </li>
-              {auth.isLoggedIn && (
-                <li>
-                  <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Chatbot</a>
-                </li>
-              )}
-              <li>
-                <button
-                  onClick={toggleDropdown}
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Find Scams <svg className="w-2.5 h-2.5 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" /></svg>
-                </button>
-                <ul className={`absolute top-20 left-14 z-50 ${isDropdownOpen ? 'block' : 'hidden'} text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}>
-                  <li>
-                    <a href="/Findscams" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                      By Location
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/PostList" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                      By Time
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="/PostList/new" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                  Submit Scam
+    <Disclosure as="nav" className={`fixed top-0 w-full z-30 bg-opacity-50 dark:bg-gray-900 ${visible ? "" : "-translate-y-full"} transition-transform duration-300`}>
+      {({ open }) => (
+        <>
+          <div className=" mx-auto px-4 md:px-6 lg:px-8 max-w-screen-lg">
+            <div className="flex items-center justify-between h-16">
+              <div className="flex items-center">
+                <a href="/" className="flex items-center">
+                  <Image src={logos} alt="logo" width={60} height={60} className="h-15" />
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ScamSensei</span>
                 </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
-            </li>
-            {auth.isLoggedIn && (
-              <li>
-                <a href="/Chatbot" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Chatbot</a>
-              </li>
-            )}
-            <li>
+              </div>
               <div className="hidden md:block">
-                <div className="relative">
-                  <button
-                    onClick={toggleDropdown}
-                    id="dropdownNavbarLink"
-                    aria-expanded={isDropdownOpen ? 'true' : 'false'}
-                    className="flex items-center justify-between w-full py-2 px-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto dark:text-white dark:hover:text-white dark:focus:text-white 
-                    dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent" 
-                  >
-                    Find Scams <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" /></svg>
-                  </button>
-                  <div
-                    id="dropdownNavbar"
-                    className={`absolute right-0 mt-2 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 focus:outline-none z-50 ${isDropdownOpen ? 'block' : 'hidden'}`}
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="dropdownNavbarLink"
-                    tabIndex="-1"
-                    style={dropdownStyle}
-                    
-                  >
-                    <a
-                      href="/Findscams"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      by Location
-                    </a>
-                    <a
-                      href="/PostList"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      by Time
-                    </a>
-                  </div>
+                <div className="flex space-x-4">
+                  {navigation.map((item) =>
+                    !item.submenu ? (
+                      !item.authRequired || auth.isLoggedIn ? (
+                        <a key={item.name} href={item.href} className={`px-3 py-2 rounded-md text-md font-medium ${item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}>
+                          {item.name}
+                        </a>
+                      ) : null
+                    ) : (
+                      <Menu as="div" className="relative inline-block text-left" key={item.name}>
+                        <div>
+                          <Menu.Button className="inline-flex justify-center w-full px-3 py-2 rounded-md text-md font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                            {item.name}
+                            <svg className="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </Menu.Button>
+                        </div>
+                        <Transition
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <div className="py-1">
+                              {item.submenu.map((subitem) => (
+                                <Menu.Item key={subitem.name}>
+                                  {({ active }) => (
+                                    <a href={subitem.href} className={`block px-4 py-2 text-md text-gray-700 ${active ? "bg-gray-100" : ""}`}>
+                                      {subitem.name}
+                                    </a>
+                                  )}
+                                </Menu.Item>
+                              ))}
+                            </div>
+                          </Menu.Items>
+                        </Transition>
+                      </Menu>
+                    )
+                  )}
                 </div>
               </div>
-            </li>
-            <li>
-              <a href="/PostList/new" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                Submit Scam
-              </a>
-            </li>
-            <li>
-              <UserIcon className="block" />
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+              <div className="md:hidden">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? <XMarkIcon className="block h-6 w-6" aria-hidden="true" /> : <Bars3Icon className="block h-6 w-6" aria-hidden="true" />}
+                </Disclosure.Button>
+              </div>
+              <div className="hidden md:flex md:items-center md:ml-6">
+                {auth.isLoggedIn ? (
+                  <Menu as="div" className="ml-3 relative">
+                    <div>
+                      <Menu.Button className="flex text-md rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <span className="sr-only">Open user menu</span>
+                        <img className="h-8 w-8 rounded-full" src={"./UserDetails/anonymous_avatars_grey_circles.jpg"} alt="" />
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div className="flex flex-row py-2">
+                      <div >
+                      <img className="h-10 w-10 rounded-full" src={"./UserDetails/anonymous_avatars_grey_circles.jpg"} alt="avatar" />
+                    </div>
+                    <div className="flex flex-col gap-2 px-2">
+                      <div className="text-md font-medium leading-none text-gray-400">{auth.user.name}</div>
+                      <div className="text-md font-medium leading-none text-gray-400">{auth.user.email}</div>
+                    </div>
+                    </div>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a href="/UserDetailPage" className={`block px-4 py-2 text-md text-gray-700 ${active ? "bg-gray-100" : ""}`}>
+                              <UserIcon className="mr-2 h-5 w-5 inline" /> Profile
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a onClick={auth.logout} className={`block px-4 py-2 text-md text-gray-700 ${active ? "bg-gray-100" : ""}`}>
+                              Sign out
+                            </a>
+                          )}
+                        </Menu.Item>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+                ) : (
+                  <a href="/Signin" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Sign in</a>
+                )}
+              </div>
+            </div>
+          </div>
+          <Disclosure.Panel className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navigation.map((item) =>
+                !item.submenu ? (
+                  !item.authRequired || auth.isLoggedIn ? (
+                    <Disclosure.Button key={item.name} as="a" href={item.href} className={`block px-3 py-2 rounded-md text-base font-medium ${item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}>
+                      {item.name}
+                    </Disclosure.Button>
+                  ) : null
+                ) : (
+                  <Disclosure.Button key={item.name} as="div" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                    {item.name}
+                    <div className="mt-1 space-y-1">
+                      {item.submenu.map((subitem) => (
+                        <a key={subitem.name} href={subitem.href} className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                          {subitem.name}
+                        </a>
+                      ))}
+                    </div>
+                  </Disclosure.Button>
+                )
+              )}
+              {auth.isLoggedIn ? (
+                <div className="pt-4 pb-3 border-t border-gray-700">
+                  <div className="flex items-center px-5">
+                    <div className="flex-shrink-0">
+                      <img className="h-10 w-10 rounded-full" src={"./UserDetails/anonymous_avatars_grey_circles.jpg"} alt="avatar" />
+                    </div>
+                    <div className="ml-3">
+                      <div className="text-base font-medium leading-none text-white">{auth.user.name}</div>
+                      <div className="text-md font-medium leading-none text-gray-400">{auth.user.email}</div>
+                    </div>
+                  </div>
+                  <div className="mt-3 space-y-1 px-2">
+                    <Disclosure.Button as="a" href="/UserDetailPage" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                      Profile
+                    </Disclosure.Button>
+                    <Disclosure.Button as="a" onClick={auth.logout} className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                      Sign out
+                    </Disclosure.Button>
+                      
+                  </div>
+                </div>
+              ) : (
+                <Disclosure.Button as="a" href="/Signin" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
+                  Sign in
+                </Disclosure.Button>
+              )}
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   );
 };
 
