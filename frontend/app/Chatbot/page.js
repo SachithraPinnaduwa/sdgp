@@ -19,6 +19,9 @@ function Chat() {
     if (inputRef.current && inputRef) {
       inputRef.current.value = "";
     }
+    if (!content) {
+      return;
+    }
     const newMessage = { role: "user", content };
     setMessage((chatMessage) => [...chatMessage, newMessage]);
     const chatData = await sendChatRequest(content);
