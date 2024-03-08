@@ -1,0 +1,78 @@
+/* CSS for image slider */
+.imgStyle {
+    @apply bg-gradient-to-r from-gray-900 to-gray-500;
+    position: relative; 
+    overflow: hidden;
+}
+
+.cartoonImg1 {
+    background: url('/login/img1.png') no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 70%;
+    background-position: 65% 100px;
+    z-index: 1;
+    animation: img1 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s infinite; /* Adjusted animation timing functions, duration, and iteration count */
+}
+
+.cartoonImg2 {
+    background: url('/login/img2.png') no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 70%;
+    background-position: 65% 100px;
+    z-index: 1;
+    animation: img2 10s cubic-bezier(0.39, 0.575, 0.565, 1) 10s infinite; /* Adjusted animation timing functions, duration, and iteration count */
+}
+
+.cartoonImg3 {
+    background: url('/login/img3.png') no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 70%;
+    background-position: 65% 100px;
+    z-index: 1;
+    animation: img3 10s cubic-bezier(0.39, 0.575, 0.565, 1) 20s infinite; /* Adjusted animation timing functions, duration, and iteration count */
+}
+
+/* Keyframes for image slider */
+@keyframes img1 {
+    0% { opacity: 0; transform: translateX(100%); } /* Start off-screen to the right */
+    5% { opacity: 0; } /* Wait with opacity */
+    15% { opacity: 1; transform: translateX(0%); } /* Slide in */
+    30% { opacity: 1; } /* Pause with opacity */
+    60% { opacity: 1; } /* Continue pause for reading */
+    65% { opacity: 0; transform: translateX(-100%); } /* Slide out to the left */
+    100% { opacity: 0; transform: translateX(-100%); } /* Hide off-screen */
+}
+
+@keyframes img2 {
+    0% { opacity: 0; transform: translateX(100%); } /* Start off-screen to the right */
+    50% { opacity: 0; } /* Wait with opacity */
+    60% { opacity: 1; transform: translateX(0%); } /* Slide in */
+    70% { opacity: 1; } /* Pause with opacity */
+    95% { opacity: 1; } /* Continue pause for reading */
+    100% { opacity: 0; transform: translateX(-100%); } /* Slide out to the left */
+}
+
+@keyframes img3 {
+    0% { opacity: 0; transform: translateX(100%); } /* Start off-screen to the right */
+    70% { opacity: 0; } /* Wait with opacity */
+    80% { opacity: 1; transform: translateX(0%); } /* Slide in */
+    100% { opacity: 1; } /* Pause with opacity */
+}
