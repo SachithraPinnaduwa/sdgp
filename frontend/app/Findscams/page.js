@@ -62,7 +62,7 @@ function FindScams() {
         }
       >
         <div className={"mt-[5%] text-center text-amber-50"}>
-          <h1 className={"text-4xl mb-10  animate-fade-in"}>
+          <h1 className={"text-4xl mb-10 lg:pt-0 pt-10 animate-fade-in"}>
             Community Stories
           </h1>
           <p className={"text-xl"}>Scams That the Community Faced</p>

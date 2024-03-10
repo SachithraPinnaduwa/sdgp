@@ -21,19 +21,17 @@ function Footer() {
           <li>
               <a href="/" className="mr-4 hover:underline md:mr-6 ">Home</a>
           </li>
-          <li>
-              <a href="/AboutUs" className="mr-4 hover:underline md:mr-6">About</a>
-          </li>
+          
           <li>
               <a href="/Chatbot" className="mr-4 hover:underline md:mr-6 ">Chatbot</a>
           </li>
           <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">Posts</a>
+              <a href="/Findscams" className="mr-4 hover:underline md:mr-6">Posts</a>
+          </li>
+          <li>
+              <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
           </li>
           
-          <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">Contact</a>
-          </li>
       </ul>
       <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" className="hover:underline">ScamSenseie™</a>. All Rights Reserved.</span>
   </div>
