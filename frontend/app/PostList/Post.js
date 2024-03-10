@@ -6,9 +6,9 @@ import Info from "./Info";
 
 const style = {
   post: 'flex flex-col space-y-1 cursor-pointer',
-  wrapper: 'flex mx-auto space-x-3 max-w-full p-6  border rounded-lg shadow  bg-gray-800 border-gray-700 hover:bg-gray-700',
-  postTitle: 'text-sm font-medium text-[#FFFFFF]',
-  postContent: "text-base font-light text-[#d7dadc]/80",
+  wrapper: 'flex mx-auto space-x-3 max-w-full   sm:w-full lg:w-50 p-6  border rounded-lg shadow   border-gray-700 hover:bg-gray-900',
+  postTitle: 'text-lg font-medium text-[#FFFFFF]',
+  postContent: "text-sm font-light text-[#d7dadc]/80",
 };
 
 const Post = ({id,title,author,upvotes,downvotes,content,district}) => {
@@ -27,6 +27,7 @@ const Post = ({id,title,author,upvotes,downvotes,content,district}) => {
     
     </div>
    </div>
+   
   )
 };
 

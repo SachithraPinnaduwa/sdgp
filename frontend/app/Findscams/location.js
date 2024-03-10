@@ -34,7 +34,7 @@ const LocationComponent = () => {
       <div 
       className="flex justify-center items-center"
       >
-    <button onClick={onClick} className="px-6 py-2 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+    <button onClick={onClick} className="px-6 py-2 border border-rose-500  text-white font-semibold rounded-lg hover:bg-rose-500 focus:outline-none focus:ring-2 focus:ring-indigo-400">
         Get Location
     </button>
 </div>

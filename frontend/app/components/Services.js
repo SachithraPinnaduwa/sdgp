@@ -1,13 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BsRobot } from 'react-icons/bs';
-import { ImLocation } from "react-icons/im";
-import { FaFaceLaughWink } from "react-icons/fa6";
+import Image from 'next/image';
 
 export default function Services() {
   return (
-    <div className="p-8">
-      <div className="flex flex-wrap justify-center gap-4">
+    <div className="h-full min-h-screen w-full  pt-12"><br/><br/><br/>
+      <div className="flex flex-wrap justify-center gap-4 mb-6">
         <motion.div
           className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4  rounded-lg relative"
           initial={{ opacity: 0, y: 50 }}
@@ -17,65 +15,54 @@ export default function Services() {
           <h1 className="custom-h1 ">What can you do with us </h1>
         </motion.div>
       </div>
-      <div className="flex flex-wrap justify-center gap-4">
-        <motion.div
-          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-zinc-600 rounded-lg relative hover:bg-gray-900"
+  <div className="grid gap-14 md:grid-cols-3 md:gap-5">
+  <motion.div
+          
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.4}}
         >
-          <div className="p-6 flex justify-between items-center text-white">
-            <h2 className="text-2xl">Ask your Questions</h2>
-            <div className="text-white text-4xl border border-zinc-600  p-2 rounded-full ">
-              <BsRobot className=" text-rose-500" />
-            </div>
-          </div>
-          <p className="mb-4 text-gray-400 p-3 text-sm text-justify ">
-          Have a question about scams? Our chatbot is here to help! Whether you're curious about recent scams in your 
-          area or want to know the most reported scam topic in Sri Lanka, simply ask away. Our chatbot is 
-          designed to provide answers to your inquiries. From location-based scams to general scam trends, our chatbot is 
-          your go-to resource for information. Start a conversation today and empower yourself against scams!
-          </p>
-        </motion.div>
-        <motion.div
-          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-zinc-600 rounded-lg relative hover:bg-gray-900"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <div className="p-6 flex justify-between items-center text-white">
-            <h2 className="text-2xl">Finding Scams</h2>
-            <div className="text-white text-4xl  border border-zinc-600  p-2 rounded-full">
-              <ImLocation  className='text-rose-500'/>
-            </div>
-          </div>
-          <p className="mb-4 text-gray-400 p-3 text-sm">
-          Discover a wealth of user-contributed experiences from across Sri Lanka. Tailor your search by selecting specific
-           location or explore all posts for a comprehensive overview. Each post offers valuable insights into reported scams, 
-           allowing users to contribute and engage with the community. Your participation through voting helps prioritize posts,
-            ensuring the most relevant information receives attention. Join us in building a knowledgeable and vigilant community against scams!
-          </p>
-        </motion.div>
-        <motion.div
-          className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4 border border-zinc-600 rounded-lg relative hover:bg-gray-900"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <div className="p-6 flex justify-between items-center text-white">
-            <h2 className="text-2xl">Share your Experiences.</h2>
-            <div className="text-white text-4xl border border-zinc-600   p-2 rounded-full">
-              <FaFaceLaughWink className='text-rose-500' />
-            </div>
-          </div>
-          <p className="mb-4 text-gray-400 p-3 text-sm">
-          Discover a wealth of user-contributed experiences from across Sri Lanka. Tailor your search by selecting specific regions or 
-          explore all posts for a comprehensive overview. Each post offers valuable insights into reported scams, allowing users to contribute
-           and engage with the community. Your participation through voting helps prioritize posts, ensuring the most relevant information 
-           receives attention. Join with us in building a knowledgeable and vigilant community against scams!
-          </p>
-        </motion.div>
+    <div className="rounded-xl border border-zinc-600 p-6 text-center shadow-xl">
+      
+      <div
+        className="mx-auto flex h-16 w-16 -translate-y-12 transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
+        <Image src="/chatbot.svg" alt="AI" width={30} height={30}  />
       </div>
-    </div>
+      <h1 className="text-darken mb-3 text-xl font-medium lg:px-14 text-white">Ask your Questions</h1>
+      <p className="px-4 text-gray-400">Got scam questions? Our chatbot's got answers! Stay informed and scam-smart about recent scams and trends in Sri Lanka. Start chatting now!</p>
+    </div></motion.div>
+    <motion.div
+          
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4}}
+        >
+    <div className="rounded-xl border border-zinc-600  p-6 text-center shadow-xl">
+      
+      <div
+        className="mx-auto flex h-16 w-16 -translate-y-12 transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
+        <Image src="/search-square-svgrepo-com.svg" alt="AI" width={30} height={30} />
+      </div>
+      <h1 className="text-darken mb-3 text-xl font-medium lg:px-14 text-white">Finding Scams</h1>
+      <p className="px-4 text-gray-400">Explore user experiences from Sri Lanka! Filter by location or check out all posts for insights on reported scams. Vote to prioritize important info. Let's build a vigilant community together!</p>
+    </div></motion.div>
+    <motion.div
+          
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4}}
+        >
+    <div className="rounded-xl border border-zinc-600 p-6 text-center shadow-xl">
+      
+      <div
+        className="mx-auto flex h-16 w-16 -translate-y-12 transform items-center justify-center rounded-full bg-teal-400 shadow-lg shadow-teal-500/40">
+         <Image src="/share-svgrepo-com.svg" alt="AI" width={30} height={30} />
+      </div>
+      <h1 className="text-darken mb-3 text-xl font-medium lg:px-14 text-white">Share your Experiences.</h1>
+      <p className="px-4 text-gray-400"> Create a post about a scam! Share the location and your experience. Describe the scam and help others stay safe. Join us in empowering everyone to recognize and avoid scams!</p>
+    </div></motion.div>
+  </div>
+
+</div>
   );
 };
