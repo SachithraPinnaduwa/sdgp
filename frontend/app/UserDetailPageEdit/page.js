@@ -9,6 +9,8 @@ import toast from "react-hot-toast";
 function UserDetail() {
 const auth = useAuth();
   const [name, setname] = useState("");
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -33,14 +35,14 @@ const auth = useAuth();
     }
     setError1("")  
     
-    if(email) {
+    if(email == auth.user.email) {
       if (!isValidEmail(email)) {
         setError2('Invalid email format'); 
         return;
       }else{
         try {
 
-          auth.updateUserDetails(name,email,password)
+          auth.updateUserDetails(name,email,password,firstName,lastName)
           toast.success('User updated successfully')
         } catch (error) {
           toast.error('Unable to update user')
@@ -63,14 +65,14 @@ const auth = useAuth();
   return (
     <>
       <div
-        className={"flex flex-col justify-center  mt-[-8%] mb-20 min-h-screen"}
+        className={"flex flex-col justify-center  mt-[-1%] mb-20 min-h-screen"}
       >
         <form
           className="max-w-6xl mx-auto p-8 rounded shadow-md "
           onSubmit={handleSubmit}
         >
           <div className={"mt-[10%] text-center text-amber-50"}>
-            <h1 className={"text-5xl mb-10"}>Your Details</h1>
+            <h1 className={"text-3xl ml-[30%] mb-15"}>Edit Your Details Here</h1>
           </div>
           <div className={"flex items-center mt-[5%] text-amber-50"}>
             <div className={"pr-[3%] ml-20"}>
@@ -82,8 +84,8 @@ const auth = useAuth();
               />
             </div>
             <div className={"mt-[-10%] ml-[7%] text-3xl mr-4"}>
-              <h1 className={"text-4xl mr-4 mt-20 "}>Name of the User</h1>
-              <div className={"flex mt-10 text-2xl"}>
+             
+              <div className={"flex mt-10 text-2xl mt-20"}>
                 <div className={"mr-[10%]"}>
                   <p >User name: </p>
                   <input
@@ -110,6 +112,8 @@ const auth = useAuth();
                   <p>First Name: </p>
                   <input
                     type="text"
+                    value={firstName}
+                    onChange={(e) => setfirstName(e.target.value)}
                     className={"border p-1 text-black"}
                     placeholder="Enter first name"
                   />
@@ -136,6 +140,8 @@ const auth = useAuth();
                 <p>Last Name: </p>
                 <input
                   type="text"
+                  value={lastName}
+                  onChange={(e) => setlastName(e.target.value)}
                   className={"border p-1 text-black "}
                   placeholder="Enter last name"
                 />
@@ -147,7 +153,7 @@ const auth = useAuth();
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={"border p-1 text-black"}
-                  placeholder="Email"
+                  placeholder="Enter Email To Confirm"
                   
                 />
                 {error2 && (

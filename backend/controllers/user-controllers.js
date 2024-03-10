@@ -37,7 +37,7 @@ export const userSignup = async(req, res,next) => {
         }
         const hashedpassword = await hash(password, 10);
 
-const user = new ChatUser({name ,email,password:hashedpassword});
+const user = new ChatUser({name ,email,password:hashedpassword, firstName:" ", lastName:" "});
 await user.save();
 res.clearCookie(COOKIE_NAME,{
     httpOnly: true, domain:"localhost", signed: true,path:"/"
@@ -136,7 +136,7 @@ message:error
 
 export const updateUser = async (req, res, next) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, firstName, lastName  } = req.body;
 
         // Find the user by email
         const user = await ChatUser.findOne({ email });
@@ -152,13 +152,15 @@ export const updateUser = async (req, res, next) => {
             const hashedPassword = await hash(password, 10);
             user.password = hashedPassword;
         }
+        if(firstName) user.firstName = firstName;
+        if(lastName) user.lastName = lastName;
         if (email) user.email = email;
 
         // Save the updated user
         await user.save(); 
 
         // Return the updated user details
-        return res.status(200).json({ message: "User updated", name: user.name, email: user.email });
+        return res.status(200).json({ message: "User updated", name: user.name, email: user.email, firstName: user.firstName, lastName: user.lastName  });
     } catch (error) {
         return res.status(500).json({ error: "Internal Server Error - Unable to update user" });
     }
