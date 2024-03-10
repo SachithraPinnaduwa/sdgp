@@ -20,8 +20,7 @@ const Info = ({author,district})=>{
            <div>*</div>
         <div className={style.postedBy}>
         <span>Posted by {author}</span>
-           {/* <span>*</span>
-           <span>Jun 15</span> */}
+          
         </div>
         </div>
     )

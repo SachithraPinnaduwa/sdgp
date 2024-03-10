@@ -7,7 +7,7 @@ export default function ContactSection() {
         <div className="mb-4">
           <div className="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
            
-            <h2 className="font-heading mb-4 font-bold tracking-tight  text-white text-3xl sm:text-5xl">
+            <h2 className="font-heading mb-4 custom-h1 tracking-tight  sm:text-5xl">
               Contact Us
             </h2>
           </div>
@@ -21,7 +21,7 @@ export default function ContactSection() {
               <ul className="mb-6 md:mb-0">
                 
                 <li className="flex">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-rose-500 text-gray-50">
+                  <div className="flex h-10 w-10 items-center justify-center rounded bg-teal-400 yellow-100 text-gray-50">
                     <FaPhoneAlt />
                   </div>
                   <div className="ml-4 mb-4">
@@ -31,7 +31,7 @@ export default function ContactSection() {
                   </div>
                 </li>
                 <li className="flex">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-rose-500 text-gray-50">
+                  <div className="flex h-10 w-10 items-center justify-center rounded bg-teal-400 text-gray-50">
                     <FaRegClock />
                   </div>
                   <div className="ml-4 mb-4">
@@ -43,7 +43,6 @@ export default function ContactSection() {
               </ul>
             </div>
             <div className="card h-fit max-w-6xl p-5 md:p-12" id="form">
-              <h2 className="mb-4 text-2xl font-bold">Ready to Get Started?</h2>
               <form id="contactForm">
                 <div className="mb-6">
                   <div className="mx-0 mb-1 sm:mb-4">
@@ -62,7 +61,7 @@ export default function ContactSection() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button type="submit" className="w-full bg-rose-500 text-white px-6 py-3 font-xl rounded-md sm:mb-0">Send Message</button>
+                  <button type="submit" className="w-1/2 border text-white border-teal-400 px-6 py-3 font-xl rounded-md sm:mb-0 hover:bg-teal-400">Send Message</button>
                 </div>
               </form>
             </div>
