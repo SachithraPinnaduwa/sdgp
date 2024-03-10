@@ -139,9 +139,9 @@ export const getUser = async (email) => {
     return data;
 }
 
-export const updateUser = async (name,email,password) => {
+export const updateUser = async (name,email,password,firstName,lastName) => {
     
-    const res = await axiosInstance.put('/users/update', {name,email,password})
+    const res = await axiosInstance.put('/users/update', {name,email,password,firstName,lastName})
     if (res.status !== 200) {
         
         console.error('Error getting user data')

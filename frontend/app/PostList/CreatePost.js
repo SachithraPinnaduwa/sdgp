@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { MdOutlinePostAdd } from "react-icons/md";
+import Image from 'next/image'
 
 const style = {
   wrapper: `flex items-center mx-auto space-x-3 max-w-full p-6  border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`,
@@ -15,7 +16,7 @@ const CreatePost = () => {
       <div className={style.redirectContainer}>
         <Link legacyBehavior href={`/PostList/new`}>
           <a className={style.redirectButton}>
-            <MdOutlinePostAdd className="h-6 w-6 mr-2" /> {/* Adjust size and spacing as per your requirement */}
+            <Image src="/letter.png" alt="Create Post" width={30} height={30} className='mr-5 ml-5' />
             Create Post
           </a>
         </Link>

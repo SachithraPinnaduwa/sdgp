@@ -9,6 +9,9 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [district, setDistrict] = useState('');
+
+  
   useEffect(() => {
     //fetch if the user cookies are valid
     async function checkAuth(){
@@ -69,13 +72,17 @@ const data = await loginUser(email, password);
     return data;
   };
 
-  const updateUserDetails = async (name,email,password) => {
-    const data = await updateUser(name,email,password)
+  const updateUserDetails = async (name,email,password,firstName,lastName) => {
+    const data = await updateUser(name,email,password,firstName,lastName)
     return data;
   };
   
 
-  const value = { user,isLoggedIn, login, signup, logout,scamPost,getScamPosts,upvote,downvote,getUserDetails,updateUserDetails };
+  const value = { user,isLoggedIn,
+     login, signup, logout,scamPost,
+     getScamPosts,upvote,downvote,getUserDetails,updateUserDetails,
+      district, setDistrict
+     };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 

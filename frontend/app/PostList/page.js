@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Feed from './Feed';
 import CreatePost from './CreatePost';
 import { useAuth } from '../context/AuthContext';
+import Navigation from '../Findscams/navForFindscam';
 
 const style = {
   main: 'mx-auto flex w-full max-w-5xl space-x-6 py-5 px-6',
@@ -30,8 +31,14 @@ const PostList = () => {
 
   return (
     <div>
+    <Navigation/>
+    <main className={style.main}>
       <div className={'flex flex-col mt-20 justify-center items-center '}><br/>
-        <div className="sm:w-1/3 w-3/4  items-center ">
+        
+        </div>
+      
+        <div className={style.content}>
+<div className="sm:w-1/3 w-3/4  items-center ">
             <input
               type="text"
               className={style.searchInput}
@@ -40,16 +47,13 @@ const PostList = () => {
               onChange={handleSearch}
             />
         </div>
-        </div>
-      <main className={style.main}>
-        <div className={style.content}>
-
           <CreatePost />
           
           <Feed posts={myPosts.filter(post => post.scam.toLowerCase().includes(searchQuery.toLowerCase()))} />
         </div>
       </main>
-    </div>
+      </div>
+    
   );
 };
 
