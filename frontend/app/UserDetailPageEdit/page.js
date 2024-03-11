@@ -67,115 +67,127 @@ const auth = useAuth();
       <div
         className={"flex flex-col justify-center  mt-[-1%] mb-20 min-h-screen"}
       >
+        
+        <div className={" text-center text-amber-50 mt-[20%] md:mt-[0%]"}>
+            <h1 className={"text-3xl ml-[3%] md:ml-[10%] mb-15 text-teal-400 font-semibold "}>Edit Your Details Here</h1>
+        </div>
+        
         <form
-          className="max-w-6xl mx-auto p-8 rounded shadow-md "
+          className=" md:flex no-wrap md:-mx-auto p-8 rounded grid grid-cols-1 md:grid-cols-2 "
           onSubmit={handleSubmit}
         >
-          <div className={"mt-[10%] text-center text-amber-50"}>
-            <h1 className={"text-3xl ml-[30%] mb-15"}>Edit Your Details Here</h1>
-          </div>
-          <div className={"flex items-center mt-[5%] text-amber-50"}>
-            <div className={"pr-[3%] ml-20"}>
+
+            <div className={"grid-cols-2 ml-[25%] mt-[2%] md:grid-cols-2 md:-ml-[0%] max-w-md "}>
               <Image
+                className=" rounded-xl"
                 src={"/UserDetails/anonymous_avatars_grey_circles.jpg"}
                 alt={"search"}
-                width={300}
+                width={250}
                 height={300}
               />
             </div>
-            <div className={"mt-[-10%] ml-[7%] text-3xl mr-4"}>
-             
-              <div className={"flex mt-10 text-2xl mt-20"}>
-                <div className={"mr-[10%]"}>
-                  <p >User name: </p>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setname(e.target.value)}
-                    className={"border p-1 text-black "}
-                    placeholder="User name"
-                  />
-                </div>
-                <div className={"mr-[10%]"}>
-                  <p>Password: </p>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className={"border p-1 text-black"}
-                    placeholder="password"
-                  />
-                </div>
-              </div>
-              <div className={"flex mt-10 text-2xl"}>
-                <div className={"mr-[10%]"}>
-                  <p>First Name: </p>
-                  <input
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setfirstName(e.target.value)}
-                    className={"border p-1 text-black"}
-                    placeholder="Enter first name"
-                  />
-                </div>
-                <div className={"mr-[10%]"}>
-                  <p>Confirm Password: </p>
-                  <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className={"border p-1 text-black"}
-                    placeholder="password"
-                  />
-                  {error1 && (
-                    <div className='bg-red-500 text-white p-2 rounded w-fit text-sm'>
-                      {error1}
-                      </div>
-                  )}
-                </div>
-                
-              </div>
-              <div className={"flex mt-10 text-2xl"}>
-              <div className={"mr-[10%]"}>
-                <p>Last Name: </p>
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => setlastName(e.target.value)}
-                  className={"border p-1 text-black "}
-                  placeholder="Enter last name"
-                />
-              </div>
-              <div className={"mr-[10%]"}>
-                <p >Email : </p>
-                <input
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className={"border p-1 text-black"}
-                  placeholder="Enter Email To Confirm"
-                  
-                />
-                {error2 && (
-                    <div className='bg-red-500 text-white p-2 rounded w-fit text-sm'>
-                      {error2}
-                      </div>
-                  )}
-              </div>
-
             
-              </div>
-              <div  className="block">
-                  <p className="w-full">&nbsp;	</p>
-                <button type="submit" className={"bg-blue-500 text-black p-2 rounded-md"}>
-                  Submit
-                </button>
-                
+            <div className={" grid-cols-2 text-3xl mt-[2%] mr-4 "}>
+             
+              <div className="w-full mx-5 h-64">
+                <div className="p-3 shadow-sm rounded-sm bg-slate-100 pb-10 border dark:bg-gray-600 rounded-xl">
+                  
+                  <div className="text-gray-700 text-xl mt-[2%]">
+                    <div className="grid lg:grid-cols-2 text-white">
+                      <div className="grid grid-cols-2 m-5 ">
+                        <p >User name : </p>
+                        <input
+                        
+                          type="text"
+                          value={name}
+                          onChange={(e) => setname(e.target.value)}
+                          className={"border p-1 text-black rounded-lg"}
+                          placeholder="User name"
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 m-5">
+                        <p >Current Email : </p>
+                        <input
+                          type="text"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className={"border p-1 text-black rounded-lg"}
+                          placeholder="Confirm Email"
+                          
+                        />
+                                                
+                      </div>
+                      <div className="ml-[61%]" >            
+                        {error1 && (
+                          <div className='bg-red-500 text-white p-2 rounded-lg w-fit text-sm mt-2'>
+                            {error1}
+                            </div>
+                        )}     
+                      </div>
+                      <div className="ml-[44%]">
+                        {error2 && (
+                            <div className='bg-red-500 text-white p-2 rounded-lg w-fit text-sm mt-2'>
+                              {error2}
+                              </div>
+                          )}
+                        </div>
+                      <div className="grid grid-cols-2 m-5">
+                        <p>Password : </p>
+                        <input
+                          type="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          className={"border p-1 text-black rounded-lg"}
+                          placeholder="Password"
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 m-5">
+                        <p>Confirm Password : </p>
+                        <input
+                          type="password"
+                          value={confirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          className={"border p-1 text-black rounded-lg"}
+                          placeholder="Password"
+                        />
+                        
+                      </div>
+                      <div className="grid grid-cols-2 m-5">
+                        <p>First Name : </p>
+                        <input
+                          type="text"
+                          value={firstName}
+                          onChange={(e) => setfirstName(e.target.value)}
+                          className={"border p-1 text-black rounded-lg"}
+                          placeholder="Enter first name"
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 m-5">
+                        <p>Last Name : </p>
+                        <input
+                          type="text"
+                          value={lastName}
+                          onChange={(e) => setlastName(e.target.value)}
+                          className={"border p-1 text-black rounded-lg"}
+                          placeholder="Enter last name"
+                        />
+                      </div>
+
+                              
+                    </div>
+                    <div className="flex items-center font-semibold ml-[85%] mt-6 "> 
+                        <button type="submit" className={"bg-blue-700 text-black p-2 rounded-md px-[15%]"}>
+                          Save
+                        </button>
+                    </div> 
+                  </div>
+                  
+                </div>                
               </div>
 
               
             </div>
-          </div>
+          
         </form>
       </div>
     </>
