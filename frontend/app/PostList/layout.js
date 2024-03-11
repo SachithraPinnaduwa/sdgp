@@ -10,6 +10,7 @@ export default function PostListLayout({
   }) {
     return (
       <section>
+        <Navbar />
         {children}
       </section>
     )

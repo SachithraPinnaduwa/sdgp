@@ -54,7 +54,7 @@ function FindScams() {
   ];
   return (
     <>
-    <Navbar />
+   
     <div>
     
       <main className='flex flex-col sm:p-20 p-5  mt-[-5%] min-h-screen container  mx-auto'>
