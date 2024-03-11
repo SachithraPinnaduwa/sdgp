@@ -14,13 +14,14 @@ const Feed = ({posts}) => {
   });
   console.log(sortedPosts,"posts");
   return (
-    <div className={style.wrapper}>
+    <div className="md:grid md:justify-center md:grid-cols-2 gap-20">
     {sortedPosts ? sortedPosts.map((post,id)=>{ return <Post title={post.title ? post.title: "No title"}
      id={post._id ? post._id: "No id"}
       author={post.name}
       district={post.district}
       key={id} upvotes={post.upvotes ? post.upvotes:0} downvotes={post.downvotes? post.downvotes: 0}
-      content={post.scam}/>}) :<div>No posts create one</div>}
+      content={post.scam}
+      image={post.image ? post.image:""}/>}) :<div>No posts create one</div>}
    
     </div>
   );
