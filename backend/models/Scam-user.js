@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
     downvotes: {
         type: Number,
         default: 0
+    },
+    myFile: {
+        type: String,
+        required: false
     }
 });
 
