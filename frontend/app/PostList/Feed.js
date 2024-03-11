@@ -21,7 +21,7 @@ const Feed = ({posts}) => {
       district={post.district}
       key={id} upvotes={post.upvotes ? post.upvotes:0} downvotes={post.downvotes? post.downvotes: 0}
       content={post.scam}
-      image={post.image ? post.image:""}/>}) :<div>No posts create one</div>}
+      image={post.myFile ? post.myFile:""}/>}) :<div>No posts create one</div>}
    
     </div>
   );

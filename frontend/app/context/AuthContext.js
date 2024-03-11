@@ -46,8 +46,8 @@ const data = await loginUser(email, password);
     setUser(null);
     window.location.reload();
   };
-  const scamPost = async (name,district,scam,title) => {
-    await scamSubmit(name,district,scam,title);
+  const scamPost = async (name,district,scam,title,myFile) => {
+    await scamSubmit(name,district,scam,title,myFile);
     
   };
 

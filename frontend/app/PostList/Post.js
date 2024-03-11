@@ -16,14 +16,15 @@ const Post = ({id,title,author,upvotes,downvotes,content,district,image}) => {
   
   <div
           
-          className={`flex flex-col  rounded-lg bg-gray-500 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0 `}
+          className={`flex flex-col my-4  rounded-lg bg-gray-500 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0 `}
         >
-          <div className="flex-shrink-0  mx-auto  object-fill">
+          <div className="flex-shrink-0 flex  mx-auto  object-fill min-h-[50vh] content-center justify-center items-center">
             <img
               className={`rounded-t-lg`}
               src={image ? image : "./noimage.jpg"}
               alt={title}
             />
+           
           </div>
           <div className="p-6">
             <h5 className="mb-2 text-3xl leading-tight">{title}</h5>
