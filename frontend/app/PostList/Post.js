@@ -16,7 +16,7 @@ const Post = ({id,title,author,upvotes,downvotes,content,district,image}) => {
   
   <div
           
-          className={`flex flex-col my-4  rounded-lg bg-gray-500 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0 `}
+          className={`flex flex-col my-4  rounded-lg text-surface shadow-secondary-1 bg-zinc-800 text-white sm:shrink-0 sm:grow sm:basis-0 `}
         >
           <div className="flex-shrink-0 flex  mx-auto  object-fill min-h-[50vh] content-center justify-center items-center">
             <img
@@ -27,8 +27,8 @@ const Post = ({id,title,author,upvotes,downvotes,content,district,image}) => {
            
           </div>
           <div className="p-6">
-            <h5 className="mb-2 text-3xl leading-tight">{title}</h5>
-            <p className="mb-4 text-2xl">{content}</p>
+            <h5 className="mb-2 text-2xl leading-tight">{title}</h5>
+            <p className="mb-4 text-xl">{content}</p>
             <p className="mb-4 text-base text-surface/75 dark:text-neutral-300 ">
              
             <div className="flex justify-between items-center">

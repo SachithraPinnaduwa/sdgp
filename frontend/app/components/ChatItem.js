@@ -5,12 +5,12 @@ import logos from "../../public/logos.png";
 function ChatItem({ content, role }) {
     const auth = useAuth();
     return role === "assistant" ? (
-      <div className="flex items-center p-2 bg-blue-500 text-white rounded-lg gap-2">
+      <div className="flex items-center p-2 bg-slate-800 text-white rounded-lg gap-2">
         <div className="shrink-0 bg-white rounded-full p-1">
           <Image src={logos} alt="AI" width={30} height={30} />
         </div>
         <div className="flex-1 min-w-0 p-2 m-2">
-          <p className="text-white text-sm break-words">{content}</p>
+          <p className="text-white text-lg break-words">{content}</p>
         </div>
       </div>
     ) : (
@@ -19,8 +19,8 @@ function ChatItem({ content, role }) {
           {auth?.user?.name[0]}
           
         </div>
-        <div className="self-end bg-gray-400 text-white rounded-lg p-2 m-2">
-          <p className="text-white text-sm break-words">{content}</p>
+        <div className="self-end  text-white rounded-lg p-2 m-2">
+          <p className="text-white text-lg break-words">{content}</p>
         </div>
       </div>
     );
