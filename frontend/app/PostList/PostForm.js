@@ -203,7 +203,7 @@ const PostForm = () => {
           <div>
             <label
               htmlFor="file_input"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
             >
               Upload file
             </label>

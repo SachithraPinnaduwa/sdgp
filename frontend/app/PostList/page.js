@@ -65,12 +65,13 @@ const PostList = () => {
     </div>
 </form>
 
-          </div>
+          </div >
+          <div className="mt-4">
           <CreatePost />
 
           <Feed posts={myPosts.filter(post => post.scam.toLowerCase().includes(searchQuery.toLowerCase()))} />
           
-        </div>
+        </div></div>
       </main>
     </div>
   );
