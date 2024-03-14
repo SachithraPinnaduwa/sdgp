@@ -37,7 +37,7 @@ const PostList = () => {
 
   return (
     <div>
-      
+      <Navbar />
       <main className={style.main}>
         <div className={"flex flex-col mt-20 justify-center items-center "}>
           <br />
@@ -54,7 +54,7 @@ const PostList = () => {
             /> */}
             
 <form className="max-w-md mx-auto">   
-    <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
         <CiSearch  className="font text-slate-50 text-2xl"/>

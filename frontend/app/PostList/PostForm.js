@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Corrected import
+import { useRouter } from "next/navigation"; 
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
-import { GoFileDirectoryFill } from "react-icons/go";
 
 
 const style = {
@@ -53,28 +52,7 @@ const PostForm = () => {
     "Vavuniya",
   ];
 
-  //   const createForm = async (e) => {
-  //     e.preventDefault(); // Prevent default form submission
-  //     try {
-  //       setLoading(true);
-  //       const formData = new FormData(e.currentTarget);
-  // const title = formData.get('title');
-  //       const name = formData.get('name');
-  //       const district = formData.get('district');
-  //       const scam = formData.get('scam');
-
-  //       await auth.scamPost(name, district, scam,title);
-
-  //       console.log('Form submitted successfully:');
-  //       toast.success('Form submitted successfully.');
-  //     } catch (error) {
-  //       console.error('Error submitting form:', error);
-  //       toast.error('Error submitting form. Please try again later.');
-  //     } finally {
-  //       setLoading(false);
-  //       router.push('/PostList')
-  //     }
-  //   };
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -135,7 +113,7 @@ const PostForm = () => {
           onSubmit={handleSubmit}
         >
           <label
-            for="website-admin"
+            htmlFor="website-admin"
             className="block text-sm font-medium  text-white"
           >
             Username
@@ -160,7 +138,7 @@ const PostForm = () => {
             />
           </div>
           <label
-            for="text"
+            htmlFor="text"
             className="block mb-2 text-sm font-medium text-white"
           >
             Title for your post
@@ -173,7 +151,7 @@ const PostForm = () => {
             required
           />
           <label
-            for="district"
+            htmlFor="district"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Select the district where the scam occured
@@ -188,7 +166,7 @@ const PostForm = () => {
             ))}
           </select>
           <label
-            for="scam"
+            htmlFor="scam"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             The Scam you experienced

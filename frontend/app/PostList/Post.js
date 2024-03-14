@@ -15,9 +15,9 @@ const Post = ({id,title,author,upvotes,downvotes,content,district,image}) => {
   return (
   
   <div
-          
           className={`flex flex-col my-4  rounded-lg text-surface shadow-secondary-1 bg-zinc-800 text-white sm:shrink-0 sm:grow sm:basis-0 `}
         >
+         
           <div className="flex-shrink-0 flex  mx-auto  object-fill min-h-[50vh] content-center justify-center items-center">
             <img
               className={`rounded-t-lg`}
