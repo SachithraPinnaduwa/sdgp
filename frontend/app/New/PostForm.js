@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation"; // Corrected import
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
+import { GoFileDirectoryFill } from "react-icons/go";
 
 
 const style = {
@@ -52,7 +53,7 @@ const PostForm = () => {
     "Vavuniya",
   ];
 
- 
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,7 +63,7 @@ const PostForm = () => {
       const formData = new FormData(e.currentTarget);
       const title = formData.get("title");
       const name = formData.get("name");
-      const district = formData.get("district");
+      const district = formData.get("district"); 
       const scam = formData.get("scam");
       const myFile = postImage;
 
@@ -113,7 +114,7 @@ const PostForm = () => {
           onSubmit={handleSubmit}
         >
           <label
-            htmlFor="website-admin"
+            htmlFor="name"
             className="block text-sm font-medium  text-white"
           >
             Username
@@ -138,14 +139,14 @@ const PostForm = () => {
             />
           </div>
           <label
-            htmlFor="text"
+            htmlFor="title"
             className="block mb-2 text-sm font-medium text-white"
           >
             Title for your post
           </label>
           <input
             type="text"
-            id="text"
+            id="title"
             name="title"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-blue-500 focus:border-blue-500"
             required

@@ -5,6 +5,7 @@ import logos from "../../public/logos.png";
 import { useAuth } from "../context/AuthContext";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, UserIcon, CogIcon } from "@heroicons/react/24/outline";
+import avatarany from "../../public/UserDetails/anonymous_avatars_grey_circles.jpg";
 
 const Navbar = () => {
   const auth = useAuth();
@@ -21,7 +22,7 @@ const Navbar = () => {
         { name: "by Upvotes", href: "/PostList", current: false },
       ],
     },
-    { name: "Submit Scam", href: "/PostList/new", current: false },
+    { name: "Submit Scam", href: "/New", current: false },
   ];
 
   useEffect(() => {

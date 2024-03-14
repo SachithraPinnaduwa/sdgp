@@ -1,5 +1,5 @@
 
-import PostForm from "../PostForm";
+import PostForm from "./PostForm";
 
 
 const New = () => {

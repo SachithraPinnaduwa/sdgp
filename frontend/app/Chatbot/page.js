@@ -105,9 +105,9 @@ const timeoutId = setTimeout(() => {
         </div>
       </div>
 
-      <div className="flex flex-1 md:flex-[0.8] px-12 flex-col  ">
+      <div className="flex flex-1 md:flex-[0.8] flex-col  ">
         <h2 className="text-center text-2xl text-white mb-8">ScamSensei ChatBot</h2>
-        <div className="w-[130vh] h-[60vh] text-lg rounded-md mx-auto flex flex-col overflow-y-auto scroll-smooth overflow-x-hidden">
+        <div className="w-[130vh] h-[60vh]  text-lg rounded-md mx-auto flex flex-col overflow-y-auto scroll-smooth overflow-x-hidden">
           {chatMessage.map((chat, index) => (
             <ChatItem content={chat.content} role={chat.role} key={index} />
           ))}
