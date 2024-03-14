@@ -72,8 +72,8 @@ const data = await loginUser(email, password);
     return data;
   };
 
-  const updateUserDetails = async (name,email,password,firstName,lastName) => {
-    const data = await updateUser(name,email,password,firstName,lastName)
+  const updateUserDetails = async (name,email,password,firstName,lastName,postImage) => {
+    const data = await updateUser(name,email,password,firstName,lastName,postImage)
     return data;
   };
   
