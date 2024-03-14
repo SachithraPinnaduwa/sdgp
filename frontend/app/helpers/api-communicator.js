@@ -85,8 +85,8 @@ export  const logoutUser =  async()=>{
     return data;
 }
 
-export  const scamSubmit =  async(name,district,scam,title)=>{
-    const response = await axiosInstance.post('/scam',{name,district,scam,title})
+export  const scamSubmit =  async(name,district,scam,title,myFile)=>{
+    const response = await axiosInstance.post('/scam',{name,district,scam,title,myFile})
     if (response.status != 200) {
         throw new Error("Unable to post scam");
         

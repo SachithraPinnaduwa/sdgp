@@ -39,11 +39,11 @@ function UserDetail() {
       <div className="md:flex no-wrap  mt-[5%]">
       
         <div className="w-full md:w-3/12 md:mx-2 mt-[0.2%]  ">
-          <div className="bg-white p-3 border dark:bg-gray-600 border border-e-0 border-gray-300 rounded-xl">
+          <div className=" p-3 bg-gray-600 border border-e-0 border-gray-300 rounded-xl">
             <div className="">
               <Image src="/UserDetails/anonymous_avatars_grey_circles.jpg" width={150} height={150} alt="logo " className=" rounded-[50%]" />
             </div>
-            <h1 className="text-gray-900 font-bold text-xl leading-8 my-1 ml-8">
+            <h1 className="text-white font-black text-2xl leading-8 my-1 ml-8">
               {userData.name}
             </h1>
                         
@@ -73,32 +73,32 @@ function UserDetail() {
               </span>
               <span className="tracking-wide text-2xl">About</span>
             </div>
-            <div className="text-white mt-[2%] text-xl">
-              <div className="grid md:grid-cols-2 mt-[2%]">
+            <div className="text-white flex flex-col mt-[2%] text-xl">
+              <div className="grid md:grid-cols-2 mt-[2%] gap-5">
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">First Name : </div>
-                  <div className="px-01 py-2">{userData.firstName}</div>
+                  <div className="py-2 ">{userData.firstName}</div>
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">Last Name : </div>
-                  <div className="px-4 py-2">{userData.lastName}</div>
+                  <div className=" py-2">{userData.lastName}</div>
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">User Name : </div>
-                  <div className="px-01 py-2">{userData.name}</div>
+                  <div className="py-2">{userData.name}</div>
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">Email : </div>
-                  <div className="px-4 py-2">{userData.email}</div>
+                  <div className=" py-2">{userData.email}</div>
                 </div>
                 <div>
 
                 </div>
-                <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 ml-[65%] mt-6">
+                <div className="flex items-center font-semibold ml-[65%] mt-6 ">
                   <Link href={'../UserDetailPageEdit'}>
                     <Button 
                       
-                      label="Edit" type="button" icon="" variant=" px-8 py-4 text-white bg-black">Edit</Button>
+                      label="Edit" type="button" icon="" variant=" bg-teal-400 hover:bg-teal-500 px-10 w-20 p-2 rounded-md px-[15%]">Edit</Button>
                   </Link>
                 </div> 
                 
