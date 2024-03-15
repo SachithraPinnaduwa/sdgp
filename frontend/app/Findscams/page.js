@@ -4,6 +4,9 @@ import Feed from "../PostList/Feed";
 import { useAuth } from "../context/AuthContext";
 import { useState, useEffect } from "react";
 import LocationComponent from "./location";
+import Navigation from "./navForFindscam";
+import CreatePost from "../PostList/CreatePost";
+import Navbar from "../components/Navbar";
 
 function FindScams() {
   const auth = useAuth();
@@ -51,16 +54,20 @@ function FindScams() {
   ];
   return (
     <>
+   
+    <div>
+    
+      <main className='flex flex-col sm:p-20 p-5  mt-[-5%] min-h-screen container  mx-auto'>
       <div
         className={
           "flex flex-col justify-center items-center mt-[1%] min-h-screen"
         }
       >
-        <div className={"mt-[10%] text-center text-amber-50"}>
-          <h1 className={"text-6xl mb-10  animate-fade-in"}>
+        <div className={"mt-[5%] text-center text-amber-50"}>
+          <h1 className={"text-4xl mb-10 lg:pt-0 pt-10 animate-fade-in"}>
             Community Stories
           </h1>
-          <p className={"text-3xl"}>Scams That the Community Faced</p>
+          <p className={"text-xl"}>Scams That the Community Faced</p>
         </div>
 
         <div className="flex flex-wrap justify-center">
@@ -91,6 +98,7 @@ function FindScams() {
           </div>
         </div>
         <div className="mt-4">
+        <CreatePost /><br/>
           <Feed
             posts={myPosts.filter((post) =>
               post.district
@@ -99,7 +107,7 @@ function FindScams() {
             )}
           />
         </div>
-      </div>
+      </div></main></div>
     </>
   );
 }

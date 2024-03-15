@@ -25,13 +25,13 @@ body {
  
 }
 .bg-gradient-radial {
-  background: rgb(33, 33, 58);
+  background: rgb(23, 23, 23);
 
 }
 
 
 .bg-footer{
- background-color: rgb(28,9,35);
+ background-color: rgb(58, 58, 70);
 }
 
 
@@ -51,7 +51,7 @@ body {
 }
 /* styles.css */
 .custom-h1 {
-  @apply text-center mt-2 text-3xl font-black  md:text-4xl text-white pb-5;
+  @apply text-center mt-2 text-3xl font-serif  md:text-4xl text-white pb-5;
 }
 
 .video-bg {
@@ -99,4 +99,47 @@ body {
   }
 
 }
+
+
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(143, 83, 83, 0.75), rgba(143, 83, 83, 0.75));
+  opacity: 20%;
+}
+.content{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+
+
+
+.mainPage {
+  position: relative;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 

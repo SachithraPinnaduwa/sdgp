@@ -5,6 +5,7 @@ import logos from "../../public/logos.png";
 import { useAuth } from "../context/AuthContext";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, UserIcon, CogIcon } from "@heroicons/react/24/outline";
+import avatarany from "../../public/UserDetails/anonymous_avatars_grey_circles.jpg";
 
 const Navbar = () => {
   const auth = useAuth();
@@ -21,7 +22,7 @@ const Navbar = () => {
         { name: "by Upvotes", href: "/PostList", current: false },
       ],
     },
-    { name: "Submit Scam", href: "/PostList/new", current: false },
+    { name: "Submit Scam", href: "/New", current: false },
   ];
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const Navbar = () => {
   }, [prevScrollPos]);
 
   return (
-    <Disclosure as="nav" className={`fixed top-0 w-full z-30 bg-opacity-50 dark:bg-gray-900 ${visible ? "" : "-translate-y-full"} transition-transform duration-300`}>
+    <Disclosure as="nav" className={`fixed top-0 w-full z-30  bg-black ${visible ? "" : "-translate-y-full"} transition-transform duration-300`}>
       {({ open }) => (
         <>
           <div className=" mx-auto px-4 md:px-6 lg:px-8 max-w-screen-lg">
@@ -51,7 +52,7 @@ const Navbar = () => {
                   {navigation.map((item) =>
                     !item.submenu ? (
                       !item.authRequired || auth.isLoggedIn ? (
-                        <a key={item.name} href={item.href} className={`px-3 py-2 rounded-md text-md font-medium ${item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}>
+                        <a key={item.name} href={item.href} className={`px-3 py-2 rounded-md text-md font-medium ${item.current ? "bg-black text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}>
                           {item.name}
                         </a>
                       ) : null
@@ -104,7 +105,7 @@ const Navbar = () => {
                     <div>
                       <Menu.Button className="flex text-md rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span className="sr-only">Open user menu</span>
-                        <img className="h-8 w-8 rounded-full" src={"./UserDetails/anonymous_avatars_grey_circles.jpg"} alt="" />
+                        <img className="h-8 w-8 rounded-full" src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?w=740&t=st=1710406375~exp=1710406975~hmac=3c2f68d6d389e36f571b7253e4c02038875a943e5eec2e66eacb3f94ee5b359e"} alt="" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -116,12 +117,12 @@ const Navbar = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-50 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="flex flex-row py-2">
                       <div >
-                      <img className="h-10 w-10 rounded-full" src={"./UserDetails/anonymous_avatars_grey_circles.jpg"} alt="avatar" />
+                      <img className="h-10 w-10 rounded-full" src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?w=740&t=st=1710406375~exp=1710406975~hmac=3c2f68d6d389e36f571b7253e4c02038875a943e5eec2e66eacb3f94ee5b359e"} alt="avatar" />
                     </div>
-                    <div className="flex flex-col gap-2 px-2">
+                    <div className="flex flex-col gap-2 px-2 ">
                       <div className="text-md font-medium leading-none text-gray-400">{auth.user.name}</div>
                       <div className="text-md font-medium leading-none text-gray-400">{auth.user.email}</div>
                     </div>
