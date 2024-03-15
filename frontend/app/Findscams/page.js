@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import LocationComponent from "./location";
 import Navigation from "./navForFindscam";
 import CreatePost from "../PostList/CreatePost";
+import Navbar from "../components/Navbar";
 
 function FindScams() {
   const auth = useAuth();
@@ -53,8 +54,9 @@ function FindScams() {
   ];
   return (
     <>
+   
     <div>
-      <Navigation/>
+    
       <main className='flex flex-col sm:p-20 p-5  mt-[-5%] min-h-screen container  mx-auto'>
       <div
         className={
