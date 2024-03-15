@@ -5,7 +5,6 @@ import logos from "../../public/logos.png";
 import { useAuth } from "../context/AuthContext";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, UserIcon, CogIcon } from "@heroicons/react/24/outline";
-import avatarany from "../../public/UserDetails/anonymous_avatars_grey_circles.jpg";
 
 const Navbar = () => {
   const auth = useAuth();
@@ -22,7 +21,7 @@ const Navbar = () => {
         { name: "by Upvotes", href: "/PostList", current: false },
       ],
     },
-    { name: "Submit Scam", href: "/New", current: false },
+    { name: "Submit Scam", href: "/PostList/new", current: false },
   ];
 
   useEffect(() => {
@@ -105,7 +104,7 @@ const Navbar = () => {
                     <div>
                       <Menu.Button className="flex text-md rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span className="sr-only">Open user menu</span>
-                        <img className="h-8 w-8 rounded-full" src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?w=740&t=st=1710406375~exp=1710406975~hmac=3c2f68d6d389e36f571b7253e4c02038875a943e5eec2e66eacb3f94ee5b359e"} alt="" />
+                        <img className="h-8 w-8 rounded-full" src={"./UserDetails/anonymous_avatars_grey_circles.jpg"} alt="" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -120,7 +119,7 @@ const Navbar = () => {
                       <Menu.Items className="origin-top-right absolute right-0 mt-2 w-50 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="flex flex-row py-2">
                       <div >
-                      <img className="h-10 w-10 rounded-full" src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?w=740&t=st=1710406375~exp=1710406975~hmac=3c2f68d6d389e36f571b7253e4c02038875a943e5eec2e66eacb3f94ee5b359e"} alt="avatar" />
+                      <img className="h-10 w-10 rounded-full" src={"./UserDetails/anonymous_avatars_grey_circles.jpg"} alt="avatar" />
                     </div>
                     <div className="flex flex-col gap-2 px-2 ">
                       <div className="text-md font-medium leading-none text-gray-400">{auth.user.name}</div>

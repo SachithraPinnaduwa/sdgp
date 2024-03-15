@@ -85,8 +85,8 @@ export  const logoutUser =  async()=>{
     return data;
 }
 
-export  const scamSubmit =  async(name,district,scam,title,myFile)=>{
-    const response = await axiosInstance.post('/scam',{name,district,scam,title,myFile})
+export  const scamSubmit =  async(name,district,scam,title)=>{
+    const response = await axiosInstance.post('/scam',{name,district,scam,title})
     if (response.status != 200) {
         throw new Error("Unable to post scam");
         
@@ -139,9 +139,9 @@ export const getUser = async (email) => {
     return data;
 }
 
-export const updateUser = async (name,email,password,firstName,lastName,postImage) => {
+export const updateUser = async (name,email,password,firstName,lastName) => {
     
-    const res = await axiosInstance.put('/users/update', {name,email,password,firstName,lastName,postImage})
+    const res = await axiosInstance.put('/users/update', {name,email,password,firstName,lastName})
     if (res.status !== 200) {
         
         console.error('Error getting user data')

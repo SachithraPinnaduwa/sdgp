@@ -46,8 +46,8 @@ const data = await loginUser(email, password);
     setUser(null);
     window.location.reload();
   };
-  const scamPost = async (name,district,scam,title,myFile) => {
-    await scamSubmit(name,district,scam,title,myFile);
+  const scamPost = async (name,district,scam,title) => {
+    await scamSubmit(name,district,scam,title);
     
   };
 
@@ -72,8 +72,8 @@ const data = await loginUser(email, password);
     return data;
   };
 
-  const updateUserDetails = async (name,email,password,firstName,lastName,postImage) => {
-    const data = await updateUser(name,email,password,firstName,lastName,postImage)
+  const updateUserDetails = async (name,email,password,firstName,lastName) => {
+    const data = await updateUser(name,email,password,firstName,lastName)
     return data;
   };
   

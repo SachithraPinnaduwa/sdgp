@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String, // Direct use of String, as mongoose.Schema.Types.String is unnecessary
         required: true,
-        
+        unique: true
     },title: {
         type: String,
         required: true
@@ -25,10 +25,6 @@ const userSchema = new mongoose.Schema({
     downvotes: {
         type: Number,
         default: 0
-    },
-    myFile: {
-        type: String,
-        required: false
     }
 });
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Services() {
   return (
-    <div className="  w-full pb-20 pt-12"><br/><br/><br/>
+    <div className="h-full min-h-screen w-full  pt-12"><br/><br/><br/>
       <div className="flex flex-wrap justify-center gap-4 mb-6">
         <motion.div
           className="flex-auto w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-2rem)] p-4  rounded-lg relative"

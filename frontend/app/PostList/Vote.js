@@ -1,13 +1,12 @@
 
 'use client'
-
+import {UpvoteIcon} from './Upvote'
+import {DownvoteIcon} from './Downvote'
 import {useAuth} from '../context/AuthContext'
 import {useState} from 'react'
-import { BiUpvote } from "react-icons/bi";
-import { BiDownvote } from "react-icons/bi";
 const style = {
-    votes:"py-1 font-bold text-white text-2xl",
-    wrapper:'flex flex-row items-center'
+    votes:"py-1 text-xs font-bold text-white",
+    wrapper:'flex flex-col items-center'
 }
 const Vote =({upvotes,downvotes,id})=>{
     const auth = useAuth()
@@ -31,11 +30,11 @@ const Vote =({upvotes,downvotes,id})=>{
     return (
         <div className={style.wrapper}>
             <button onClick={handleupvote}>
-                <BiUpvote className=' text-3xl hover:text-slate-950'/>
+                <UpvoteIcon/>
             </button>
             <p className={style.votes}>{upvotesstate - downvotesstate}</p>
             <button onClick={handledownvote}>
-                <BiDownvote className=' text-3xl hover:text-slate-950'/>
+                <DownvoteIcon/>
             </button>
         </div>
     )

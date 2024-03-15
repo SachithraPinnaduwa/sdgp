@@ -136,7 +136,7 @@ message:error
 
 export const updateUser = async (req, res, next) => {
     try {
-        const { name, email, password, firstName, lastName, postImage } = req.body;
+        const { name, email, password, firstName, lastName  } = req.body;
 
         // Find the user by email
         const user = await ChatUser.findOne({ email });
@@ -155,7 +155,6 @@ export const updateUser = async (req, res, next) => {
         if(firstName) user.firstName = firstName;
         if(lastName) user.lastName = lastName;
         if (email) user.email = email;
-        if(postImage) user.myFile = postImage;
 
         // Save the updated user
         await user.save(); 

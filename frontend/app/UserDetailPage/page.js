@@ -32,28 +32,27 @@ function UserDetail() {
   }, [auth]);
 
   return (
-    <div className=" w-full my-5 p-5 ">
+    <div className="container mx-auto my-5 p-5 ">
       <div className={"mt-[5%] text-center text-amber-50"}>
-          <h2 className={"text-3xl font-semibold text-teal-400"}>Your Details</h2>
+          <h2 className={"text-3xl"}>Your Details</h2>
       </div>
-      <div className="md:flex no-wrap  mt-[5%]">
+      <div className="md:flex no-wrap md:-mx-2 mt-[5%]">
       
-        <div className="w-full md:w-3/12 lg:mx-2 mt-[0.2%] ml-[1.5%] ">
-          <div className="bg-white p-3 border dark:bg-gray-600 border border-e-0 border-gray-300 rounded-xl">
-            <div className="ml-[15%]">
-              {/* <Image src="/UserDetails/anonymous_avatars_grey_circles.jpg" width={150} height={150} alt="logo " className=" rounded-[50%]" /> */}
-              <img
-                  className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                  src={userData.myFile}
-                  alt="Bordered avatar"
-                  
-                />
+        <div className="w-full md:w-3/12 md:mx-2 mt-[0.2%]">
+          <div className="bg-white p-3 border-t-4 border-green-400">
+            <div className="image overflow-hidden">
+              <Image src="/UserDetails/anonymous_avatars_grey_circles.jpg" width={150} height={150} alt="logo " className=" rounded-[50%]" />
             </div>
-            <h1 className="text-gray-900 font-bold text-xl leading-8 my-1 ml-[23%] md:ml-[28%]">
+            <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
               {userData.name}
             </h1>
-                        
-            <ul className="bg-gray-100 text-gray-600  py-2 px-3 mt-3 divide-y rounded-xl ">
+            <h3 className="text-gray-600 font-lg text-semibold leading-6">
+              {userData.role}
+            </h3>
+            <p className="text-sm text-gray-500 hover:text-gray-600 leading-6">
+              {userData.bio}
+            </p>
+            <ul className="bg-gray-100 text-gray-600  py-2 px-3 mt-3 divide-y ">
               <li className="flex items-center py-3">
                 <span>Status</span>
                 <span className="ml-auto">
@@ -62,15 +61,16 @@ function UserDetail() {
                   </span>
                 </span>
               </li>
-              
+              <li className="flex items-center py-3">
+                <span>Member since</span>
+                <span className="ml-auto">March 07, 2024</span>
+              </li>
             </ul>
           </div>
           <div className="my-4"></div>
         </div>
-
-
-        <div className="w-full md:w-10/12 mx-2 h-64 ">
-          <div className="dark:bg-gray-600 border border-e-0 border-gray-300 p-3 rounded-xl bg-slate-100 pb-8">
+        <div className="w-full md:w-9/12 mx-2 h-64">
+          <div className="bg-white p-3 shadow-sm rounded-sm bg-slate-100 pb-10">
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
               <span className="text-green-500">
                
@@ -78,23 +78,23 @@ function UserDetail() {
               </span>
               <span className="tracking-wide text-2xl">About</span>
             </div>
-            <div className="text-white mt-[2%] text-lg xl:text-xl mr-[20%] lg:mr-[8%]">
-              <div className="grid lg:grid-cols-2 mt-[2%] mx-[5%]">
+            <div className="text-gray-700 mt-[2%] text-xl">
+              <div className="grid md:grid-cols-2 mt-[2%]">
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">First Name : </div>
-                  <div className="px-0 py-2">{userData.firstName}</div>
+                  <div className="px-4 py-2">{userData.firstName}</div>
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">Last Name : </div>
-                  <div className="px-0 py-2">{userData.lastName}</div>
+                  <div className="px-4 py-2">{userData.lastName}</div>
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">User Name : </div>
-                  <div className="px-0 py-2">{userData.name}</div>
+                  <div className="px-01 py-2">{userData.name}</div>
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">Email : </div>
-                  <div className="px-0 py-2">{userData.email}</div>
+                  <div className="px-4 py-2">{userData.email}</div>
                 </div>
                 <div>
 
@@ -105,8 +105,7 @@ function UserDetail() {
                       
                       label="Edit" type="button" icon="" variant=" px-8 py-4 text-white bg-black">Edit</Button>
                   </Link>
-                </div>
-                
+            </div> 
                 
               </div>
             </div>
