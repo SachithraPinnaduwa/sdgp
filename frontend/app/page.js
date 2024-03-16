@@ -6,7 +6,8 @@ import Services from "./components/Services";
 import VideoPlayer from "./components/VideoPlayer";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
+import ContactForm from "./components/ContactForm";
+
 
    
 
@@ -60,7 +61,7 @@ export default function Home() {
           <Services/>
           <VideoPlayer/>
           <AboutUs/>
-          <ContactUs/></div>
+          <ContactForm /></div>
        </div>  </div>
        <Footer/>
        
