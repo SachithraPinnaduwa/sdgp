@@ -25,6 +25,10 @@ function Chat() {
     const newMessage = { role: "user", content };
     setMessage((chatMessage) => [...chatMessage, newMessage]);
     const chatData = await sendChatRequest(content);
+    if (!chatData) {
+      toast.error("Unable to send message");
+      return;
+    }
     setMessage([...chatData.chats]);
     
   };

@@ -20,6 +20,7 @@ const Navbar = () => {
       submenu: [
         { name: "by Location", href: "/Findscams", current: false },
         { name: "by Upvotes", href: "/PostList", current: false },
+        { name: "by Searchbot", href: "/Chatbot2", current: false },
       ],
     },
     { name: "Submit Scam", href: "/New", current: false },

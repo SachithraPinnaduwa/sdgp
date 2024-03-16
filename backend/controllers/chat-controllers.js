@@ -1,7 +1,12 @@
-import { configureOpenAI } from "../config/openai-config.js";
 import ChatUser from "../models/Chat-user.js";
-import   { OpenAIApi } from "openai";
+import   OpenAI from "openai";
  
+
+
+const openai = new OpenAI({
+    apiKey: "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",
+  });
+
 
 export const generateChatCompletion = async (req, res,next) => {
 
@@ -11,7 +16,7 @@ export const generateChatCompletion = async (req, res,next) => {
     if (!user) {
         return res.status(401).json({error: "User does not exist or token is invalid"});
     }
-    // const chats = user.chats.map(({role,content}) => ({role,content}));
+  
    
     const chats = [
         {
@@ -24,13 +29,12 @@ export const generateChatCompletion = async (req, res,next) => {
 
     chats.push({role:"user",content:message});
     user.chats.push({role:"user",content:message});
-    const config = configureOpenAI()
-    const openai = new OpenAIApi(config);
-    const chatResponse = await openai.createChatCompletion({
+
+    const chatResponse = await openai.chat.completions.create({
         model: "ft:gpt-3.5-turbo-0613:personal::8w80tEmr",
         messages:chats
     });
-    user.chats.push(chatResponse.data.choices[0].message);
+    user.chats.push(chatResponse.choices[0].message);
     await user.save();
     return res.status(200).json({chats: user.chats});
     } catch (error) {
@@ -38,6 +42,16 @@ export const generateChatCompletion = async (req, res,next) => {
         message:error
         });
     }
+
+    // const completion = await openai.chat.completions.create({
+    //     messages: [{"role": "system", "content": "You are ScamSensei, a chatbot that only focuses on educating tourists about scams."},
+    //         {"role": "user", "content": message},
+    //       ],
+    //     model: "gpt-3.5-turbo",
+    //   });
+    
+    //   console.log(completion.choices[0]);
+    //     return res.status(200).json({message:completion.choices[0].message});
 }
 
 export const sendChatsToUser = async(req, res,next) => {
