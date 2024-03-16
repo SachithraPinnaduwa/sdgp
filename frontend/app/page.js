@@ -60,7 +60,7 @@ export default function Home() {
           <Services/>
           <VideoPlayer/>
           <AboutUs/>
-          <ContactUs/></div>
+          <ContactForm /></div>
        </div>  </div>
        <Footer/>
        
