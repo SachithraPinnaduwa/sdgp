@@ -29,7 +29,9 @@ function Footer() {
               <a href="/Findscams" className="mr-4 hover:underline md:mr-6">Posts</a>
           </li>
           <li>
+
               <a href="/Privacy" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+
           </li>
           
       </ul>
