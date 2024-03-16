@@ -1,5 +1,4 @@
 // Import statements for ES Modules
-import axios from 'axios';
 import { LoginUser } from '../models/Scam-user.js';
 // Function to post user data
 async function postUserData(req, res) {
