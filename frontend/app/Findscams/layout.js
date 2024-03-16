@@ -9,6 +9,7 @@ export default function FindScamsLayout({
   }) {
     return (
       <section>
+         <Navbar />
         {children}
       </section>
     )

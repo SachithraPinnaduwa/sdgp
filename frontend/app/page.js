@@ -6,7 +6,8 @@ import Services from "./components/Services";
 import VideoPlayer from "./components/VideoPlayer";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
+import ContactForm from "./components/ContactForm";
+
 
    
 
@@ -22,9 +23,9 @@ export default function Home() {
         
        <div className={'flex flex-col  min-h-screen  ' }>
        <div className="mainPage">
-          <div className="video-container z-[-1]">
-          <div className="video-overlay z-1">
-            <video className="video-background" autoPlay loop muted>
+          <div className="video-container z-[-1] min-h-screen">
+          <div className="video-overlay z-1 ">
+            <video className="video-background " autoPlay loop muted>
               <source src="/main/main1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video></div>
@@ -60,7 +61,7 @@ export default function Home() {
           <Services/>
           <VideoPlayer/>
           <AboutUs/>
-          <ContactUs/></div>
+          <ContactForm /></div>
        </div>  </div>
        <Footer/>
        
