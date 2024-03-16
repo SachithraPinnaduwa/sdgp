@@ -35,7 +35,7 @@ const useUserLocation = (fetchLocation) => {
         error: 'Geolocation is not supported by your browser',
       }));
     } else {
-      navigator.geolocation.getCurrentPosition(success, error,,{ enableHighAccuracy: true });
+      navigator.geolocation.getCurrentPosition(success, error,{ enableHighAccuracy: true });
     }
   }, [fetchLocation]); // Depend on fetchLocation to re-run the effect
 
