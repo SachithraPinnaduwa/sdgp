@@ -103,7 +103,7 @@ function UserDetail() {
                   <Link href={'../UserDetailPageEdit'}>
                     <Button 
                       
-                      label="Edit" type="button" icon="" variant=" px-8 py-4 text-white bg-black">Edit</Button>
+                      label="Edit" type="button" icon="" variant="px-8 py-1 text-white bg-teal-400 hover:bg-teal-500 ">Edit</Button>
                   </Link>
                 </div>
                 
