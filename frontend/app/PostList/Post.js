@@ -1,6 +1,7 @@
 
 'use client'
 import Vote from "./Vote";
+import Image from "next/image";
 
 const style = {
   post: 'flex flex-col space-y-1 cursor-pointer',
@@ -19,10 +20,12 @@ const Post = ({id,title,author,upvotes,downvotes,content,district,image}) => {
         >
          
           <div className="flex-shrink-0 flex  mx-auto  object-fill min-h-[50vh] content-center justify-center items-center">
-            <img
-              className={`rounded-t-lg`}
-              src={image ? image : "./noimage.jpg"}
+            <Image
+              className={`rounded-t-lg max-h-[50vh] max-w-[30vw]`}
+              src={image ? image : "/noimage.jpg"}
               alt={title}
+              width={500}
+              height={300}
             />
            
           </div>
