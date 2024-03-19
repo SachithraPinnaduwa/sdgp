@@ -8,21 +8,32 @@ import Navigation from "./navForFindscam";
 import CreatePost from "../PostList/CreatePost";
 import Navbar from "../components/Navbar";
 
+import PaginationButtons from "../components/PaginationButtons";
+import Footer from "../components/Footer";
+
 function FindScams() {
   const auth = useAuth();
   const [myPosts, setMyPosts] = useState([]);
   const [selectedDistrict, setSelectedDistrict] = useState("");
+ 
+
   useEffect(() => {
     const fetchData = async () => {
-      const data = await auth.getScamPosts();
-      setMyPosts(data);
+      const response = await fetch(`http://localhost:3100/api/v1/scam/pagination?page=${auth.page}&limit=${auth.limit}`);
+      const data = await response.json();
+      setMyPosts(data.posts);
+      console.log(data.posts);
     };
 
     fetchData();
-  }, []);
+  }, [auth.page,auth.limit]);
+
   const handleDistrictChange = (event) => {
     setSelectedDistrict(event.target.value);
   };
+
+
+
   useEffect(() => {
     setSelectedDistrict(auth.district);
   }, [auth.district]);
@@ -107,7 +118,13 @@ function FindScams() {
             )}
           />
         </div>
-      </div></main></div>
+      </div>
+      </main>
+      <div className="flex justify-center m-4">
+      <PaginationButtons />
+      </div>
+      <Footer />
+      </div>
     </>
   );
 }
