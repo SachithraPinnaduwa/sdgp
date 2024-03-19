@@ -7,6 +7,7 @@ import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import { GrMapLocation } from "react-icons/gr";
 import { MdOutlineHowToVote } from "react-icons/md";
 import { IoCreateOutline } from "react-icons/io5";
+import Image from "next/image";
 
 const Navigation = () => {
     const [show, setShow] = useState(false);
@@ -23,7 +24,7 @@ const Navigation = () => {
                     <span className="self-center ml-10 text-2xl font-semibold whitespace-nowrap dark:text-white">ScamSensei</span><br/><br/><br></br>
                         <div className="h-16 w-full flex items-center px-8  ">
                         
-                        <img src="/logo.png" alt="logo" width={150} height={150} />
+                        <Image src="/logo.png" alt="logo" width={150} height={150} />
                         </div>
                         <ul aria-orientation="vertical" className=" py-6">
                             <li className="pl-6 cursor-pointer text-white text-sm leading-3 tracking-normal mb-6 pt-5 hover:text-rose-500 focus:text-indigo-700 focus:outline-none">
@@ -78,7 +79,7 @@ const Navigation = () => {
                                 <div>
                                     <div className="flex items-center justify-between px-8 pt-10">
                                     <div className="h-16 w-full flex items-center px-8">
-                                        <img src="/logo.png" alt="logo" width={150} height={150} />
+                                        <Image src="/logo.png" alt="logo" width={150} height={150} />
                                     </div>
                                         <div id="closeSideBar" className="flex items-center justify-center h-10 w-10" onClick={() => setShow(!show)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">

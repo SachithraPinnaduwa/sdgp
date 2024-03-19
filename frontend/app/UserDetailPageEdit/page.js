@@ -267,7 +267,7 @@ const auth = useAuth();
                               
                     </div>
                     <div className="flex items-center font-semibold ml-[85%] mt-6 "> 
-                        <button type="submit" className={"bg-[#202142] text-white p-2 rounded-md px-[15%] hover:bg-blue-700 focus:z-10 focus:ring-4 focus:ring-indigo-200 cursor-pointer"}>
+                        <button type="submit" className={"bg-teal-400  text-white p-2 rounded-md px-[15%] hover:bg-teal-500  focus:z-10 focus:ring-4 focus:ring-indigo-200 cursor-pointer"}>
                           Save
                         </button>
                     </div> 

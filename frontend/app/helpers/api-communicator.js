@@ -43,13 +43,18 @@ export const checkAuthStatus = async () => {
 //changed from here
 
 export  const sendChatRequest =  async(message)=>{
-    const response = await axiosInstance.post('/chat/new',{message})
-    if (response.status != 200) {
+    try {
+        const response = await axiosInstance.post('/chat/new',{message})
+        if (response.status != 200) {
+            toast.error("Unable to send data")
+            
+        }
+        const data = await response.data;
+        return data;
+    } catch (error) {
         toast.error("Unable to send data")
-        
+        console.error(error)
     }
-    const data = await response.data;
-    return data;
 }
 
 export  const getUserChats =  async()=>{

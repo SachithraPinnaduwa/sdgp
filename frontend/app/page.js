@@ -9,6 +9,7 @@ import AboutUs from "./components/AboutUs";
 import ContactForm from "./components/ContactForm";
 
 
+
    
 
 export default function Home() {
@@ -61,7 +62,8 @@ export default function Home() {
           <Services/>
           <VideoPlayer/>
           <AboutUs/>
-          <ContactForm /></div>
+        <ContactForm/>
+          </div>
        </div>  </div>
        <Footer/>
        

@@ -150,8 +150,8 @@ export default function ContactForm() {
 
               <div className="bg-slate-100 flex flex-col  text-center mb-2 mt-4 w-full rounded-md shadow-md  sm:mb-0">
                 {error &&
-                  error.map((e) => (
-                    <div
+                  error.map((e,key) => (
+                    <div key={key}
                       className={`${
                         success ? "text-green-800" : "text-red-600"
                       } px-5 py-2`}
