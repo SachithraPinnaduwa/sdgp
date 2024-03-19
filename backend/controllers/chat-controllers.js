@@ -4,7 +4,6 @@ import OpenAI from "openai";
 const openai = new OpenAI({
   apiKey: "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",
 });
-
 export const generateChatCompletion = async (req, res, next) => {
   const { message } = req.body;
   try {
@@ -19,19 +18,29 @@ export const generateChatCompletion = async (req, res, next) => {
       {
         role: "system",
         content:
-          "You are ScamSensei, a chatbot that only focuses on educating tourists about scams.",
+          "You are ScamSensei, a chatbot that only focuses on educating tourists about Sri Lankan scams. If a user asks an unrelated question, respond with 'I'm sorry, I can only help with educating tourists about scams.'",
       },
       ...user.chats.map(({ role, content }) => ({ role, content })),
+      { role: "user", content: message },
     ];
-
-    chats.push({ role: "user", content: message });
-    user.chats.push({ role: "user", content: message });
 
     const chatResponse = await openai.chat.completions.create({
       model: "ft:gpt-3.5-turbo-0613:personal::8w80tEmr",
       messages: chats,
     });
-    user.chats.push(chatResponse.choices[0].message);
+
+    const responseMessage = chatResponse.choices[0].message.content;
+
+    // Check if the chatbot's response indicates that the message is not related to scams
+    if (responseMessage.includes("I'm sorry, I can only help with educating tourists about scams.")) {
+      // If so, add the chatbot's response to the user's chats
+      user.chats.push({ role: "assistant", content: responseMessage });
+    } else {
+      // If the message is related to scams, add both the user's message and the chatbot's response to the user's chats
+      user.chats.push({ role: "user", content: message });
+      user.chats.push(chatResponse.choices[0].message);
+    }
+
     await user.save();
     return res.status(200).json({ chats: user.chats });
   } catch (error) {
@@ -43,6 +52,7 @@ export const generateChatCompletion = async (req, res, next) => {
       });
   }
 };
+
 
 export const sendChatsToUser = async (req, res, next) => {
   try {

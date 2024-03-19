@@ -78,5 +78,21 @@ async function updateDownvotes(req, res) {
   }
 }
 
+function paginationResult(req, res) {
+
+
+  res.status(200).json(res.paginationResult)
+}
+
+ async function  postcount (req,res) {
+  try {
+    const postCount = await LoginUser.find().count();
+    return res.status(200).json({ postCount });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+}
+
 // Exporting the functions using ES Module syntax
-export { postUserData, searchUser,getAllPosts,updateUpvotes,updateDownvotes };
+export { postUserData, searchUser,getAllPosts,updateUpvotes,updateDownvotes,paginationResult,postcount };
