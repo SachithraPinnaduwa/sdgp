@@ -85,7 +85,7 @@ function Chat() {
 
       <div className="flex flex-col lg:flex-row w-full h-full mt-12 gap-12 text-sm">
         <div className="lg:w-1/5">
-          <div className="flex flex-col w-full h-80 bg-[rgb(17,29,39)] rounded-lg mx-6 lg:mx-12">
+          <div className="flex flex-col w-full h-80 bg-[rgb(17,29,39)] rounded-lg md:mt-[10vh] lg:mx-12">
             <div className="mx-auto my-2 bg-white text-black font-bold rounded-full w-16 h-16 flex items-center justify-center text-3xl">
               {auth?.user?.name[0]}
               {auth?.user ? (auth.user.name.split(" ")[1] ? auth.user.name.split(" ")[1][0] : " ") : " "}
@@ -103,12 +103,12 @@ function Chat() {
 
         <div className="lg:w-4/5 flex flex-col lg:mx-10 mx-6">
           <h2 className="text-center text-xl md:text-2xl text-white mb-8">ScamSensei ChatBot</h2>
-          <div className="w-full h-80 overflow-y-auto overflow-x-hidden mx-auto">
+          <div className="w-full max-h-[60vh] min-h-[60vh] overflow-y-auto overflow-x-hidden mx-auto">
             {chatMessage.map((chat, index) => (
               <ChatItem content={chat.content} role={chat.role} key={index} />
             ))}
           </div>
-          <div className="w-full rounded-lg border border-gray-500 flex mx-auto mt-4 pr-4">
+          <div className="w-full rounded-lg border border-gray-500 flex mx-auto mt-4 pr-4 mb-4">
             <input
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
