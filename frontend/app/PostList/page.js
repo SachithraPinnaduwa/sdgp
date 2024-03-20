@@ -37,7 +37,7 @@ const PostList = () => {
  
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:3100/api/v1/scam/pagination?page=${auth.page}&limit=${auth.limit}`);
+      const response = await fetch(`https://sdgp.onrender.com/v1/scam/pagination?page=${auth.page}&limit=${auth.limit}`);
       const data = await response.json();
       auth.setUserData(data.posts);
       console.log(data.posts);

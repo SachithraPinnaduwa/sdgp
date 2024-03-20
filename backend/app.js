@@ -10,7 +10,8 @@ config();
 const app = express();
 app.use(express.json({ limit: '50mb' }));
 app.use(cors(
-  
+  {origin:"*",
+  credentials:false}
 ));
 app.use(morgan('dev'));
 app.use(cookieParser(process.env.COOKIE_SECRET));
