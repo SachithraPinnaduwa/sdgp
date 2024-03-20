@@ -1,8 +1,10 @@
 import ChatUser from "../models/Chat-user.js";
 import OpenAI from "openai";
+import { config } from "dotenv";
+config();
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY2,
 });
 export const generateChatCompletion = async (req, res, next) => {
   const { message } = req.body;
