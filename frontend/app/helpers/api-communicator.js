@@ -157,11 +157,15 @@ export const updateUser = async (name,email,password,firstName,lastName,postImag
 }
 
 export const getScamCount =  async()=>{
-    const response = await axiosInstance.get('/scam/count')
-    if (response.status != 200) {
-        throw new Error("Unable to get scam");
-        
-    }
-    const data = await response.data;
-    return data;
+
+   
+        const response = await axiosInstance.get('/scam/count')
+        if (response.status != 200) {
+            throw new Error("Unable to get scam");
+            
+        }
+        const data = await response.data;
+        return data;
+   
+  
 }
