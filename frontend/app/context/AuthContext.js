@@ -1,7 +1,8 @@
 'use client'
 
 import { createContext, use, useState, useEffect,useContext } from "react";
-import { loginUser,checkAuthStatus, logoutUser, signupUser, scamSubmit ,getuserPost, downvotecall,upvotecall,getUser, updateUser,getScamCount} from "../helpers/api-communicator";
+import { loginUser,checkAuthStatus, logoutUser, signupUser, scamSubmit ,getuserPost, downvotecall,
+  upvotecall,getUser, updateUser,getScamCount,paginationResult,sendChatRequest2} from "../helpers/api-communicator";
 import toast from "react-hot-toast";
 const AuthContext = createContext(null);
 
@@ -82,15 +83,24 @@ const data = await loginUser(email, password);
     return data;
   };
 
- 
-  
+const pagination = async (page,limit) => {
+  const data = await paginationResult(page,limit)
+  return data;
+}
 
+const sendChatReq2 = async (text) => {
+  const data = await sendChatRequest2(text)
+  return data;
+}
+ 
   const value = { user,isLoggedIn,
      login, signup, logout,scamPost,
      getScamPosts,upvote,downvote,getUserDetails,updateUserDetails,
       district, setDistrict,userData, setUserData,page, setPage,limit, setLimit,
-      
+      pagination,sendChatReq2,
      };
+
+   
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 

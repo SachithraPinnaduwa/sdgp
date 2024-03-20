@@ -169,3 +169,28 @@ export const getScamCount =  async()=>{
    
   
 }
+
+export const paginationResult =  async(page,limit)=>{
+    const  response = await axiosInstance.get(`/scam/pagination?page=${page}&limit=${limit}`);
+    
+    const data = await response.data;
+    return data;
+}
+
+
+export const sendChatRequest2 = async (text) => {
+    let result;
+    try {
+      const response = await axiosInstance.post('/chat2', { prompt: text });
+      console.log("response ", response);
+      if (response.status !== 200) {
+        return "I don't know how to respond to that";
+      }
+       result = response.data;
+      return result;
+    } catch (error) {
+      console.error('Error in sendChatRequest:', error);
+      result.content = error ? error.message : "Something went wrong...";
+      return result;
+    }
+  };

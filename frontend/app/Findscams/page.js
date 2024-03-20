@@ -13,18 +13,16 @@ import Footer from "../components/Footer";
 
 function FindScams() {
   const auth = useAuth();
-  const [myPosts, setMyPosts] = useState([]);
+
   const [selectedDistrict, setSelectedDistrict] = useState("");
  
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`https://sdgp.onrender.com/scam/pagination?page=${auth.page}&limit=${auth.limit}`);
-      const data = await response.json();
-      setMyPosts(data.posts);
-      console.log(data.posts);
+      const data = await auth.pagination(auth.page,auth.limit);
+      auth.setUserData(data.posts);
+      console.log("data.posts",data.posts);
     };
-
     fetchData();
   }, [auth.page,auth.limit]);
 
@@ -111,7 +109,7 @@ function FindScams() {
         <div className="mt-4">
         <CreatePost /><br/>
           <Feed
-            posts={myPosts.filter((post) =>
+            posts={auth.userData.filter((post) =>
               post.district
                 .toLowerCase()
                 .includes(selectedDistrict.toLowerCase())

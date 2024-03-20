@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import UserInput from "./UserInput";
 import Message from "./Message";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
 
 
 function Searchbot() {
   const [messages, setMessages] = useState([]);
   const [response, setResponse] = useState("");
-
+const auth = useAuth();
   
   useEffect(() => {
     // setMessages([...messages, { text: "What can you do for me?", isUser: true }]);
@@ -37,21 +38,10 @@ function Searchbot() {
       newMessage,
       { text: "Generating response...", isUser: false },
     ]);
-    // Handle AI response and add it to the messages state.
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt: text }),
-    };
+  
     try {
-      const resp = await fetch("http://localhost:3100/api/v1/chat2", options);
-      console.log("resp ",resp);
-      if(resp.status != 200) {
-        setResponse("I don't know how to respond to that")
-      }
-      const result = await resp.json();
+    
+      const result = await auth.sendChatReq2(text);
       
       setResponse(result.content);
     } catch (error) {
