@@ -7,6 +7,7 @@ import LocationComponent from "./location";
 import Navigation from "./navForFindscam";
 import CreatePost from "../PostList/CreatePost";
 import Navbar from "../components/Navbar";
+import Loading from "../components/Loading";
 
 import PaginationButtons from "../components/PaginationButtons";
 import Footer from "../components/Footer";
@@ -15,13 +16,15 @@ function FindScams() {
   const auth = useAuth();
 
   const [selectedDistrict, setSelectedDistrict] = useState("");
- 
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true)
       const data = await auth.pagination(auth.page,auth.limit);
       auth.setUserData(data.posts);
-      console.log("data.posts",data.posts);
+
+     setIsLoading(false)
     };
     fetchData();
   }, [auth.page,auth.limit]);
@@ -108,13 +111,19 @@ function FindScams() {
         </div>
         <div className="mt-4">
         <CreatePost /><br/>
-          <Feed
-            posts={auth.userData.filter((post) =>
-              post.district
-                .toLowerCase()
-                .includes(selectedDistrict.toLowerCase())
+
+        {isLoading ? ( // Check if loading is true
+              <Loading /> // Display the Loading component
+            ) : (
+              <Feed
+              posts={auth.userData.filter((post) =>
+                post.district
+                  .toLowerCase()
+                  .includes(selectedDistrict.toLowerCase())
+              )}
+            />
             )}
-          />
+          
         </div>
       </div>
       </main>

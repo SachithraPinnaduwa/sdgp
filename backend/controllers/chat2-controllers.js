@@ -1,9 +1,11 @@
 import OpenAI from "openai";
 import { LoginUser } from "../models/Scam-user.js";
+import { config } from "dotenv";
+config();
 
 
 const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: process.env.OPENAI_API_KEY2,
   });
 
 
