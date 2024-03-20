@@ -47,7 +47,7 @@ const auth = useAuth();
     } catch (error) {
       toast.error("Unable to send message")
       console.log("error > ",error)
-      setResponse(error.message ? error.message : "Something went wrong...")
+      setResponse(error.message ? "I can't connect to internet now, please try again later" : "Something went wrong...")
     }
   };
 
