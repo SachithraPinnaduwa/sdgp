@@ -37,16 +37,13 @@ const PostList = () => {
  
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:3100/api/v1/scam/pagination?page=${auth.page}&limit=${auth.limit}`);
-      const data = await response.json();
-      auth.setUserData(data.posts);
-      console.log(data.posts);
-    };
-
-    fetchData();
+    const data = await auth.pagination(auth.page,auth.limit);
+    auth.setUserData(data.posts);
+    console.log("data.posts",data.posts);
+  };
+  fetchData();
   }, [auth.page,auth.limit]);
-
-
+ 
   return (
     <div className="">
       <Navbar />
