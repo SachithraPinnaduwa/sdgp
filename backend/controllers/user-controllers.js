@@ -52,24 +52,42 @@ export const userSignup = async (req, res, next) => {
     });
     await user.save();
     res.clearCookie(COOKIE_NAME, {
-     
-      domain: "scamsensei.vercel.app",
+      httpOnly: true,
+      domain: "localhost",
       signed: true,
       path: "/",
-      secure: true, 
     });
+
+
+    // replace this with the following:
+    // res.clearCookie(COOKIE_NAME, {
+    //   httpOnly: true,
+    //   domain: "scamsensei.vercel.app",
+    //   signed: true,
+    //   path: "/",
+    //   secure: true, 
+    // });
+    
 
     const token = createToken(user._id.toString(), user.email, "7d");
     const expires = new Date();
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-     
-      domain: "scamsensei.vercel.app",
+      httpOnly: true,
+      domain: "localhost",
       expires,
       signed: true,
-      secure: true, 
     });
+
+    // add the following code to the above code block
+    // res.cookie(COOKIE_NAME, token, {
+    //   path: "/",
+    //   httpOnly: true,
+    //   domain: "scamsensei.vercel.app", // Updated domain
+    //   expires,
+    //   signed: true,
+    // });
 
     return res
       .status(201)
@@ -95,12 +113,21 @@ export const userLogin = async (req, res, next) => {
       return res.status(401).json({ error: "Invalid credentials" });
     }
     res.clearCookie(COOKIE_NAME, {
-     
-      domain: "scamsensei.vercel.app",
+      httpOnly: true,
+      domain: "localhost",
       signed: true,
       path: "/",
-      secure: true, 
     });
+
+     // replace this with the following:
+    // res.clearCookie(COOKIE_NAME, {
+    //   httpOnly: true,
+    //   domain: "scamsensei.vercel.app",
+    //   signed: true,
+    //   path: "/",
+    //   secure: true, 
+    // });
+    
 
     const token = createToken(
       existingUser._id.toString(),
@@ -111,12 +138,20 @@ export const userLogin = async (req, res, next) => {
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-   
-      domain: "scamsensei.vercel.app",
+      httpOnly: true,
+      domain: "localhost",
       expires,
       signed: true,
-      secure: true, 
     });
+
+    // add the following code to the above code block
+    // res.cookie(COOKIE_NAME, token, {
+    //   path: "/",
+    //   httpOnly: true,
+    //   domain: "scamsensei.vercel.app", // Updated domain
+    //   expires,
+    //   signed: true,
+    // });
 
     return res
       .status(201)
@@ -176,12 +211,21 @@ export const userLogout = async (req, res, next) => {
       return res.status(401).json({ error: "Permission didn't match" });
     }
     res.clearCookie(COOKIE_NAME, {
-     
-      domain: "scamsensei.vercel.app",
+      httpOnly: true,
+      domain: "localhost",
       signed: true,
       path: "/",
-      secure: true, 
     });
+
+     // replace this with the following:
+    // res.clearCookie(COOKIE_NAME, {
+    //   httpOnly: true,
+    //   domain: "scamsensei.vercel.app",
+    //   signed: true,
+    //   path: "/",
+    //   secure: true, 
+    // });
+    
 
     return res
       .status(200)
