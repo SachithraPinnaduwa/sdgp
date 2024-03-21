@@ -53,9 +53,10 @@ export const userSignup = async (req, res, next) => {
     await user.save();
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      domain: "localhost",
+      domain: "scamsensei.vercel.app",
       signed: true,
       path: "/",
+      secure: true, 
     });
 
     const token = createToken(user._id.toString(), user.email, "7d");
@@ -64,9 +65,10 @@ export const userSignup = async (req, res, next) => {
     res.cookie(COOKIE_NAME, token, {
       path: "/",
       httpOnly: true,
-      domain: "localhost",
+      domain: "scamsensei.vercel.app",
       expires,
       signed: true,
+      secure: true, 
     });
 
     return res
@@ -94,9 +96,10 @@ export const userLogin = async (req, res, next) => {
     }
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      domain: "localhost",
+      domain: "scamsensei.vercel.app",
       signed: true,
       path: "/",
+      secure: true, 
     });
 
     const token = createToken(
@@ -109,9 +112,10 @@ export const userLogin = async (req, res, next) => {
     res.cookie(COOKIE_NAME, token, {
       path: "/",
       httpOnly: true,
-      domain: "localhost",
+      domain: "scamsensei.vercel.app",
       expires,
       signed: true,
+      secure: true, 
     });
 
     return res
@@ -173,9 +177,10 @@ export const userLogout = async (req, res, next) => {
     }
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      domain: "localhost",
+      domain: "scamsensei.vercel.app",
       signed: true,
       path: "/",
+      secure: true, 
     });
 
     return res
