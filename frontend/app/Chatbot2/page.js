@@ -18,7 +18,6 @@ const auth = useAuth();
 
   useEffect(() => {
 
-    // setMessages([...messages,{ text: "Generating response....", isUser: false}])
     if (response) {
       let newMessages = [...messages];
       console.log(newMessages);
@@ -30,8 +29,6 @@ const auth = useAuth();
   }, [response]);
 
   const sendMessage = async (text) => {
-    // Handle sending the message and receiving a response here
-    // You can add the user's message to the state and get a response from your backend or AI model.
     const newMessage = { text, isUser: true };
     setMessages([
       ...messages,

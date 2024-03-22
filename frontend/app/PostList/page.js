@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 import { CiSearch } from "react-icons/ci";
 import PaginationButtons from "../components/PaginationButtons";
 import Footer from "../components/Footer";
-import Loading from "../components/Loading"; // Import the Loading component
+import Loading from "../components/Loading"; 
 
 const style = {
   main: "mx-auto flex w-full max-w-7xl space-x-6 py-5 px-6",

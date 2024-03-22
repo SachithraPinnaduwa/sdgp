@@ -20,7 +20,6 @@ const Typewriter = ({ text, delay, infinite }) => {
       }
       //   setCurrentText('')
     } else if (infinite) {
-      // ADD THIS CHECK
       setCurrentIndex(0);
       setCurrentText("");
     }

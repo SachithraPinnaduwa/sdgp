@@ -1,6 +1,4 @@
-// Import statements for ES Modules
 import { LoginUser } from '../models/Scam-user.js';
-// Function to post user data
 async function postUserData(req, res) {
   const { name,title,district,scam,myFile } = req.body;
   
@@ -49,7 +47,7 @@ async function getAllPosts(req, res) {
 }
 
 async function updateUpvotes(req, res) {
-  const { id } = req.body; // Assuming the user's ID is passed as a URL parameter
+  const { id } = req.body; 
   try {
     const user = await LoginUser.findById(id);
     if (!user) {

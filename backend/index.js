@@ -1,6 +1,6 @@
 import app from "./app.js";
 
-import { connectToDatabase } from './db/connection.js'; // Assuming you have a connection.js in a db folder
+import { connectToDatabase } from './db/connection.js'; 
 // Database connection
 connectToDatabase()
   .then(() => {
