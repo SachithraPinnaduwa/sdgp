@@ -54,7 +54,7 @@ function Page() {
 
   return (
     <Layout>
-      <section className="w-full md:w-3/4 mx-auto flex flex-col gap-3 px-4 py-8 lg:py-16">
+      <section className=" md:w-3/4 mx-auto flex flex-col gap-3 px-4 py-8 lg:py-16">
 
       <div className={styles.logoContainer}>
           <Link href="/" passHref>
@@ -99,12 +99,7 @@ function Page() {
             </button>
           </div>
 
-          <div className="input-button">
-            <button type="button" className={styles.button_custom}>
-              <FcGoogle className="text-3xl" />
-              Sign In with Google
-            </button>
-          </div>
+          
         </form>
 
         <p className="text-center text-gray-400">

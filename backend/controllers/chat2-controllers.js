@@ -64,11 +64,7 @@ async function getScam(name) {
     return JSON.stringify(complaint);
   }
   
-  // async function getTotalComplaintsAgainstEntity(name) {
-  //   const complaint = await Complaint.find({ complaintAgainst: name }).count();
-  //   return JSON.stringify(complaint);
-  // }
-  
+ 
 
   async function runConversation(prompt) {
     // Step 1: send the conversation and available functions to GPT
@@ -174,10 +170,8 @@ async function getScam(name) {
     const responseMessage = response.choices[0].message;
     console.log(responseMessage);
     if (responseMessage.content) return responseMessage;
-    // Step 2: check if GPT wanted to call a function
   
     if (responseMessage.function_call) {
-      // Step 3: call the function
       // Note: the JSON response may not always be valid; be sure to handle errors
       const availableFunctions = {
           get_scam: getScam,
@@ -192,35 +186,9 @@ async function getScam(name) {
       const functionToCall = availableFunctions[functionName];
       const functionArgs = JSON.parse(responseMessage.function_call.arguments);
       let functionResponse = await functionToCall(...Object.values(functionArgs));
-      // if (functionName === "get_by_title") {
-      //   functionResponse = await functionToCall(
-      //     functionArgs.title,
-      //     functionArgs.scam
-      //   );
-      // } else if (functionName === "get_scam") {
-      //   functionResponse = await functionToCall(functionArgs.name);
-      // }
-      // else if (functionName === "get_by_district") {
-      //     functionResponse = await functionToCall(functionArgs.dis);
-      //   }
-      //     else if (functionName === "get_by_upvotes") {
-      //         functionResponse = await functionToCall(functionArgs.up);
-      //       }
-      //         else if (functionName === "get_by_downvotes") {
-      //             functionResponse = await functionToCall(functionArgs.down);
-      //         }
-      
-      // else if (functionName === "get_Total_scams_number") {
-      //   functionResponse = await functionToCall();
-      // } 
-      // // else if (functionName === "get_total_complaint_against_entity") {
-      // //   functionResponse = await functionToCall(functionArgs.name);
-      // // } 
-      // else if (functionName === "get_total_scams") {
-      //   functionResponse = await functionToCall();
-      // }
+   Response = await functionToCall();
+    
       console.log(functionResponse);
-      // Step 4: send the info on the function call and function response to GPT
       messages.push(responseMessage); // extend conversation with assistant's reply
       messages.push({
         role: "function",

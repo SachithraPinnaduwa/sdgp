@@ -24,15 +24,7 @@ const Message = ({ message }) => {
           {index !== lines.length - 1 && <br />}
         </React.Fragment>
       ))}
-      {/* {!message.isUser ? (
-        message.text === "Generating response..." ? (
-          message.text
-        ) : (
-          <Typewriter text={message.text} delay={20} />
-        )
-      ) : (
-        message.text
-      )} */}
+      
     </div>
   );
 };

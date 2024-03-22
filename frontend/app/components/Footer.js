@@ -35,7 +35,7 @@ function Footer() {
           </li>
           
       </ul>
-      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" className="hover:underline">ScamSenseie™</a>. All Rights Reserved.</span>
+      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" className="hover:underline">ScamSensei™</a><br/> All Rights Reserved.</span>
   </div>
 </footer>
     </footer>
