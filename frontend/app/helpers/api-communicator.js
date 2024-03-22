@@ -1,7 +1,7 @@
 import axios from "axios"
 import toast from "react-hot-toast"
 const axiosInstance = axios.create({
-    baseURL: "https://sdgp.onrender.com/api/v1",
+    baseURL: "https://scamsensei.el.r.appspot.com/api/v1",
     withCredentials: true
 });
 export const loginUser = async (email, password) => {
