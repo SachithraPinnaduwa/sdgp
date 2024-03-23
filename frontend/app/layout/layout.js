@@ -2,9 +2,9 @@ import styles from '../../styles/Layout.module.css';
 
 export default function Layout({ children }) {
   return (
-    <div className='flex h-screen'>
+    <div className='flex min-h-screen'>
       <div className='m-auto bg-slate-50 rounded-md w-full lg:w-3/5 h-5/6 lg:h-auto grid lg:grid-cols-2'>
-        <div className={` hidden lg:block ${styles.imgStyle}`}>
+        <div className={` hidden lg:block ${styles.imgStyle} max-w-20vw]`}>
 
           <h1 className="text-4xl text-white font-bold text-center mb-12 lg:mb-52 py-10">Why choose us?</h1>
 
@@ -27,7 +27,7 @@ export default function Layout({ children }) {
             </h3>
           </div>
 
-          {/* Hide this element for screen sizes below 767px */}
+       
           <div className={styles.cartoonImg3}>
             <h3 className="text-white mb-4 text-center py-12 lg:py-96">
               <span className="block w-20 mx-auto mb-2 lg:mb-8"></span> 

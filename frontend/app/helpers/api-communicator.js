@@ -1,7 +1,7 @@
 import axios from "axios"
 import toast from "react-hot-toast"
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:3100/api/v1",
+    baseURL: "https://scamsensei.el.r.appspot.com/api/v1",
     withCredentials: true
 });
 export const loginUser = async (email, password) => {
@@ -43,13 +43,18 @@ export const checkAuthStatus = async () => {
 //changed from here
 
 export  const sendChatRequest =  async(message)=>{
-    const response = await axiosInstance.post('/chat/new',{message})
-    if (response.status != 200) {
+    try {
+        const response = await axiosInstance.post('/chat/new',{message})
+        if (response.status != 200) {
+            toast.error("Unable to send data")
+            
+        }
+        const data = await response.data;
+        return data;
+    } catch (error) {
         toast.error("Unable to send data")
-        
+        console.error(error)
     }
-    const data = await response.data;
-    return data;
 }
 
 export  const getUserChats =  async()=>{
@@ -150,3 +155,40 @@ export const updateUser = async (name,email,password,firstName,lastName,postImag
     
     return data;
 }
+
+export const getScamCount =  async()=>{
+
+   
+        const response = await axiosInstance.get('/scam/count')
+        if (response.status != 200) {
+            throw new Error("Unable to get scam");
+            
+        }
+        const data = await response.data;
+        return data;
+   
+  
+}
+
+export const paginationResult =  async(page,limit)=>{
+    const  response = await axiosInstance.get(`/scam/pagination?page=${page}&limit=${limit}`);
+    
+    const data = await response.data;
+    return data;
+}
+
+
+export const sendChatRequest2 = async (text) => {
+    let result;
+    try {
+      const response = await axiosInstance.post('/chat2', { prompt: text });
+      console.log("response ", response);
+      
+       result = response.data;
+      return result;
+    } catch (error) {
+      console.error('Error in sendChatRequest:', error);
+      result.content = "Having a connection issue";
+      return result;
+    }
+  };

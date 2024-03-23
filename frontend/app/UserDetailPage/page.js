@@ -39,9 +39,8 @@ function UserDetail() {
       <div className="md:flex no-wrap  mt-[5%]">
       
         <div className="w-full md:w-3/12 lg:mx-2 mt-[0.2%] ml-[1.5%] ">
-          <div className="bg-white p-3 border dark:bg-gray-600 border border-e-0 border-gray-300 rounded-xl">
+          <div className="bg-white p-3  dark:bg-gray-600 border border-e-0 border-gray-300 rounded-xl">
             <div className="ml-[15%]">
-              {/* <Image src="/UserDetails/anonymous_avatars_grey_circles.jpg" width={150} height={150} alt="logo " className=" rounded-[50%]" /> */}
               <img
                   className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
                   src={userData.myFile}
@@ -103,7 +102,7 @@ function UserDetail() {
                   <Link href={'../UserDetailPageEdit'}>
                     <Button 
                       
-                      label="Edit" type="button" icon="" variant=" px-8 py-4 text-white bg-black">Edit</Button>
+                      label="Edit" type="button" icon="" variant="px-8 py-1 text-white bg-teal-400 hover:bg-teal-500 ">Edit</Button>
                   </Link>
                 </div>
                 

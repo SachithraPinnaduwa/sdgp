@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+    images: {
+        domains: ['img.freepik.com',"plus.unsplash.com"],
+      },
+  };
+  
+  export default nextConfig;
+  

@@ -4,9 +4,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
-import axios from "axios";
-// axios.defaults.baseURL = "http://localhost:3100/api/v1";
-// axios.defaults.withCredentials = true;
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -24,8 +24,8 @@ export default function RootLayout({ children }) {
     <Toaster position="top-center"  />
    
       {children}
-
-    
+      <Analytics />
+      <SpeedInsights />
     </body>
     </AuthProvider>
     </html>

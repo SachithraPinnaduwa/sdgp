@@ -6,7 +6,9 @@ import Services from "./components/Services";
 import VideoPlayer from "./components/VideoPlayer";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
+import ContactForm from "./components/ContactForm";
+
+
 
    
 
@@ -30,7 +32,7 @@ export default function Home() {
             </video></div>
           </div>
           
-          <div className={' sm:pl-3 pl-20  content'}>
+          <div className={'  content'}>
                <div >
                     <h1 className="sm:mx-auto sm:w-10/12 md:w-2/3 font-semibold text-2xl sm:text-center md:text-center xl:text-center text-center sm:text-4xl md:text-5xl lg:w-auto lg:text-left xl:text-5xl text-white">Don&apos;t Get Your Vacation Ruined <br className="lg:block hidden"/> <span className="  text-teal-400">With Scams</span>.</h1><b>
                     <div className="flex justify-center items-center">
@@ -60,7 +62,8 @@ export default function Home() {
           <Services/>
           <VideoPlayer/>
           <AboutUs/>
-          <ContactUs/></div>
+        <ContactForm/>
+          </div>
        </div>  </div>
        <Footer/>
        

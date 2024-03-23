@@ -5,7 +5,6 @@ import useUserLocation from '../helpers/locationHook';
 import { useAuth } from '../context/AuthContext';
 
 const LocationComponent = () => {
-    // const [district, setDistrict] = useState('');
     const auth = useAuth();
 
   const [fetchLocation, setFetchLocation] = useState(false);
@@ -63,12 +62,7 @@ const LocationComponent = () => {
   
 
   return (
-    // <div
-    // //  className="p-4 bg-gray-100 rounded-md shadow-md"
-    //  >
-    // {/* <p className="text-gray-700">Latitude: {latitude}</p>
-    // <p className="text-gray-700">Longitude: {longitude}</p>
-    // {auth.district && <p className="text-gray-700">District: {auth.district}</p>} */}
+   
     <div className="flex justify-center items-center">
        
         <button onClick={fetchDistrict} className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400">

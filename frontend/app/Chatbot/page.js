@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import ChatItem from "../components/ChatItem";
@@ -25,8 +24,11 @@ function Chat() {
     const newMessage = { role: "user", content };
     setMessage((chatMessage) => [...chatMessage, newMessage]);
     const chatData = await sendChatRequest(content);
+    if (!chatData) {
+      toast.error("Unable to send message");
+      return;
+    }
     setMessage([...chatData.chats]);
-    
   };
 
   useLayoutEffect(() => {
@@ -55,19 +57,16 @@ function Chat() {
   }, [auth]);
 
   useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      console.log(auth); // Log the auth state after the timeout
+      if (!auth?.user) {
+        navigate.push('/Signin');
+      } 
+    }, 3000); // Wait for 3 seconds
 
-const timeoutId = setTimeout(() => {
-    console.log(auth); // Log the auth state after the timeout
-
-    if (!auth?.user) {
-      navigate.push('/Signin');
-    } 
-  }, 3000); // Wait for 3 seconds
-
-  return () => clearTimeout(timeoutId);
+    return () => clearTimeout(timeoutId);
   }, [auth]);
   
-
   const handleDelete = async () => {
     try {
       toast.loading("Deleting chat messages", { id: "deletechats" });
@@ -81,57 +80,52 @@ const timeoutId = setTimeout(() => {
   };
 
   return (
-  <>
-   <br/><br/><br/>
+    <>
+      <br/><br/><br/>
 
-    <div className="flex flex-1 w-full h-full mt-12 gap-12 text-sm">
-       
-      <div className="hidden md:flex flex-col flex-[0.2]">
-        <div className="flex flex-col w-full h-[60vh] bg-[rgb(17,29,39)] rounded-lg mx-12">
-          <div className="mx-auto my-2 bg-white text-black font-bold rounded-full w-16 h-16 flex items-center justify-center text-3xl">
-            {auth?.user?.name[0]}
-            {auth?.user ? (auth.user.name.split(" ")[1] ? auth.user.name.split(" ")[1][0] : " ") : " "}
+      <div className="flex flex-col lg:flex-row w-full h-full mt-12 gap-12 text-sm">
+        <div className="lg:w-1/5">
+          <div className="flex flex-col w-full h-80 bg-[rgb(17,29,39)] rounded-lg md:mt-[10vh] lg:mx-12">
+            <div className="mx-auto my-2 bg-white text-black font-bold rounded-full w-16 h-16 flex items-center justify-center text-3xl">
+              {auth?.user?.name[0]}
+              {auth?.user ? (auth.user.name.split(" ")[1] ? auth.user.name.split(" ")[1][0] : " ") : " "}
+            </div>
+            <p className="mx-auto font-sans text-center text-2xl text-white">{"You are talking to ScamSensei"}</p>
+            <p className="font-sans my-4 text-white text-center px-4 justify-center">{"You can ask questions related to scams in Sri Lanka"}</p>
+            <button
+              onClick={handleDelete}
+              className="w-48 my-auto p-3 text-white font-bold rounded-md mx-auto bg-red-400 hover:bg-red-500"
+            >
+              Clear Conversation
+            </button>
           </div>
-        
-          <p className="mx-auto font-sans text-2xl text-white">{"You are talking to ScamSensei"}</p>
-          <p className="font-sans my-4 text-white px-4 justify-center">{"You can ask questions related to scams in Sri Lanka"}</p>
-         
-          <button
-            onClick={handleDelete}
-            className="w-48 my-auto p-3 text-white font-bold rounded-md mx-auto bg-red-400 hover:bg-red-500"
-          >
-            Clear Conversation
-          </button>
-        </div>
-      </div>
-
-      <div className="flex flex-1 md:flex-[0.8] flex-col  ">
-        <h2 className="text-center text-2xl text-white mb-8">ScamSensei ChatBot</h2>
-        <div className="w-[130vh] h-[60vh]  text-lg rounded-md mx-auto flex flex-col overflow-y-auto scroll-smooth overflow-x-hidden">
-          {chatMessage.map((chat, index) => (
-            <ChatItem content={chat.content} role={chat.role} key={index} />
-          ))}
         </div>
 
-        <div className="w-[130vh] rounded-lg border border-gray-500 flex mx-auto mt-4 pr-4">
-          <input
-           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              handleSubmit()
-            }
-          }}
-            type="text"
-            ref={inputRef}
-            placeholder="Message ScamSensei"
-            
-            className="w-full bg-transparent p-3 border-none outline-none text-white text-sm"
-          />
-          <button onClick={handleSubmit} className="ml-auto text-white">
-            <IoMdSend size={30} />
-          </button>
+        <div className="lg:w-4/5 flex flex-col lg:mx-10 mx-6">
+          <h2 className="text-center text-xl md:text-2xl text-white mb-8">ScamSensei ChatBot</h2>
+          <div className="w-full max-h-[60vh] min-h-[60vh] overflow-y-auto overflow-x-hidden mx-auto">
+            {chatMessage.map((chat, index) => (
+              <ChatItem content={chat.content} role={chat.role} key={index} />
+            ))}
+          </div>
+          <div className="w-full rounded-lg border border-gray-500 flex mx-auto mt-4 pr-4 mb-4">
+            <input
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSubmit()
+                }
+              }}
+              type="text"
+              ref={inputRef}
+              placeholder="Message ScamSensei"
+              className="w-full bg-transparent p-3 border-none outline-none text-white text-sm"
+            />
+            <button onClick={handleSubmit} className="ml-auto text-white">
+              <IoMdSend size={30} />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
