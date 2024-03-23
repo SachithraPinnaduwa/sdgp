@@ -1,6 +1,6 @@
 # Project Overview
 
-This project aims to develop a comprehensive web platform designed to help users, particularly travelers, detect and prevent scams in various contexts, including transportation, accommodation, and tourism-related activities. The platform targets both residents and foreigners, providing them with a centralized platform to share experiences, seek advice, and stay informed about potential scams.
+This project aims to develop a comprehensive web platform to help users, particularly travellers, detect and prevent scams in various contexts, including transportation, accommodation, and tourism-related activities. The platform targets residents and foreigners, providing them a centralized platform to share experiences, seek advice, and stay informed about potential scams.
 
 ## Key Features
 
