@@ -22,7 +22,7 @@ vi.mock('openai', () => {
         };
       }
     },
-    chatCompletionsCreate, // Export this if you need to set mock implementations or assertions
+    chatCompletionsCreate, 
   };
 });
 

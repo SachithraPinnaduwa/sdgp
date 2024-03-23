@@ -1,4 +1,4 @@
-// Import dependencies
+
 import { describe, it, expect } from 'vitest';
 import request from 'supertest';
 import app from '../app.js'; 
@@ -10,5 +10,5 @@ describe('Express Server Tests', () => {
     expect(response.body.message).toBe('main page of server');
   });
 
-  // Add more tests as needed
+
 });
