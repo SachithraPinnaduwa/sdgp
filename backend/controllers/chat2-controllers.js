@@ -9,7 +9,7 @@ const openai = new OpenAI({
   });
 
 
-async function getScam(name) {
+  async function getScam(name) {
     const scam = await LoginUser.findOne({ name: name });
     return JSON.stringify(`Post: ${scamResponse.title}\nDistrict: ${scamResponse.district}
     \nScam: ${scamResponse.scam} \nUpvotes: ${scamResponse.upvotes} \nDownvotes: ${scamResponse.downvotes}`);
@@ -64,7 +64,7 @@ async function getScam(name) {
     return JSON.stringify(complaint);
   }
   
- 
+  
 
   async function runConversation(prompt) {
     // Step 1: send the conversation and available functions to GPT
@@ -170,9 +170,10 @@ async function getScam(name) {
     const responseMessage = response.choices[0].message;
     console.log(responseMessage);
     if (responseMessage.content) return responseMessage;
+   
   
     if (responseMessage.function_call) {
-      // Note: the JSON response may not always be valid; be sure to handle errors
+    
       const availableFunctions = {
           get_scam: getScam,
           get_by_title: getByTitle,
@@ -181,21 +182,20 @@ async function getScam(name) {
           get_by_downvotes: getByDownvotes,
           get_Total_scams_number: getTotalPostsNumber,
      
-      }; // only one function in this example, but you can have multiple
+      }; 
       const functionName = responseMessage.function_call.name;
       const functionToCall = availableFunctions[functionName];
       const functionArgs = JSON.parse(responseMessage.function_call.arguments);
       let functionResponse = await functionToCall(...Object.values(functionArgs));
-   Response = await functionToCall();
-    
+     
       console.log(functionResponse);
+      
       messages.push(responseMessage); // extend conversation with assistant's reply
       messages.push({
         role: "function",
         name: functionName,
         content: `${functionResponse}`,
-      }); // extend conversation with function response
-      // console.log(messages[2].content)
+      }); 
       const secondResponse = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: messages,
