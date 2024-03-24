@@ -11,7 +11,7 @@ const VideoPlayer = () => {
             </p>
             <div className="flex justify-center">
                 <video className="rounded-lg w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl" controls>
-                    <source src="/main/video2.mp4" type="video/mp4" />
+                    <source src="/main/Promotional.mp4" type="video/mp4" />
                 </video>
             </div>
         </div>
